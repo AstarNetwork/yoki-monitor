@@ -1,0 +1,46 @@
+name: 1.2 Treasury ASTR balance snapshot
+
+on:
+  schedule:
+    # Once an hour, on the hour. Treasury growth is slow; tighter cadence
+    # only fattens the JSONL history without adding chart resolution.
+    - cron: "0 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: treasury-balance
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci --omit=dev
+      - name: Snapshot treasury balance
+        env:
+          SONEIUM_RPC_URL: ${{ secrets.SONEIUM_RPC_URL }}
+          SLACK_WEBHOOK_URL_ALERTS: ${{ secrets.SLACK_WEBHOOK_URL_ALERTS }}
+          # Set to "true" for the first 7 days to confirm the cron is firing.
+          # Mute by clearing the variable or setting to "false".
+          TREASURY_HEARTBEAT: ${{ vars.TREASURY_HEARTBEAT }}
+        run: node scripts/snapshot-treasury-balance.mjs
+      - name: Commit data updates
+        run: |
+          git config user.name "yoki-monitor-bot"
+          git config user.email "yoki-monitor-bot@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "data(1.2): treasury balance snapshot"
+            git push
+          fi

@@ -1,0 +1,53 @@
+name: 1.3 Treasury inflow / outflow walker
+
+on:
+  schedule:
+    # Every 15 minutes — outflow alerts need to fire promptly because
+    # treasury is supposed to be growth-only and any outflow is a
+    # potential incident.
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      initial_block:
+        description: "Override starting block (only used when no checkpoint exists; useful for first-run backfill from YokiCores deploy)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: treasury-flow
+  cancel-in-progress: false
+
+jobs:
+  walk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci --omit=dev
+      - name: Walk treasury Transfer events
+        env:
+          SONEIUM_RPC_URL: ${{ secrets.SONEIUM_RPC_URL }}
+          SLACK_WEBHOOK_URL_ALERTS: ${{ secrets.SLACK_WEBHOOK_URL_ALERTS }}
+          # Set this variable to "true" until treasury custody owner confirms
+          # expected outflow events. Then clear/flip to ship live alerts.
+          TREASURY_OUTFLOW_DRY_RUN: ${{ vars.TREASURY_OUTFLOW_DRY_RUN }}
+          TREASURY_INITIAL_BLOCK: ${{ inputs.initial_block }}
+        run: node scripts/walk-treasury-flow.mjs
+      - name: Commit data updates
+        run: |
+          git config user.name "yoki-monitor-bot"
+          git config user.email "yoki-monitor-bot@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "data(1.3): treasury flow walk"
+            git push
+          fi

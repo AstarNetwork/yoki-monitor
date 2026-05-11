@@ -1,0 +1,60 @@
+name: 1.4 Deploy SPA to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    # Cron workflows commit JSONL deltas to main on every tick. Without
+    # these filters every cron run would trigger a full SPA rebuild —
+    # ~100 redeploys/day for content the SPA doesn't read at build time.
+    paths-ignore:
+      - "data/**"
+      - "**/*.md"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  # pages + id-token are the scopes required by actions/deploy-pages for
+  # the OIDC-based deploy. They don't interact with contents: read.
+  pages: write
+  id-token: write
+
+concurrency:
+  # GH Pages allows only one in-flight deployment at a time. cancel-in-
+  # progress: false means a manual dispatch during an active deploy waits
+  # rather than killing it.
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - name: Build SPA
+        env:
+          # Production base path matches gh-pages URL convention.
+          # Override here if the repo is ever renamed.
+          VITE_BASE_PATH: /yoki-monitor/
+          # Optional paid RPC; falls back to Soneium public if unset.
+          VITE_SONEIUM_RPC_URL: ${{ vars.VITE_SONEIUM_RPC_URL }}
+        run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

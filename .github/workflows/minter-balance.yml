@@ -1,0 +1,50 @@
+name: 1.1 MINTER ETH balance poll
+
+on:
+  schedule:
+    # Every 15 minutes — Soneium block time is 2s, so this catches drops
+    # quickly enough to top up before the wallet runs dry at any sane
+    # claim cadence.
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  # `contents: write` is needed because the script commits the JSONL
+  # snapshot back to main. No PR, direct push.
+  contents: write
+
+concurrency:
+  # Serialize runs — a cron tick that overlaps a manual dispatch would
+  # otherwise both try to push to the same data file.
+  group: minter-balance
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      # `--omit=dev` skips vite / typescript / biome which the cron does
+      # not need. Brings the install from ~40s to ~10s.
+      - run: npm ci --omit=dev
+      - name: Check MINTER balance
+        env:
+          SONEIUM_RPC_URL: ${{ secrets.SONEIUM_RPC_URL }}
+          SLACK_WEBHOOK_URL_ALERTS: ${{ secrets.SLACK_WEBHOOK_URL_ALERTS }}
+        run: node scripts/check-minter-balance.mjs
+      - name: Commit data updates
+        run: |
+          git config user.name "yoki-monitor-bot"
+          git config user.email "yoki-monitor-bot@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "data(1.1): MINTER balance snapshot"
+            git push
+          fi

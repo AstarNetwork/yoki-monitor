@@ -1,0 +1,27 @@
+{
+  "name": "yoki-monitor",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Operational health dashboard for Yoki Arcade on Soneium. Phase 1: MINTER ETH + Yoki treasury ASTR balances.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "biome check src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "viem": "^2.47.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}

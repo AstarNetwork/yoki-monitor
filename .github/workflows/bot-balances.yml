@@ -1,0 +1,42 @@
+name: 1.7 Bot wallet balance snapshot
+
+on:
+  schedule:
+    # Once an hour. Bot balances change on every match (gas + ASTR offer
+    # in/out); hourly resolution is plenty for the historical chart.
+    - cron: "30 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bot-balances
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci --omit=dev
+      - name: Snapshot bot balances
+        env:
+          SONEIUM_RPC_URL: ${{ secrets.SONEIUM_RPC_URL }}
+        run: node scripts/snapshot-bot-balances.mjs
+      - name: Commit data updates
+        run: |
+          git config user.name "yoki-monitor-bot"
+          git config user.email "yoki-monitor-bot@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "data(1.7): bot wallet balance snapshot"
+            git push
+          fi
