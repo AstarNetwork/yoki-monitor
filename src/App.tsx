@@ -181,17 +181,18 @@ function PublicDashboard() {
               isLoading={growth.isLoading}
               error={growth.error}
             />
+
+            <BotBalancesCard balances={bots.balances} isLoading={bots.isLoading} error={bots.error} />
           </div>
 
           <div style={columnStack}>
-            <BotBalancesCard balances={bots.balances} isLoading={bots.isLoading} error={bots.error} />
-
             {LEADERBOARD_ENABLED && (
               <LeaderboardCard
                 rows={leaderboard.rows}
                 matchCount={leaderboard.matchCount}
                 isLoading={leaderboard.isLoading}
                 error={leaderboard.error}
+                top={20}
               />
             )}
 
