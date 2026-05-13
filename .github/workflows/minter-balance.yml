@@ -31,7 +31,7 @@ jobs:
           cache: "npm"
       # `--omit=dev` skips vite / typescript / biome which the cron does
       # not need. Brings the install from ~40s to ~10s.
-      - run: npm ci --omit=dev
+      - run: npm install --omit=dev --no-audit --no-fund
       - name: Check MINTER balance
         env:
           SONEIUM_RPC_URL: ${{ secrets.SONEIUM_RPC_URL }}

@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-      - run: npm ci --omit=dev
+      - run: npm install --omit=dev --no-audit --no-fund
       - name: Snapshot bot balances
         env:
           SONEIUM_RPC_URL: ${{ secrets.SONEIUM_RPC_URL }}
