@@ -69,6 +69,16 @@ export const BOT_LAUNCH_TOTAL_ASTR: bigint = BOT_WALLETS.reduce(
   0n,
 );
 
+// Public launch date — used as the T-0 baseline for bot PnL and as a
+// human-readable stamp on the SPA.
+export const YOKI_ARCADE_LAUNCH_DATE = "2026-05-11" as const;
+
+// Raw URL for the hourly treasury balance JSONL written by the 1.2 cron.
+// Overridable via VITE_TREASURY_BALANCE_JSONL_URL for local dev / private
+// forks. Used by the 24h-inflow line on the Treasury card.
+export const DEFAULT_TREASURY_BALANCE_JSONL_URL =
+  "https://raw.githubusercontent.com/AstarNetwork/yoki-monitor/main/data/treasury-balance.jsonl";
+
 // Blockscout base URL for clickable wallet/tx links.
 export const BLOCKSCOUT_BASE = "https://soneium.blockscout.com";
 export const BLOCKSCOUT_API_BASE = `${BLOCKSCOUT_BASE}/api/v2`;

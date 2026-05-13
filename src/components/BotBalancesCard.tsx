@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { blockscoutAddressUrl } from "../addresses";
+import { YOKI_ARCADE_LAUNCH_DATE, blockscoutAddressUrl } from "../addresses";
 import { formatAstr, formatAstrDelta, formatEth, shortAddress } from "../format";
 import type { BotBalance } from "../hooks/useBotBalances";
 import {
@@ -41,7 +41,7 @@ export function BotBalancesCard({ balances, isLoading, error }: Props) {
     <div style={{ ...theme.card, ...theme.cardWithGoldEdge }}>
       <div style={styles.headerRow}>
         <div style={styles.label}>Matchmaking Bots</div>
-        <div style={styles.sublabel}>ETH · ASTR · PnL since launch (2026-05-11)</div>
+        <div style={styles.sublabel}>ETH · ASTR · PnL since {YOKI_ARCADE_LAUNCH_DATE}</div>
       </div>
 
       <div style={styles.table}>
@@ -101,7 +101,7 @@ export function BotBalancesCard({ balances, isLoading, error }: Props) {
 
       {aggregateDelta !== null && (
         <div style={styles.aggregateRow}>
-          <span style={styles.aggregateLabel}>Total bot PnL since launch</span>
+          <span style={styles.aggregateLabel}>Total bot PnL since launch ({YOKI_ARCADE_LAUNCH_DATE})</span>
           <span
             style={{
               ...styles.aggregateValue,

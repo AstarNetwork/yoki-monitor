@@ -14,12 +14,13 @@ import { BotBalancesCard } from "./components/BotBalancesCard";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { StatCard } from "./components/StatCard";
-import { formatAstr, formatEth, formatUtcTime } from "./format";
+import { formatAstr, formatAstrDelta, formatEth, formatUtcTime } from "./format";
 import { useBotBalances } from "./hooks/useBotBalances";
 import { useCoresHolders } from "./hooks/useCoresHolders";
 import { useErc20Balance } from "./hooks/useErc20Balance";
 import { useEthBalance } from "./hooks/useEthBalance";
 import { useJkpActivePlayers } from "./hooks/useJkpActivePlayers";
+import { useTreasury24hAgoBalance } from "./hooks/useTreasury24hAgoBalance";
 import { FONT_ARCADE, theme } from "./theme";
 
 // MINTER hot-wallet ETH thresholds.
@@ -52,6 +53,7 @@ function formatCount(value: number | null): string {
 export function App() {
   const minter = useEthBalance(MINTER_HOT_WALLET);
   const treasury = useErc20Balance(ASTR_TOKEN, YOKI_TREASURY);
+  const treasury24h = useTreasury24hAgoBalance();
   const bots = useBotBalances();
   const holders = useCoresHolders();
   const activity = useJkpActivePlayers();
@@ -63,6 +65,7 @@ export function App() {
     await Promise.all([
       minter.refetch(),
       treasury.refetch(),
+      treasury24h.refetch(),
       bots.refetch(),
       holders.refetch(),
       activity.refetch(),
@@ -97,6 +100,23 @@ export function App() {
   const minterDisplay = minter.balance !== null ? formatEth(minter.balance) : "—";
   const treasuryDisplay = treasury.balance !== null ? formatAstr(treasury.balance) : "—";
 
+  // 24h treasury inflow: current live balance minus the row from the
+  // hourly JSONL that's closest to (and at most) 24h old. Falls back to
+  // hidden when the series is too short or the JSONL fetch fails.
+  const treasury24hDelta =
+    treasury.balance !== null && treasury24h.balance24hAgoWei !== null
+      ? treasury.balance - treasury24h.balance24hAgoWei
+      : null;
+  const treasury24hDisplay = treasury24hDelta !== null ? `${formatAstrDelta(treasury24hDelta)} ASTR` : undefined;
+  const treasury24hStatus: BalanceStatus =
+    treasury24hDelta === null
+      ? "neutral"
+      : treasury24hDelta > 0n
+        ? "healthy"
+        : treasury24hDelta < 0n
+          ? "critical"
+          : "neutral";
+
   return (
     <div style={theme.page}>
       <div style={theme.shell}>
@@ -122,8 +142,11 @@ export function App() {
           amountUnit="ASTR"
           status="neutral"
           fillPct={null}
+          deltaDisplay={treasury24hDisplay}
+          deltaStatus={treasury24hStatus}
+          deltaSuffix="last 24h"
           primarySub="Mint revenue from YokiCores. Growth-only — outflow triggers private alert (Phase 1.3)."
-          secondarySub="24h inflow chart lands in Phase 2."
+          secondarySub="Full growth chart lands in Phase 2."
           isLoading={treasury.isLoading}
           error={treasury.error}
         />

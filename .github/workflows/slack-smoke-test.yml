@@ -1,0 +1,28 @@
+name: Slack smoke test (INFO + WARN + CRITICAL)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  # Read-only — this workflow does not commit anything back to the repo.
+  contents: read
+
+concurrency:
+  group: slack-smoke-test
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci --omit=dev
+      - name: Post 3 synthetic alerts
+        env:
+          SLACK_WEBHOOK_URL_ALERTS: ${{ secrets.SLACK_WEBHOOK_URL_ALERTS }}
+        run: node scripts/slack-smoke-test.mjs

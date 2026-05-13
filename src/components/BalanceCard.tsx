@@ -19,6 +19,12 @@ type Props = {
   secondarySub?: ReactNode;
   // 0..1 fill amount for the threshold bar. Null → no bar (treasury card).
   fillPct?: number | null;
+  // Optional delta line rendered between the amount and the sub lines —
+  // e.g. "+1,250 ASTR (last 24h)". The status drives the color (positive
+  // = win-green, negative = loss-red, neutral = cyber-cyan).
+  deltaDisplay?: string;
+  deltaStatus?: BalanceStatus;
+  deltaSuffix?: string;
   isLoading?: boolean;
   error?: string | null;
 };
@@ -32,6 +38,9 @@ export function BalanceCard({
   primarySub,
   secondarySub,
   fillPct,
+  deltaDisplay,
+  deltaStatus,
+  deltaSuffix,
   isLoading,
   error,
 }: Props) {
@@ -73,6 +82,21 @@ export function BalanceCard({
             />
           </div>
           <div style={{ ...styles.statusPill, color: statusColor, borderColor: statusColor }}>{statusLabel}</div>
+        </div>
+      )}
+
+      {deltaDisplay && (
+        <div style={styles.deltaRow}>
+          <span
+            style={{
+              ...styles.delta,
+              color: STATUS_COLORS[deltaStatus ?? "neutral"],
+              textShadow: STATUS_GLOW[deltaStatus ?? "neutral"],
+            }}
+          >
+            {deltaDisplay}
+          </span>
+          {deltaSuffix && <span style={styles.deltaSuffix}>{deltaSuffix}</span>}
         </div>
       )}
 
@@ -181,6 +205,22 @@ const styles: Record<string, CSSProperties> = {
     borderRadius: "6px",
     border: "1px solid",
     whiteSpace: "nowrap",
+  },
+  deltaRow: {
+    display: "flex",
+    alignItems: "baseline",
+    gap: "8px",
+    marginTop: "12px",
+  },
+  delta: {
+    fontFamily: FONT_ARCADE,
+    fontSize: "14px",
+    letterSpacing: "1px",
+  },
+  deltaSuffix: {
+    fontFamily: FONT_BODY,
+    fontSize: "12px",
+    color: "rgba(255,255,255,0.45)",
   },
   primarySub: {
     fontFamily: FONT_BODY,
