@@ -43,6 +43,14 @@ jobs:
           VITE_BASE_PATH: /yoki-monitor/
           # Optional paid RPC; falls back to Soneium public if unset.
           VITE_SONEIUM_RPC_URL: ${{ vars.VITE_SONEIUM_RPC_URL }}
+          # Phase 2 leaderboard tile — set repo variable to "true" to
+          # surface it publicly. Off until the always-winning trigger has
+          # been validated against ~1 week of real data.
+          VITE_LEADERBOARD_ENABLED: ${{ vars.VITE_LEADERBOARD_ENABLED }}
+          # Secret token enabling the operator review view at
+          # /?review=<token>. See README "Review mode" for the security
+          # model — this is casual gating, not auth.
+          VITE_REVIEW_KEY: ${{ secrets.VITE_REVIEW_KEY }}
         run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

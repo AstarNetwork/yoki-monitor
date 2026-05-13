@@ -26,7 +26,7 @@ export const theme: Record<string, CSSProperties> = {
     boxSizing: "border-box",
   },
   shell: {
-    maxWidth: "720px",
+    maxWidth: "1200px",
     margin: "0 auto",
     display: "flex",
     flexDirection: "column",

@@ -13,7 +13,7 @@ export function Header({ lastRefresh, onRefresh, isRefreshing }: Props) {
     <div style={styles.header}>
       <div style={styles.titleRow}>
         <div style={styles.title}>YOKI MONITOR</div>
-        <div style={styles.phaseTag}>Phase 1 · v0.1</div>
+        <div style={styles.phaseTag}>Phase 2 · v0.2</div>
       </div>
       <div style={styles.subtitle}>Operational health snapshot</div>
       <div style={styles.refreshRow}>

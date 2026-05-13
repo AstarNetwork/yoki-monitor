@@ -101,7 +101,7 @@ export function BotBalancesCard({ balances, isLoading, error }: Props) {
 
       {aggregateDelta !== null && (
         <div style={styles.aggregateRow}>
-          <span style={styles.aggregateLabel}>Total bot PnL since launch ({YOKI_ARCADE_LAUNCH_DATE})</span>
+          <span style={styles.aggregateLabel}>Total PnL since launch</span>
           <span
             style={{
               ...styles.aggregateValue,
@@ -231,6 +231,7 @@ const styles: Record<string, CSSProperties> = {
     fontFamily: FONT_ARCADE,
     fontSize: "14px",
     letterSpacing: "1px",
+    whiteSpace: "nowrap",
   },
   errorLine: {
     fontFamily: FONT_BODY,
