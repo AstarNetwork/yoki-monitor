@@ -1,0 +1,64 @@
+name: 2.2/2.4/2.5 JKP event walker + always-winning + suspicious-pairs triggers
+
+on:
+  schedule:
+    # Every 5 minutes — fast enough that an always-winning pattern is
+    # surfaced within a single match-lifecycle window, slow enough to
+    # stay well under public RPC rate limits.
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      initial_block:
+        description: "Override starting block (only used when no checkpoint exists; useful for first-run backfill from YokiJKP deploy)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: jkp-events
+  cancel-in-progress: false
+
+jobs:
+  walk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci --omit=dev
+      - name: Walk JKP events + rebuild aggregate
+        env:
+          SONEIUM_RPC_URL: ${{ secrets.SONEIUM_RPC_URL }}
+          JKP_INITIAL_BLOCK: ${{ inputs.initial_block }}
+        run: node scripts/walk-jkp-events.mjs
+      - name: Check always-winning trigger
+        env:
+          SLACK_WEBHOOK_URL_ALERTS: ${{ secrets.SLACK_WEBHOOK_URL_ALERTS }}
+          # Set to "true" via repo variable until the trigger has been
+          # validated against ~1 week of real data. Suppresses Slack but
+          # still writes data/flagged.json.
+          ALWAYS_WINNING_DRY_RUN: ${{ vars.ALWAYS_WINNING_DRY_RUN }}
+        run: node scripts/check-always-winning.mjs
+      - name: Check suspicious-pairs trigger
+        env:
+          SLACK_WEBHOOK_URL_ALERTS: ${{ secrets.SLACK_WEBHOOK_URL_ALERTS }}
+          # Same gating contract as ALWAYS_WINNING_DRY_RUN — set to "true"
+          # while validating, then clear to ship live alerts.
+          SUSPICIOUS_PAIRS_DRY_RUN: ${{ vars.SUSPICIOUS_PAIRS_DRY_RUN }}
+        run: node scripts/check-suspicious-pairs.mjs
+      - name: Commit data updates
+        run: |
+          git config user.name "yoki-monitor-bot"
+          git config user.email "yoki-monitor-bot@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "data(2.2/2.4/2.5): JKP walk + trigger scans"
+            git push
+          fi

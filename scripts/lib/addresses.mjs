@@ -27,6 +27,15 @@ export const BOT_WALLETS = [
   { label: "Bot 4", address: "0x84CeC056300E5f73575c44e7e8F280bd3c113320" },
 ];
 
-// Wallets ignored by all player-counting logic. Same set as BOT_WALLETS
-// but as a lowercased Set for O(1) membership checks.
-export const MONITOR_IGNORE_LIST = new Set(BOT_WALLETS.map((b) => b.address.toLowerCase()));
+// Wallets ignored by all player-counting logic AND Phase 2/3 leaderboard
+// + trigger surfaces. Locked at YOKI_MONITOR_SPEC.md §6 / BOT_PLAYERS_SPEC
+// §17.6 cap 7. Includes the 5 bot wallets (which DO play JKP) and the
+// 3 admin/operational wallets (which don't, but are listed for
+// defense-in-depth so the leaderboard never accidentally counts a privileged
+// role address if it ever stakes a match).
+export const MONITOR_IGNORE_LIST = new Set([
+  ...BOT_WALLETS.map((b) => b.address.toLowerCase()),
+  MINTER_HOT_WALLET.toLowerCase(),
+  YOKI_TREASURY.toLowerCase(),
+  YOKI_SAFE.toLowerCase(),
+]);

@@ -64,10 +64,7 @@ export const BOT_WALLETS = [
 
 // Total ASTR float across the 4 player bots at launch.
 // Used for the aggregate PnL line under the bot table.
-export const BOT_LAUNCH_TOTAL_ASTR: bigint = BOT_WALLETS.reduce(
-  (acc, b) => acc + (b.launchAstr ?? 0n),
-  0n,
-);
+export const BOT_LAUNCH_TOTAL_ASTR: bigint = BOT_WALLETS.reduce((acc, b) => acc + (b.launchAstr ?? 0n), 0n);
 
 // Public launch date — used as the T-0 baseline for bot PnL and as a
 // human-readable stamp on the SPA.
@@ -78,6 +75,27 @@ export const YOKI_ARCADE_LAUNCH_DATE = "2026-05-11" as const;
 // forks. Used by the 24h-inflow line on the Treasury card.
 export const DEFAULT_TREASURY_BALANCE_JSONL_URL =
   "https://raw.githubusercontent.com/AstarNetwork/yoki-monitor/main/data/treasury-balance.jsonl";
+
+// Raw URL for the JKP per-address aggregate written by the 2.2 cron.
+// Overridable via VITE_JKP_AGGREGATE_JSON_URL. The leaderboard card
+// reads this; if absent or empty (Phase 2 cron not running yet), the
+// card renders an empty state.
+export const DEFAULT_JKP_AGGREGATE_JSON_URL =
+  "https://raw.githubusercontent.com/AstarNetwork/yoki-monitor/main/data/jkp-aggregate.json";
+
+// Raw URL for the inflow event log written by the 1.3 cron. The
+// treasury growth chart parses this for total/24h/7d KPI tiles. Hidden
+// gracefully when absent.
+export const DEFAULT_TREASURY_INFLOWS_JSONL_URL =
+  "https://raw.githubusercontent.com/AstarNetwork/yoki-monitor/main/data/treasury-inflows.jsonl";
+
+// Raw URLs for the trigger output files written by the 2.4 + 2.5 crons.
+// Consumed only by the operator review view (?review=<key>); not loaded
+// on the default public surface.
+export const DEFAULT_FLAGGED_JSON_URL =
+  "https://raw.githubusercontent.com/AstarNetwork/yoki-monitor/main/data/flagged.json";
+export const DEFAULT_SUSPICIOUS_PAIRS_JSON_URL =
+  "https://raw.githubusercontent.com/AstarNetwork/yoki-monitor/main/data/suspicious-pairs.json";
 
 // Blockscout base URL for clickable wallet/tx links.
 export const BLOCKSCOUT_BASE = "https://soneium.blockscout.com";
@@ -94,6 +112,4 @@ export function blockscoutTokenHoldersUrl(token: string): string {
 // Wallets to exclude from the JKP active-player count. Same set as
 // BOT_WALLETS above, but as a lowercased Set for O(1) membership checks.
 // Counting bots as players would inflate engagement numbers.
-export const MONITOR_IGNORE_LIST: ReadonlySet<string> = new Set(
-  BOT_WALLETS.map((b) => b.address.toLowerCase()),
-);
+export const MONITOR_IGNORE_LIST: ReadonlySet<string> = new Set(BOT_WALLETS.map((b) => b.address.toLowerCase()));

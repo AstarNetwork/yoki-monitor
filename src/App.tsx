@@ -13,15 +13,36 @@ import { BalanceCard, type BalanceStatus } from "./components/BalanceCard";
 import { BotBalancesCard } from "./components/BotBalancesCard";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { LeaderboardCard } from "./components/LeaderboardCard";
+import { ReviewView } from "./components/ReviewView";
 import { StatCard } from "./components/StatCard";
+import { TreasuryGrowthCard } from "./components/TreasuryGrowthCard";
 import { formatAstr, formatAstrDelta, formatEth, formatUtcTime } from "./format";
 import { useBotBalances } from "./hooks/useBotBalances";
 import { useCoresHolders } from "./hooks/useCoresHolders";
 import { useErc20Balance } from "./hooks/useErc20Balance";
 import { useEthBalance } from "./hooks/useEthBalance";
 import { useJkpActivePlayers } from "./hooks/useJkpActivePlayers";
-import { useTreasury24hAgoBalance } from "./hooks/useTreasury24hAgoBalance";
+import { useJkpLeaderboard } from "./hooks/useJkpLeaderboard";
+import { useTreasuryGrowth } from "./hooks/useTreasuryGrowth";
 import { FONT_ARCADE, theme } from "./theme";
+
+// Phase 2 leaderboard is gated behind a build-time flag while the
+// always-winning trigger is validated against ~1 week of real data.
+// Flip VITE_LEADERBOARD_ENABLED=true to surface the tile publicly.
+const LEADERBOARD_ENABLED = import.meta.env.VITE_LEADERBOARD_ENABLED === "true";
+
+// Casual gate for the operator review surface. Anyone hitting
+// /?review=<VITE_REVIEW_KEY> sees the flagged-address + suspicious-pairs
+// tables instead of the public dashboard. NOT a real auth boundary —
+// see README "Review mode" section for the security model.
+function isReviewMode(): boolean {
+  const expected = import.meta.env.VITE_REVIEW_KEY;
+  if (!expected) return false;
+  if (typeof window === "undefined") return false;
+  const param = new URLSearchParams(window.location.search).get("review");
+  return param !== null && param === expected;
+}
 
 // MINTER hot-wallet ETH thresholds.
 // Warn at 0.01 ETH (~47k claim headroom at observed gas cost), critical
@@ -51,12 +72,19 @@ function formatCount(value: number | null): string {
 }
 
 export function App() {
+  if (isReviewMode()) return <ReviewView />;
+
+  return <PublicDashboard />;
+}
+
+function PublicDashboard() {
   const minter = useEthBalance(MINTER_HOT_WALLET);
   const treasury = useErc20Balance(ASTR_TOKEN, YOKI_TREASURY);
-  const treasury24h = useTreasury24hAgoBalance();
   const bots = useBotBalances();
   const holders = useCoresHolders();
   const activity = useJkpActivePlayers();
+  const leaderboard = useJkpLeaderboard();
+  const growth = useTreasuryGrowth();
 
   const [manualRefreshing, setManualRefreshing] = useState(false);
 
@@ -65,10 +93,11 @@ export function App() {
     await Promise.all([
       minter.refetch(),
       treasury.refetch(),
-      treasury24h.refetch(),
       bots.refetch(),
       holders.refetch(),
       activity.refetch(),
+      growth.refetch(),
+      LEADERBOARD_ENABLED ? leaderboard.refetch() : Promise.resolve(),
     ]);
     setManualRefreshing(false);
   };
@@ -87,26 +116,19 @@ export function App() {
     if (candidates.length === 0) return null;
     const latest = candidates.reduce((a, b) => (a.getTime() > b.getTime() ? a : b));
     return formatUtcTime(latest);
-  }, [
-    minter.lastFetchedAt,
-    treasury.lastFetchedAt,
-    bots.lastFetchedAt,
-    holders.lastFetchedAt,
-    activity.lastFetchedAt,
-  ]);
+  }, [minter.lastFetchedAt, treasury.lastFetchedAt, bots.lastFetchedAt, holders.lastFetchedAt, activity.lastFetchedAt]);
 
   const minterStat = minterStatus(minter.balance);
   const minterFill = minterFillPct(minter.balance);
   const minterDisplay = minter.balance !== null ? formatEth(minter.balance) : "—";
   const treasuryDisplay = treasury.balance !== null ? formatAstr(treasury.balance) : "—";
 
-  // 24h treasury inflow: current live balance minus the row from the
-  // hourly JSONL that's closest to (and at most) 24h old. Falls back to
-  // hidden when the series is too short or the JSONL fetch fails.
-  const treasury24hDelta =
-    treasury.balance !== null && treasury24h.balance24hAgoWei !== null
-      ? treasury.balance - treasury24h.balance24hAgoWei
-      : null;
+  // 24h treasury inflow: sum of Transfer events to treasury in the last
+  // exactly 24h, sourced from the same JSONL the Treasury Growth card
+  // reads. Keeping both cards on one data source so the numbers never
+  // disagree (was previously derived from hourly balance snapshots,
+  // which introduced ~hour-of-bucketing variance).
+  const treasury24hDelta = growth.kpis?.inflow24hAstrWei ?? null;
   const treasury24hDisplay = treasury24hDelta !== null ? `${formatAstrDelta(treasury24hDelta)} ASTR` : undefined;
   const treasury24hStatus: BalanceStatus =
     treasury24hDelta === null
@@ -122,70 +144,91 @@ export function App() {
       <div style={theme.shell}>
         <Header lastRefresh={lastRefresh} onRefresh={onRefresh} isRefreshing={manualRefreshing} />
 
-        <BalanceCard
-          label="MINTER Hot Wallet"
-          address={MINTER_HOT_WALLET}
-          amountDisplay={minterDisplay}
-          amountUnit="ETH"
-          status={minterStat}
-          fillPct={minterFill}
-          primarySub="Warn < 0.01 ETH · Critical < 0.005 ETH"
-          secondarySub="Signs adminMintBundle on the claim Lambda. Revoke ceremony 2026-06-02."
-          isLoading={minter.isLoading}
-          error={minter.error}
-        />
+        <div style={twoColumnGrid}>
+          <div style={columnStack}>
+            <BalanceCard
+              label="MINTER Hot Wallet"
+              address={MINTER_HOT_WALLET}
+              amountDisplay={minterDisplay}
+              amountUnit="ETH"
+              status={minterStat}
+              fillPct={minterFill}
+              primarySub="Warn < 0.01 ETH · Critical < 0.005 ETH"
+              secondarySub="Signs adminMintBundle on the claim Lambda. Revoke ceremony 2026-06-02."
+              isLoading={minter.isLoading}
+              error={minter.error}
+            />
 
-        <BalanceCard
-          label="Yoki Treasury"
-          address={YOKI_TREASURY}
-          amountDisplay={treasuryDisplay}
-          amountUnit="ASTR"
-          status="neutral"
-          fillPct={null}
-          deltaDisplay={treasury24hDisplay}
-          deltaStatus={treasury24hStatus}
-          deltaSuffix="last 24h"
-          primarySub="Mint revenue from YokiCores. Growth-only — outflow triggers private alert (Phase 1.3)."
-          secondarySub="Full growth chart lands in Phase 2."
-          isLoading={treasury.isLoading}
-          error={treasury.error}
-        />
+            <BalanceCard
+              label="Yoki Treasury"
+              address={YOKI_TREASURY}
+              amountDisplay={treasuryDisplay}
+              amountUnit="ASTR"
+              status="neutral"
+              fillPct={null}
+              deltaDisplay={treasury24hDisplay}
+              deltaStatus={treasury24hStatus}
+              deltaSuffix="last 24h"
+              primarySub="Mint revenue from YokiCores. Any outflow fires a private Slack alert."
+              isLoading={treasury.isLoading}
+              error={treasury.error}
+            />
 
-        <BotBalancesCard balances={bots.balances} isLoading={bots.isLoading} error={bots.error} />
+            <TreasuryGrowthCard
+              series={growth.series}
+              kpis={growth.kpis}
+              liveBalanceAstrWei={treasury.balance}
+              isLoading={growth.isLoading}
+              error={growth.error}
+            />
+          </div>
 
-        <div style={sectionLabel}>ENGAGEMENT</div>
+          <div style={columnStack}>
+            <BotBalancesCard balances={bots.balances} isLoading={bots.isLoading} error={bots.error} />
 
-        <div style={statRow}>
-          <StatCard
-            label="Cores Holders"
-            value={formatCount(holders.holders)}
-            unit="wallets"
-            sub="Unique addresses holding any YokiCore (ERC-1155)."
-            linkHref={blockscoutTokenHoldersUrl(YOKI_CORES)}
-            linkLabel="Holders ↗"
-            isLoading={holders.isLoading}
-            error={holders.error}
-          />
-          <StatCard
-            label="JKP · 24h"
-            value={formatCount(activity.daily)}
-            unit="players"
-            sub="Unique addresses who committed or created a JKP match in the last 24h. Bots excluded."
-            linkHref={blockscoutAddressUrl(YOKI_JKP)}
-            linkLabel="JKP ↗"
-            isLoading={activity.isLoading}
-            error={activity.error}
-          />
-          <StatCard
-            label="JKP · 7d"
-            value={formatCount(activity.weekly)}
-            unit="players"
-            sub="Unique addresses who committed or created a JKP match in the last 7 days. Bots excluded."
-            linkHref={blockscoutAddressUrl(YOKI_JKP)}
-            linkLabel="JKP ↗"
-            isLoading={activity.isLoading}
-            error={activity.error}
-          />
+            {LEADERBOARD_ENABLED && (
+              <LeaderboardCard
+                rows={leaderboard.rows}
+                matchCount={leaderboard.matchCount}
+                isLoading={leaderboard.isLoading}
+                error={leaderboard.error}
+              />
+            )}
+
+            <div style={sectionLabel}>ENGAGEMENT</div>
+            <div style={statRow}>
+              <StatCard
+                label="Cores Holders"
+                value={formatCount(holders.holders)}
+                unit="wallets"
+                sub="Unique addresses holding any YokiCore (ERC-1155)."
+                linkHref={blockscoutTokenHoldersUrl(YOKI_CORES)}
+                linkLabel="Holders ↗"
+                isLoading={holders.isLoading}
+                error={holders.error}
+              />
+              <StatCard
+                label="JKP · 24h"
+                value={formatCount(activity.daily)}
+                unit="players"
+                sub="Unique addresses who committed or created a JKP match in the last 24h. Bots excluded."
+                linkHref={blockscoutAddressUrl(YOKI_JKP)}
+                linkLabel="JKP ↗"
+                isLoading={activity.isLoading}
+                error={activity.error}
+              />
+              <StatCard
+                label="JKP · 7d"
+                value={formatCount(activity.weekly)}
+                unit="players"
+                sub="Unique addresses who committed or created a JKP match in the last 7 days. Bots excluded."
+                linkHref={blockscoutAddressUrl(YOKI_JKP)}
+                linkLabel="JKP ↗"
+                isLoading={activity.isLoading}
+                error={activity.error}
+              />
+            </div>
+          </div>
         </div>
 
         <Footer />
@@ -193,6 +236,24 @@ export function App() {
     </div>
   );
 }
+
+// Two-column grid at desktop widths, auto-collapses to single column
+// when the viewport can't fit two 540px tracks (~< 1100px including page
+// padding + gap). Preserves the mobile-friendly single-column reading
+// flow without a media-query CSS file.
+const twoColumnGrid: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(540px, 1fr))",
+  gap: "20px",
+  alignItems: "start",
+};
+
+const columnStack: CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "20px",
+  minWidth: 0,
+};
 
 const sectionLabel: CSSProperties = {
   fontFamily: FONT_ARCADE,
