@@ -1,0 +1,23 @@
+{
+  "flagged": [
+    {
+      "addressA": "0xaf2b6b6d9cbd12727f5ed8843663ec7ba3611041",
+      "addressB": "0x83f0ba4af202af1764a8edc50a9dc0e341b98f25",
+      "flaggedAt": "2026-05-13T17:51:43.913Z",
+      "cleared": false,
+      "evidence": {
+        "count": 11,
+        "matchesA": 76,
+        "matchesB": 22,
+        "shareA": 0.145,
+        "shareB": 0.5
+      }
+    }
+  ],
+  "lastUpdatedBlock": "22779963",
+  "lastUpdatedAt": "2026-05-13T17:51:43.913Z",
+  "thresholds": {
+    "minCount": 10,
+    "minShare": 0.5
+  }
+}
