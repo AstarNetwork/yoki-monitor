@@ -35,7 +35,12 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-      - run: npm ci
+      # Using `npm install` rather than `npm ci` because vitest 4.x
+      # bundles its own Vite 8 which has a stricter esbuild peer-dep
+      # range than our root Vite 5; `npm ci` rejects the resulting
+      # lockfile shape on Linux even though `npm install` resolves it
+      # cleanly on every platform.
+      - run: npm install --no-audit --no-fund
       - name: Build SPA
         env:
           # Production base path matches gh-pages URL convention.
