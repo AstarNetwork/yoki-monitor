@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-      - run: npm ci --omit=dev
+      - run: npm install --omit=dev --no-audit --no-fund
       - name: Post 3 synthetic alerts
         env:
           SLACK_WEBHOOK_URL_ALERTS: ${{ secrets.SLACK_WEBHOOK_URL_ALERTS }}
