@@ -177,7 +177,10 @@ function FlaggedTable({
               <span style={styles.numCell}>{e.evidence.matches}</span>
               <span style={styles.numCell}>{(e.evidence.winRate * 100).toFixed(0)}%</span>
               <span style={styles.numCell}>{e.evidence.uniqueOpponents}</span>
-              <span style={styles.dateCell}>{formatShortDate(e.flaggedAt)}</span>
+              <span style={styles.dateCell}>
+                <div>{formatShortDate(e.flaggedAt)}</div>
+                <EvidenceFreshness lastSeenAt={e.lastSeenAt} cleared={e.cleared} />
+              </span>
               <span>
                 <StatusBadge cleared={e.cleared} />
               </span>
@@ -265,7 +268,10 @@ function SuspiciousPairsTable({
               <span style={styles.numCell}>
                 {(e.evidence.shareB * 100).toFixed(0)}% ({e.evidence.matchesB})
               </span>
-              <span style={styles.dateCell}>{formatShortDate(e.flaggedAt)}</span>
+              <span style={styles.dateCell}>
+                <div>{formatShortDate(e.flaggedAt)}</div>
+                <EvidenceFreshness lastSeenAt={e.lastSeenAt} cleared={e.cleared} />
+              </span>
               <span>
                 <StatusBadge cleared={e.cleared} />
               </span>
@@ -275,6 +281,13 @@ function SuspiciousPairsTable({
       )}
     </div>
   );
+}
+
+function EvidenceFreshness({ lastSeenAt, cleared }: { lastSeenAt?: string; cleared: boolean }) {
+  if (cleared || !lastSeenAt) return null;
+  const d = new Date(lastSeenAt);
+  if (Number.isNaN(d.getTime())) return null;
+  return <div style={styles.dateCellSub}>as of {formatUtcTime(d)}</div>;
 }
 
 function StatusBadge({ cleared }: { cleared: boolean }) {
@@ -438,6 +451,11 @@ const styles: Record<string, CSSProperties> = {
     color: "rgba(255,255,255,0.55)",
     fontVariantNumeric: "tabular-nums",
     fontSize: "11px",
+  },
+  dateCellSub: {
+    color: "rgba(255,255,255,0.35)",
+    fontSize: "10px",
+    marginTop: "2px",
   },
   pairCell: {
     display: "flex",

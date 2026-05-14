@@ -6,6 +6,7 @@ export type SuspiciousPairEntry = {
   addressA: string;
   addressB: string;
   flaggedAt: string;
+  lastSeenAt?: string;
   cleared: boolean;
   clearedAt?: string;
   evidence: {

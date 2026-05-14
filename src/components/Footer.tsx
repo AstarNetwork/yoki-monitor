@@ -5,7 +5,6 @@ import { FONT_ARCADE } from "../theme";
 export function Footer() {
   return (
     <div style={styles.footer}>
-      <div style={styles.line}>JKP leaderboard + event log land in Phase 2</div>
       <div style={styles.line}>Detective control — surfaces signals, does not gate transactions</div>
     </div>
   );
