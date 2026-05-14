@@ -97,6 +97,13 @@ export const DEFAULT_FLAGGED_JSON_URL =
 export const DEFAULT_SUSPICIOUS_PAIRS_JSON_URL =
   "https://raw.githubusercontent.com/AstarNetwork/yoki-monitor/main/data/suspicious-pairs.json";
 
+// Raw URL for the 2.5a Daily Champions snapshot cron output. Consumed by
+// the Daily Champions view (header toggle). The cron self-exits after
+// CAMPAIGN_END + 1d, so the file is frozen as a historical artifact after
+// 2026-06-04 regardless of when DC itself is removed from the launch repo.
+export const DEFAULT_DAILY_CHAMPIONS_JSON_URL =
+  "https://raw.githubusercontent.com/AstarNetwork/yoki-monitor/main/data/daily-champions.json";
+
 // Blockscout base URL for clickable wallet/tx links.
 export const BLOCKSCOUT_BASE = "https://soneium.blockscout.com";
 export const BLOCKSCOUT_API_BASE = `${BLOCKSCOUT_BASE}/api/v2`;
