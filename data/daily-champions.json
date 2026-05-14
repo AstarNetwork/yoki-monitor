@@ -1,0 +1,84 @@
+{
+  "campaignStart": "2026-05-13T14:00:00Z",
+  "campaignEnd": "2026-06-02T23:59:59Z",
+  "lastUpdatedAt": "2026-05-14T18:22:31.429Z",
+  "days": {
+    "2026-05-14": {
+      "day": "2026-05-14",
+      "winners": {
+        "streak": "0x37ea877dd09d2ba06578974d66cba8e219337e94",
+        "matches": "0x37ea877dd09d2ba06578974d66cba8e219337e94",
+        "firstMatch": "0xe0d52a1a576c009dfadd15401fca57678c2c40be"
+      },
+      "top5": {
+        "streak": [
+          {
+            "address": "0x37ea877dd09d2ba06578974d66cba8e219337e94",
+            "metricValue": 10
+          },
+          {
+            "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
+            "metricValue": 6
+          },
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 5
+          },
+          {
+            "address": "0xc9d6cd38fe1ad516a65a2c02408f85ef8936117a",
+            "metricValue": 4
+          },
+          {
+            "address": "0x5d8d437ff6d1d4112f023045fa8829ba69bf40ed",
+            "metricValue": 4
+          }
+        ],
+        "matches": [
+          {
+            "address": "0x37ea877dd09d2ba06578974d66cba8e219337e94",
+            "metricValue": 61
+          },
+          {
+            "address": "0x857bea806cb81f00d8c1d0b06858cd7dd37b5307",
+            "metricValue": 17
+          },
+          {
+            "address": "0x04278b2ab342503668a5ff3bbeac27e44f437eea",
+            "metricValue": 16
+          },
+          {
+            "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
+            "metricValue": 15
+          },
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 9
+          }
+        ],
+        "firstMatch": [
+          {
+            "address": "0xe0d52a1a576c009dfadd15401fca57678c2c40be",
+            "metricValue": 1
+          }
+        ]
+      },
+      "finalized": false
+    },
+    "2026-05-13": {
+      "day": "2026-05-13",
+      "winners": {
+        "streak": "0xaf2b6b6d9cbd12727f5ed8843663ec7ba3611041",
+        "matches": "0xaf2b6b6d9cbd12727f5ed8843663ec7ba3611041",
+        "firstMatch": "0x818d2421fe41e2c6310c188adf0dde7b186c62f2"
+      },
+      "top5": {
+        "streak": [],
+        "matches": [],
+        "firstMatch": []
+      },
+      "finalized": true,
+      "finalizedAt": 1778717235
+    }
+  },
+  "frequencyTally": []
+}
