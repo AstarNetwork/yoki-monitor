@@ -5,6 +5,7 @@ import { DEFAULT_FLAGGED_JSON_URL } from "../addresses";
 export type FlaggedEntry = {
   address: string;
   flaggedAt: string;
+  lastSeenAt?: string;
   reason: string;
   cleared: boolean;
   clearedAt?: string;

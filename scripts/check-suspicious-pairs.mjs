@@ -43,25 +43,35 @@ async function main() {
   // detection in the second pass.
   const currentlySuspicious = new Set(matches.map((m) => keyOf(m.addressA, m.addressB)));
 
+  const now = new Date().toISOString();
+
   for (const pair of matches) {
     const key = keyOf(pair.addressA, pair.addressB);
     const existing = byKey.get(key);
+    const evidence = {
+      count: pair.count,
+      matchesA: pair.matchesA,
+      matchesB: pair.matchesB,
+      shareA: round(pair.shareA, 3),
+      shareB: round(pair.shareB, 3),
+    };
     if (!existing || existing.cleared) {
       const entry = {
         addressA: pair.addressA,
         addressB: pair.addressB,
-        flaggedAt: new Date().toISOString(),
+        flaggedAt: now,
+        lastSeenAt: now,
         cleared: false,
-        evidence: {
-          count: pair.count,
-          matchesA: pair.matchesA,
-          matchesB: pair.matchesB,
-          shareA: round(pair.shareA, 3),
-          shareB: round(pair.shareB, 3),
-        },
+        evidence,
       };
       byKey.set(key, entry);
       newlyFlagged.push(entry);
+    } else {
+      // Already-active entry — refresh live counts so the dashboard
+      // reflects current state instead of the first-flag snapshot.
+      // flaggedAt is preserved as the first-crossing timestamp.
+      existing.evidence = evidence;
+      existing.lastSeenAt = now;
     }
   }
 
@@ -71,7 +81,7 @@ async function main() {
     if (entry.cleared) continue;
     if (currentlySuspicious.has(key)) continue;
     entry.cleared = true;
-    entry.clearedAt = new Date().toISOString();
+    entry.clearedAt = now;
     newlyCleared.push(entry);
   }
 
@@ -79,7 +89,7 @@ async function main() {
     keyOf(a.addressA, a.addressB).localeCompare(keyOf(b.addressA, b.addressB)),
   );
   flaggedDoc.lastUpdatedBlock = pairsDoc.lastUpdatedBlock ?? null;
-  flaggedDoc.lastUpdatedAt = new Date().toISOString();
+  flaggedDoc.lastUpdatedAt = now;
   flaggedDoc.thresholds = { minCount: MIN_PAIR_COUNT, minShare: MIN_PAIR_SHARE };
   await writeJson(FLAGGED_FILE, flaggedDoc);
 

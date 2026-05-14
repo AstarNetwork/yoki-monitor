@@ -39,6 +39,7 @@ async function main() {
 
   const newlyFlagged = [];
   const newlyCleared = [];
+  const now = new Date().toISOString();
 
   for (const row of aggregate.rows) {
     const address = row.address.toLowerCase();
@@ -46,25 +47,33 @@ async function main() {
     const existing = byAddress.get(address);
 
     if (overThreshold) {
+      const evidence = {
+        wins: row.wins,
+        losses: row.losses,
+        draws: row.draws,
+        matches: row.matches,
+        winRate: round(row.winRate, 3),
+        uniqueOpponents: row.uniqueOpponents,
+      };
       // First time we've seen this address cross — flag it.
       // OR previously cleared, now back over threshold — re-flag.
       if (!existing || existing.cleared) {
         const entry = {
           address,
-          flaggedAt: new Date().toISOString(),
+          flaggedAt: now,
+          lastSeenAt: now,
           reason: "always-winning",
           cleared: false,
-          evidence: {
-            wins: row.wins,
-            losses: row.losses,
-            draws: row.draws,
-            matches: row.matches,
-            winRate: round(row.winRate, 3),
-            uniqueOpponents: row.uniqueOpponents,
-          },
+          evidence,
         };
         byAddress.set(address, entry);
         newlyFlagged.push(entry);
+      } else {
+        // Already-active entry — refresh live counts so the dashboard
+        // reflects current W/L/D state, not the first-flag snapshot.
+        // flaggedAt is preserved as the first-crossing timestamp.
+        existing.evidence = evidence;
+        existing.lastSeenAt = now;
       }
       continue;
     }
@@ -72,7 +81,7 @@ async function main() {
     // Below threshold. If currently flagged (not cleared), clear it.
     if (existing && !existing.cleared) {
       existing.cleared = true;
-      existing.clearedAt = new Date().toISOString();
+      existing.clearedAt = now;
       existing.clearedEvidence = {
         wins: row.wins,
         losses: row.losses,
@@ -86,7 +95,7 @@ async function main() {
 
   flaggedDoc.flagged = Array.from(byAddress.values()).sort((a, b) => a.address.localeCompare(b.address));
   flaggedDoc.lastUpdatedBlock = aggregate.lastUpdatedBlock;
-  flaggedDoc.lastUpdatedAt = new Date().toISOString();
+  flaggedDoc.lastUpdatedAt = now;
   await writeJson(FLAGGED_FILE, flaggedDoc);
 
   console.log(
