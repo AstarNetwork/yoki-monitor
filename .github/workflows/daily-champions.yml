@@ -1,0 +1,42 @@
+name: 2.5a Daily Champions snapshot
+
+on:
+  schedule:
+    # Every 30 minutes during the campaign window. The cron self-exits as
+    # a no-op after CAMPAIGN_END + 1d grace (see scripts/lib/daily-champions.mjs),
+    # so leaving this schedule live past June 3 is harmless — it just won't
+    # rewrite the data file.
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-champions
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm install --omit=dev --no-audit --no-fund
+      - name: Snapshot Daily Champions
+        run: node scripts/walk-daily-champions.mjs
+      - name: Commit data updates
+        run: |
+          git config user.name "yoki-monitor-bot"
+          git config user.email "yoki-monitor-bot@users.noreply.github.com"
+          git add data/daily-champions.json
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "data(2.5a): daily-champions snapshot"
+            git push
+          fi

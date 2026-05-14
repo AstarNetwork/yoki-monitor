@@ -11,6 +11,7 @@ import {
 } from "./addresses";
 import { BalanceCard, type BalanceStatus } from "./components/BalanceCard";
 import { BotBalancesCard } from "./components/BotBalancesCard";
+import { DailyChampionsView } from "./components/DailyChampionsView";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { LeaderboardCard } from "./components/LeaderboardCard";
@@ -25,7 +26,7 @@ import { useEthBalance } from "./hooks/useEthBalance";
 import { useJkpActivePlayers } from "./hooks/useJkpActivePlayers";
 import { useJkpLeaderboard } from "./hooks/useJkpLeaderboard";
 import { useTreasuryGrowth } from "./hooks/useTreasuryGrowth";
-import { FONT_ARCADE, theme } from "./theme";
+import { BORDER_GOLD, FONT_ARCADE, theme } from "./theme";
 
 // Phase 2 leaderboard is gated behind a build-time flag while the
 // always-winning trigger is validated against ~1 week of real data.
@@ -72,12 +73,18 @@ function formatCount(value: number | null): string {
 }
 
 export function App() {
+  const [view, setView] = useState<"operational" | "dailyChampions">("operational");
+
   if (isReviewMode()) return <ReviewView />;
 
-  return <PublicDashboard />;
+  if (view === "dailyChampions") {
+    return <DailyChampionsView onExit={() => setView("operational")} />;
+  }
+
+  return <PublicDashboard onOpenDailyChampions={() => setView("dailyChampions")} />;
 }
 
-function PublicDashboard() {
+function PublicDashboard({ onOpenDailyChampions }: { onOpenDailyChampions: () => void }) {
   const minter = useEthBalance(MINTER_HOT_WALLET);
   const treasury = useErc20Balance(ASTR_TOKEN, YOKI_TREASURY);
   const bots = useBotBalances();
@@ -143,6 +150,12 @@ function PublicDashboard() {
     <div style={theme.page}>
       <div style={theme.shell}>
         <Header lastRefresh={lastRefresh} onRefresh={onRefresh} isRefreshing={manualRefreshing} />
+
+        <div style={viewToggleRow}>
+          <button type="button" onClick={onOpenDailyChampions} style={viewToggleButton}>
+            DAILY CHAMPIONS →
+          </button>
+        </div>
 
         <div style={twoColumnGrid}>
           <div style={columnStack}>
@@ -271,4 +284,22 @@ const statRow: CSSProperties = {
   flexDirection: "row",
   flexWrap: "wrap",
   gap: "16px",
+};
+
+const viewToggleRow: CSSProperties = {
+  display: "flex",
+  justifyContent: "flex-end",
+  marginTop: "-4px",
+};
+
+const viewToggleButton: CSSProperties = {
+  fontFamily: FONT_ARCADE,
+  fontSize: "9px",
+  letterSpacing: "1.2px",
+  color: "rgba(255,255,255,0.85)",
+  padding: "8px 12px",
+  background: "rgba(0,209,255,0.08)",
+  border: `1px solid ${BORDER_GOLD}`,
+  borderRadius: "8px",
+  cursor: "pointer",
 };
