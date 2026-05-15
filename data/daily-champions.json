@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-15T10:04:46.818Z",
+  "lastUpdatedAt": "2026-05-15T10:28:34.955Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -68,7 +68,8 @@
         "streak": 10,
         "matches": 68,
         "firstMatch": null
-      }
+      },
+      "firstMatchResolvedAt": 1778716955
     },
     "2026-05-13": {
       "day": "2026-05-13",
@@ -83,18 +84,24 @@
         "firstMatch": []
       },
       "finalized": true,
-      "finalizedAt": 1778717235
+      "finalizedAt": 1778717235,
+      "winnerValues": {
+        "streak": 6,
+        "matches": 24,
+        "firstMatch": null
+      },
+      "firstMatchResolvedAt": 1778684303
     },
     "2026-05-15": {
       "day": "2026-05-15",
       "winners": {
         "streak": "0x857bea806cb81f00d8c1d0b06858cd7dd37b5307",
-        "matches": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
+        "matches": "0x37ea877dd09d2ba06578974d66cba8e219337e94",
         "firstMatch": "0x857bea806cb81f00d8c1d0b06858cd7dd37b5307"
       },
       "winnerValues": {
         "streak": 4,
-        "matches": 19,
+        "matches": 21,
         "firstMatch": null
       },
       "top5": {
@@ -122,20 +129,20 @@
         ],
         "matches": [
           {
-            "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
-            "metricValue": 19
+            "address": "0x37ea877dd09d2ba06578974d66cba8e219337e94",
+            "metricValue": 21
           },
           {
-            "address": "0x37ea877dd09d2ba06578974d66cba8e219337e94",
-            "metricValue": 18
+            "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
+            "metricValue": 21
+          },
+          {
+            "address": "0x04278b2ab342503668a5ff3bbeac27e44f437eea",
+            "metricValue": 14
           },
           {
             "address": "0x857bea806cb81f00d8c1d0b06858cd7dd37b5307",
             "metricValue": 11
-          },
-          {
-            "address": "0x04278b2ab342503668a5ff3bbeac27e44f437eea",
-            "metricValue": 10
           },
           {
             "address": "0x5ea62391d3b3977ae7b833da362636d7f82bb588",
@@ -149,7 +156,8 @@
           }
         ]
       },
-      "finalized": false
+      "finalized": false,
+      "firstMatchResolvedAt": 1778803489
     }
   },
   "frequencyTally": [
