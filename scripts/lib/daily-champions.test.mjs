@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { applyYesterday, buildTodayEntry, computeFrequencyTally, shouldRun, sliceTop } from "./daily-champions.mjs";
+import {
+  applyBackfill,
+  applyYesterday,
+  buildTodayEntry,
+  computeFrequencyTally,
+  shouldRun,
+  sliceTop,
+} from "./daily-champions.mjs";
 
 const A = "0xaaaa000000000000000000000000000000000001";
 const B = "0xbbbb000000000000000000000000000000000002";
@@ -218,5 +225,58 @@ describe("computeFrequencyTally", () => {
     const tally = computeFrequencyTally(days);
     // Both A and B have top5Days=1; A also has winDays=1 so should sort first.
     expect(tally.map((r) => r.address)).toEqual([A, B]);
+  });
+});
+
+describe("applyBackfill", () => {
+  const valuesBackfill = { "2026-05-13": { streak: 6, matches: 24, firstMatch: null } };
+  const firstMatchBackfill = { "2026-05-13": 1778684303 };
+
+  it("fills winnerValues on an entry that has none", () => {
+    const days = {
+      "2026-05-13": { day: "2026-05-13", winners: {}, top5: {}, finalized: true },
+    };
+    applyBackfill(days, valuesBackfill, {});
+    expect(days["2026-05-13"].winnerValues).toEqual({ streak: 6, matches: 24, firstMatch: null });
+  });
+
+  it("fills firstMatchResolvedAt on an entry that has none", () => {
+    const days = {
+      "2026-05-13": { day: "2026-05-13", winners: {}, top5: {}, finalized: true },
+    };
+    applyBackfill(days, {}, firstMatchBackfill);
+    expect(days["2026-05-13"].firstMatchResolvedAt).toBe(1778684303);
+  });
+
+  it("never overwrites a value the cron captured naturally from the API", () => {
+    const days = {
+      "2026-05-13": {
+        day: "2026-05-13",
+        winners: {},
+        top5: {},
+        finalized: true,
+        winnerValues: { streak: 99, matches: null, firstMatch: null },
+        firstMatchResolvedAt: 1234567890,
+      },
+    };
+    applyBackfill(days, valuesBackfill, firstMatchBackfill);
+    expect(days["2026-05-13"].winnerValues.streak).toBe(99); // preserved
+    expect(days["2026-05-13"].winnerValues.matches).toBe(24); // backfilled
+    expect(days["2026-05-13"].firstMatchResolvedAt).toBe(1234567890); // preserved
+  });
+
+  it("ignores days that aren't in the backfill maps", () => {
+    const days = {
+      "2026-05-14": { day: "2026-05-14", winners: {}, top5: {}, finalized: true },
+    };
+    applyBackfill(days, valuesBackfill, firstMatchBackfill);
+    expect(days["2026-05-14"].winnerValues).toBeUndefined();
+    expect(days["2026-05-14"].firstMatchResolvedAt).toBeUndefined();
+  });
+
+  it("ignores backfill days that aren't in the doc", () => {
+    const days = {};
+    applyBackfill(days, valuesBackfill, firstMatchBackfill);
+    expect(days).toEqual({});
   });
 });

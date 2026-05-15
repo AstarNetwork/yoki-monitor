@@ -15,6 +15,7 @@
 import {
   CAMPAIGN_END,
   CAMPAIGN_START,
+  applyBackfill,
   applyYesterday,
   buildTodayEntry,
   computeFrequencyTally,
@@ -74,6 +75,7 @@ async function main() {
     if (merged) doc.days[yesterdayDay] = merged;
   }
 
+  applyBackfill(doc.days);
   doc.frequencyTally = computeFrequencyTally(doc.days);
   doc.lastUpdatedAt = now.toISOString();
 

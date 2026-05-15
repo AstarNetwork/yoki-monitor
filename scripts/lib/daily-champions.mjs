@@ -22,6 +22,59 @@ export const GRACE_DAYS_AFTER_END = 1;
 export const TOP_K = 5;
 export const CATEGORIES = ["streak", "matches", "firstMatch"];
 
+// Hardcoded metric values for days that finalized before yoki-monitor's
+// cron + the winnerValues schema were both in place. The launch API
+// drops the top list once a day rolls over to `yesterday`, and there's
+// no public per-date route, so these can't be re-derived from public
+// endpoints. Values pulled by the operator via Upstash console:
+// `GET dc:day:2026-05-13:winners` → streakValue=6, matchesValue=24.
+// firstMatch is binary, no value to backfill.
+export const BACKFILL_WINNER_VALUES = {
+  "2026-05-13": { streak: 6, matches: 24, firstMatch: null },
+};
+
+// Hardcoded first-match resolved-at timestamps (Unix seconds). The
+// launch API never exposed this field, but Upstash stores it on
+// `dc:day:{date}:firstMatch → {address, matchId, resolvedAtBlock,
+// resolvedAtTimestamp}`. Operator pulled these via console queries
+// for the three days finalized at the time of this backfill. Days
+// 2026-05-16 onward depend on a forward-capture mechanism (TBD —
+// will likely store block timestamps in jkp-matches.json so the cron
+// can derive resolvedAt without RPC roundtrips per tick).
+export const BACKFILL_FIRST_MATCH_RESOLVED_AT = {
+  "2026-05-13": 1778684303,
+  "2026-05-14": 1778716955,
+  "2026-05-15": 1778803489,
+};
+
+// Apply hardcoded backfills onto a `days` object in place. Only fills
+// slots that are currently null/undefined — never overwrites a value
+// the cron captured naturally from the API.
+export function applyBackfill(
+  days,
+  valuesBackfill = BACKFILL_WINNER_VALUES,
+  firstMatchBackfill = BACKFILL_FIRST_MATCH_RESOLVED_AT,
+) {
+  for (const [day, values] of Object.entries(valuesBackfill)) {
+    const entry = days[day];
+    if (!entry) continue;
+    const existing = entry.winnerValues ?? { streak: null, matches: null, firstMatch: null };
+    entry.winnerValues = {
+      streak: existing.streak ?? values.streak ?? null,
+      matches: existing.matches ?? values.matches ?? null,
+      firstMatch: existing.firstMatch ?? values.firstMatch ?? null,
+    };
+  }
+  for (const [day, resolvedAt] of Object.entries(firstMatchBackfill)) {
+    const entry = days[day];
+    if (!entry) continue;
+    if (entry.firstMatchResolvedAt == null) {
+      entry.firstMatchResolvedAt = resolvedAt;
+    }
+  }
+  return days;
+}
+
 // Returns true if the cron should write today. Outside the campaign window
 // (with a 1-day grace after end to capture the final finalization tick) the
 // cron exits as a no-op so the JSONL stays frozen for historical use.
