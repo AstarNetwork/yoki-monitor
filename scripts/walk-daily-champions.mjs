@@ -19,12 +19,14 @@ import {
   applyYesterday,
   buildTodayEntry,
   computeFrequencyTally,
+  deriveFirstMatchResolvedAt,
   shouldRun,
 } from "./lib/daily-champions.mjs";
 import { readJson, writeJson } from "./lib/jsonl.mjs";
 
 const DC_API_TODAY = process.env.DC_API_TODAY ?? "https://yoki-arcade.astar.network/api/daily-champions/today";
 const DATA_FILE = "data/daily-champions.json";
+const JKP_MATCHES_FILE = "data/jkp-matches.json";
 
 async function fetchJson(url) {
   const res = await fetch(url, { headers: { accept: "application/json" } });
@@ -76,6 +78,14 @@ async function main() {
   }
 
   applyBackfill(doc.days);
+
+  // Forward-capture: for days the JKP walker has already timestamped,
+  // pull firstMatchResolvedAt from the match index. Skips days that
+  // already have a value (hardcoded backfill or prior derivation).
+  // Quietly no-ops if jkp-matches.json doesn't exist yet (fresh repo).
+  const matchesDoc = await readJson(JKP_MATCHES_FILE);
+  if (matchesDoc?.matches) deriveFirstMatchResolvedAt(doc.days, matchesDoc.matches);
+
   doc.frequencyTally = computeFrequencyTally(doc.days);
   doc.lastUpdatedAt = now.toISOString();
 

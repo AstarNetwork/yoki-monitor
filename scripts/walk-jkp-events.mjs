@@ -72,6 +72,13 @@ async function main() {
       toBlock: end,
     });
 
+    // Batch-fetch block timestamps for this chunk's unique blocks. The
+    // match index stores resolvedAtTimestamp so walk-daily-champions.mjs
+    // can derive firstMatchResolvedAt per day without re-RPC'ing.
+    // Concurrency cap of 20 keeps Soneium public RPC happy on bootstrap
+    // walks (1M block lookback can include ~thousands of unique blocks).
+    const timestamps = await fetchBlockTimestamps(logs.map((l) => l.blockNumber));
+
     for (const log of logs) {
       const eventName = log.eventName ?? EVENT_NAMES_BY_TOPIC.get(log.topics?.[0]);
       if (!eventName || !JKP_EVENTS[eventName]) {
@@ -79,16 +86,18 @@ async function main() {
         continue;
       }
 
+      const blockTimestamp = timestamps.get(log.blockNumber.toString()) ?? null;
       const record = {
         timestamp: new Date().toISOString(),
         blockNumber: log.blockNumber.toString(),
+        blockTimestamp,
         txHash: log.transactionHash,
         logIndex: log.logIndex,
         eventName,
         args: serializeArgs(log.args),
       };
       await appendJsonl(EVENTS_JSONL, record);
-      applyEventToMatches(matches, eventName, log);
+      applyEventToMatches(matches, eventName, log, blockTimestamp);
       newEventCount += 1;
     }
 
@@ -138,6 +147,30 @@ function serializeArgs(args) {
   const out = {};
   for (const [k, v] of Object.entries(args ?? {})) {
     out[k] = typeof v === "bigint" ? v.toString() : v;
+  }
+  return out;
+}
+
+// Fetch Unix-seconds timestamps for every unique blockNumber across the
+// given logs. Returns Map<string, number>. Capped at 20-way parallelism.
+async function fetchBlockTimestamps(blockNumbers) {
+  const unique = [...new Set(blockNumbers.map((b) => b.toString()))];
+  const out = new Map();
+  const CONCURRENCY = 20;
+  for (let i = 0; i < unique.length; i += CONCURRENCY) {
+    const slice = unique.slice(i, i + CONCURRENCY);
+    const blocks = await Promise.all(
+      slice.map((bn) =>
+        publicClient.getBlock({ blockNumber: BigInt(bn), includeTransactions: false }).catch((err) => {
+          console.warn(`[jkp] getBlock(${bn}) failed: ${err.message}`);
+          return null;
+        }),
+      ),
+    );
+    for (let j = 0; j < slice.length; j++) {
+      const block = blocks[j];
+      if (block?.timestamp != null) out.set(slice[j], Number(block.timestamp));
+    }
   }
   return out;
 }
