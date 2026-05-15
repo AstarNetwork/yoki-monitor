@@ -33,11 +33,29 @@ export const BACKFILL_WINNER_VALUES = {
   "2026-05-13": { streak: 6, matches: 24, firstMatch: null },
 };
 
+// Hardcoded first-match resolved-at timestamps (Unix seconds). The
+// launch API never exposed this field, but Upstash stores it on
+// `dc:day:{date}:firstMatch → {address, matchId, resolvedAtBlock,
+// resolvedAtTimestamp}`. Operator pulled these via console queries
+// for the three days finalized at the time of this backfill. Days
+// 2026-05-16 onward depend on a forward-capture mechanism (TBD —
+// will likely store block timestamps in jkp-matches.json so the cron
+// can derive resolvedAt without RPC roundtrips per tick).
+export const BACKFILL_FIRST_MATCH_RESOLVED_AT = {
+  "2026-05-13": 1778684303,
+  "2026-05-14": 1778716955,
+  "2026-05-15": 1778803489,
+};
+
 // Apply hardcoded backfills onto a `days` object in place. Only fills
-// `winnerValues` slots that are currently null/undefined — never
-// overwrites a value the cron captured naturally from the API.
-export function applyBackfill(days, backfill = BACKFILL_WINNER_VALUES) {
-  for (const [day, values] of Object.entries(backfill)) {
+// slots that are currently null/undefined — never overwrites a value
+// the cron captured naturally from the API.
+export function applyBackfill(
+  days,
+  valuesBackfill = BACKFILL_WINNER_VALUES,
+  firstMatchBackfill = BACKFILL_FIRST_MATCH_RESOLVED_AT,
+) {
+  for (const [day, values] of Object.entries(valuesBackfill)) {
     const entry = days[day];
     if (!entry) continue;
     const existing = entry.winnerValues ?? { streak: null, matches: null, firstMatch: null };
@@ -46,6 +64,13 @@ export function applyBackfill(days, backfill = BACKFILL_WINNER_VALUES) {
       matches: existing.matches ?? values.matches ?? null,
       firstMatch: existing.firstMatch ?? values.firstMatch ?? null,
     };
+  }
+  for (const [day, resolvedAt] of Object.entries(firstMatchBackfill)) {
+    const entry = days[day];
+    if (!entry) continue;
+    if (entry.firstMatchResolvedAt == null) {
+      entry.firstMatchResolvedAt = resolvedAt;
+    }
   }
   return days;
 }

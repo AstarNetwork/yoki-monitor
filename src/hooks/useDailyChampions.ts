@@ -16,6 +16,10 @@ export type DailyChampionsDayEntry = {
   // "11 wins" / "35 matches" next to the winning address. Optional for
   // back-compat with day entries written before the schema was extended.
   winnerValues?: Record<DailyChampionsCategory, number | null>;
+  // Unix seconds (matches Upstash format). When the day's first-match
+  // winner's MatchResolved/Draw block was mined. Sourced from Upstash
+  // backfill for historical days; forward-capture mechanism TBD.
+  firstMatchResolvedAt?: number | null;
   top5: Record<DailyChampionsCategory, DailyChampionsTopEntry[]>;
   finalized: boolean;
   finalizedAt?: number | string | null;

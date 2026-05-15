@@ -1,7 +1,7 @@
 import { type CSSProperties, useMemo } from "react";
 
 import { blockscoutAddressUrl } from "../addresses";
-import { shortAddress } from "../format";
+import { formatUtcTime, shortAddress } from "../format";
 import {
   type DailyChampionsCategory,
   type DailyChampionsDayEntry,
@@ -210,6 +210,8 @@ function WinnersGrid({ days }: { days: DailyChampionsDayEntry[] }) {
               const winner = d.winners?.[cat];
               const value = d.winnerValues?.[cat] ?? null;
               const unit = CATEGORY_UNITS[cat];
+              const firstMatchAt =
+                cat === "firstMatch" && typeof d.firstMatchResolvedAt === "number" ? d.firstMatchResolvedAt : null;
               return (
                 <span key={cat} style={styles.winnerCell}>
                   {winner ? (
@@ -226,6 +228,9 @@ function WinnersGrid({ days }: { days: DailyChampionsDayEntry[] }) {
                         <span style={styles.metricValue}>
                           · {value} {unit}
                         </span>
+                      )}
+                      {firstMatchAt !== null && (
+                        <span style={styles.metricValue}>· {formatUtcTime(new Date(firstMatchAt * 1000))}</span>
                       )}
                     </>
                   ) : (
