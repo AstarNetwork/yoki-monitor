@@ -50,7 +50,7 @@ describe("sliceTop", () => {
 });
 
 describe("buildTodayEntry", () => {
-  it("extracts winners + top-5 from the production API shape", () => {
+  it("extracts winners + top-5 + winnerValues from the production API shape", () => {
     const today = {
       day: "2026-05-14",
       streak: [
@@ -66,6 +66,7 @@ describe("buildTodayEntry", () => {
     const entry = buildTodayEntry(today);
     expect(entry.day).toBe("2026-05-14");
     expect(entry.winners).toEqual({ streak: A, matches: B, firstMatch: C });
+    expect(entry.winnerValues).toEqual({ streak: 10, matches: 59, firstMatch: null });
     expect(entry.top5.streak[0]).toEqual({ address: A, metricValue: 10 });
     expect(entry.top5.firstMatch).toEqual([{ address: C, metricValue: 1 }]);
     expect(entry.finalized).toBe(false);
@@ -85,6 +86,7 @@ describe("buildTodayEntry", () => {
     };
     const entry = buildTodayEntry(today);
     expect(entry.winners).toEqual({ streak: null, matches: null, firstMatch: null });
+    expect(entry.winnerValues).toEqual({ streak: null, matches: null, firstMatch: null });
     expect(entry.top5.firstMatch).toEqual([]);
   });
 });
@@ -112,6 +114,7 @@ describe("applyYesterday", () => {
     };
     const result = applyYesterday(existing, yesterday);
     expect(result.winners).toEqual({ streak: A, matches: B, firstMatch: C });
+    expect(result.winnerValues).toEqual({ streak: 5, matches: 18, firstMatch: null });
     expect(result.top5.streak).toEqual(existing.top5.streak);
     expect(result.finalized).toBe(true);
     expect(result.finalizedAt).toBe("2026-05-14T00:07:00Z");
@@ -121,13 +124,16 @@ describe("applyYesterday", () => {
     const yesterday = {
       day: "2026-05-13",
       streakWinner: A,
+      streakValue: 7,
       matchesWinner: B,
+      matchesValue: 22,
       firstMatchWinner: C,
       finalizedAt: "2026-05-14T00:07:00Z",
     };
     const result = applyYesterday(null, yesterday);
     expect(result.day).toBe("2026-05-13");
     expect(result.winners).toEqual({ streak: A, matches: B, firstMatch: C });
+    expect(result.winnerValues).toEqual({ streak: 7, matches: 22, firstMatch: null });
     expect(result.top5).toEqual({ streak: [], matches: [], firstMatch: [] });
     expect(result.finalized).toBe(true);
   });

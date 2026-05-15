@@ -12,6 +12,10 @@ export type DailyChampionsTopEntry = {
 export type DailyChampionsDayEntry = {
   day: string;
   winners: Record<DailyChampionsCategory, string | null>;
+  // Parallel to `winners`. Mirrors the launch app's modal so operators see
+  // "11 wins" / "35 matches" next to the winning address. Optional for
+  // back-compat with day entries written before the schema was extended.
+  winnerValues?: Record<DailyChampionsCategory, number | null>;
   top5: Record<DailyChampionsCategory, DailyChampionsTopEntry[]>;
   finalized: boolean;
   finalizedAt?: number | string | null;
