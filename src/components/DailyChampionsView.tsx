@@ -34,6 +34,14 @@ const CATEGORY_LABELS: Record<DailyChampionsCategory, string> = {
   firstMatch: "First Match",
 };
 
+// Unit suffix appended after the winner's metricValue in the grid.
+// firstMatch is binary ("did the first match"), so no value shown.
+const CATEGORY_UNITS: Record<DailyChampionsCategory, string> = {
+  streak: "wins",
+  matches: "matches",
+  firstMatch: "",
+};
+
 // Cross-cut tracking surface for the Daily Champions campaign (2026-05-13
 // → 2026-06-02). Snapshots the launch app's /api/daily-champions/today
 // every 30 min via the 2.5a cron, then overlays:
@@ -200,17 +208,26 @@ function WinnersGrid({ days }: { days: DailyChampionsDayEntry[] }) {
             </span>
             {CATEGORIES.map((cat) => {
               const winner = d.winners?.[cat];
+              const value = d.winnerValues?.[cat] ?? null;
+              const unit = CATEGORY_UNITS[cat];
               return (
                 <span key={cat} style={styles.winnerCell}>
                   {winner ? (
-                    <a
-                      href={blockscoutAddressUrl(winner)}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      style={styles.addrLink}
-                    >
-                      {shortAddress(winner)}
-                    </a>
+                    <>
+                      <a
+                        href={blockscoutAddressUrl(winner)}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        style={styles.addrLink}
+                      >
+                        {shortAddress(winner)}
+                      </a>
+                      {value !== null && unit && (
+                        <span style={styles.metricValue}>
+                          · {value} {unit}
+                        </span>
+                      )}
+                    </>
                   ) : (
                     <span style={styles.crossRefNone}>—</span>
                   )}
@@ -363,6 +380,16 @@ const styles: Record<string, CSSProperties> = {
   },
   winnerCell: {
     minWidth: 0,
+    display: "flex",
+    alignItems: "baseline",
+    gap: "6px",
+    flexWrap: "wrap",
+  },
+  metricValue: {
+    color: "rgba(255,255,255,0.55)",
+    fontVariantNumeric: "tabular-nums",
+    fontSize: "11px",
+    whiteSpace: "nowrap",
   },
   crossRefCell: {
     display: "flex",

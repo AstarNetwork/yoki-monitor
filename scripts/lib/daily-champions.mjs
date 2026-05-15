@@ -65,6 +65,15 @@ export function buildTodayEntry(today) {
       matches: matchesTop[0]?.address ?? null,
       firstMatch: firstMatchEntry?.address ?? null,
     },
+    // Parallel structure mirroring the launch app's modal — surfaces the
+    // metric so operators see "11 wins" / "35 matches" alongside the
+    // winning address. firstMatch has no meaningful value (the API's
+    // metricValue is always 1 for "did the first match").
+    winnerValues: {
+      streak: streakTop[0]?.metricValue ?? null,
+      matches: matchesTop[0]?.metricValue ?? null,
+      firstMatch: null,
+    },
     top5: {
       streak: streakTop,
       matches: matchesTop,
@@ -85,12 +94,18 @@ export function applyYesterday(existingEntry, yesterday) {
     matches: typeof yesterday.matchesWinner === "string" ? yesterday.matchesWinner.toLowerCase() : null,
     firstMatch: typeof yesterday.firstMatchWinner === "string" ? yesterday.firstMatchWinner.toLowerCase() : null,
   };
+  const winnerValues = {
+    streak: typeof yesterday.streakValue === "number" ? yesterday.streakValue : null,
+    matches: typeof yesterday.matchesValue === "number" ? yesterday.matchesValue : null,
+    firstMatch: null,
+  };
 
   if (existingEntry) {
     return {
       ...existingEntry,
       day: yesterday.day,
       winners,
+      winnerValues,
       finalized: true,
       finalizedAt: yesterday.finalizedAt ?? existingEntry.finalizedAt ?? null,
     };
@@ -98,6 +113,7 @@ export function applyYesterday(existingEntry, yesterday) {
   return {
     day: yesterday.day,
     winners,
+    winnerValues,
     top5: { streak: [], matches: [], firstMatch: [] },
     finalized: true,
     finalizedAt: yesterday.finalizedAt ?? null,
