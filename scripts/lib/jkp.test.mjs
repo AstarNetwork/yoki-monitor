@@ -58,6 +58,45 @@ describe("applyEventToMatches", () => {
     });
   });
 
+  it("stamps createdAtTimestamp + resolvedAtTimestamp when a blockTimestamp is provided", () => {
+    const matches = {};
+    applyEventToMatches(
+      matches,
+      "MatchCreated",
+      log({ matchId: 9, blockNumber: 10, playerA: ALICE, offerAmount: TIER1 }),
+      1_778_700_000,
+    );
+    expect(matches["9"].createdAtTimestamp).toBe(1_778_700_000);
+
+    applyEventToMatches(matches, "MatchJoined", log({ matchId: 9, blockNumber: 11, playerB: BOB }), 1_778_700_120);
+    expect(matches["9"].createdAtTimestamp).toBe(1_778_700_000); // still set from create
+    expect(matches["9"].resolvedAtTimestamp).toBeUndefined();
+
+    applyEventToMatches(
+      matches,
+      "MatchResolved",
+      log({ matchId: 9, blockNumber: 12, winner: BOB, payout: 2n * TIER1 }),
+      1_778_700_240,
+    );
+    expect(matches["9"].resolvedAtTimestamp).toBe(1_778_700_240);
+  });
+
+  it("leaves timestamps undefined when blockTimestamp is not provided (back-compat)", () => {
+    const matches = {};
+    applyEventToMatches(
+      matches,
+      "MatchCreated",
+      log({ matchId: 10, blockNumber: 20, playerA: ALICE, offerAmount: TIER1 }),
+    );
+    applyEventToMatches(
+      matches,
+      "MatchResolved",
+      log({ matchId: 10, blockNumber: 21, winner: ALICE, payout: 2n * TIER1 }),
+    );
+    expect(matches["10"].createdAtTimestamp).toBeUndefined();
+    expect(matches["10"].resolvedAtTimestamp).toBeUndefined();
+  });
+
   it("re-applying a terminal event is idempotent", () => {
     const matches = {};
     applyEventToMatches(

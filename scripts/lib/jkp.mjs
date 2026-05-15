@@ -28,7 +28,14 @@ export const JKP_EVENT_LIST = Object.values(JKP_EVENTS);
 // Apply a single decoded event to the match index. Mutates `matches`
 // in place. Idempotency: a re-walked event lands on the same matchId
 // with the same terminal status, so re-application is safe.
-export function applyEventToMatches(matches, eventName, log) {
+//
+// `blockTimestamp` (Unix seconds, optional) lets the walker stamp the
+// match index with on-chain wall time. Used by walk-daily-champions.mjs
+// to derive `firstMatchResolvedAt` per day without RPC roundtrips per
+// tick. Pre-existing matches that were walked before this field
+// existed simply don't have it set — the derivation gracefully skips
+// matches with missing timestamps.
+export function applyEventToMatches(matches, eventName, log, blockTimestamp = null) {
   const matchId = log.args.matchId.toString();
   const existing = matches[matchId] ?? {
     matchId,
@@ -47,6 +54,7 @@ export function applyEventToMatches(matches, eventName, log) {
       existing.offerAmount = log.args.offerAmount.toString();
       existing.status = "created";
       existing.createdBlock = Number(log.blockNumber);
+      if (typeof blockTimestamp === "number") existing.createdAtTimestamp = blockTimestamp;
       break;
     case "MatchJoined":
       existing.playerB = log.args.playerB.toLowerCase();
@@ -60,18 +68,22 @@ export function applyEventToMatches(matches, eventName, log) {
       existing.winner = log.args.winner.toLowerCase();
       existing.status = "resolved";
       existing.resolvedBlock = Number(log.blockNumber);
+      if (typeof blockTimestamp === "number") existing.resolvedAtTimestamp = blockTimestamp;
       break;
     case "MatchDraw":
       existing.status = "draw";
       existing.resolvedBlock = Number(log.blockNumber);
+      if (typeof blockTimestamp === "number") existing.resolvedAtTimestamp = blockTimestamp;
       break;
     case "MatchCancelled":
       existing.status = "cancelled";
       existing.resolvedBlock = Number(log.blockNumber);
+      if (typeof blockTimestamp === "number") existing.resolvedAtTimestamp = blockTimestamp;
       break;
     case "MatchSwept":
       existing.status = "swept";
       existing.resolvedBlock = Number(log.blockNumber);
+      if (typeof blockTimestamp === "number") existing.resolvedAtTimestamp = blockTimestamp;
       break;
   }
 

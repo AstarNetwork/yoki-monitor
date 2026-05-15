@@ -47,6 +47,60 @@ export const BACKFILL_FIRST_MATCH_RESOLVED_AT = {
   "2026-05-15": 1778803489,
 };
 
+// Day-1 carve-out: campaign kickoff was shifted to 14:00 UTC instead of
+// 00:00 UTC on 2026-05-13, so the firstMatch window for Day 1 starts
+// 14h later than every other day. Codified here so the derivation
+// helper picks the right window without hardcoding strings elsewhere.
+export const DAY_1_DATE = "2026-05-13";
+export const DAY_1_KICKOFF_HOUR_UTC = 14;
+
+// Returns Unix seconds for the day's first-match eligibility window.
+// Days 2-21: midnight UTC of `day`. Day 1: 14:00 UTC of 2026-05-13.
+export function dayStartUnixSeconds(day) {
+  const midnight = Math.floor(Date.parse(`${day}T00:00:00Z`) / 1000);
+  if (day === DAY_1_DATE) return midnight + DAY_1_KICKOFF_HOUR_UTC * 3600;
+  return midnight;
+}
+
+// Derive `firstMatchResolvedAt` for each day where it's missing, using
+// the JKP match index that walk-jkp-events.mjs maintains. Returns the
+// `days` object for chaining. Skips days where the cron already
+// captured a value (from API) or applyBackfill already set one.
+//
+// Algorithm: for each day with winners.firstMatch set but no
+// firstMatchResolvedAt yet, find the earliest resolved/draw match in
+// jkp-matches.json where playerA === winners.firstMatch and the match's
+// resolvedAtTimestamp falls inside the day's UTC window. The DC
+// API's firstMatch winner is by definition playerA of the first
+// resolved/drawn match of the day, so this match-up should yield the
+// same timestamp Upstash would.
+export function deriveFirstMatchResolvedAt(days, jkpMatches) {
+  if (!jkpMatches) return days;
+
+  for (const entry of Object.values(days)) {
+    if (typeof entry.firstMatchResolvedAt === "number") continue;
+    const winner = entry.winners?.firstMatch;
+    if (!winner) continue;
+
+    const dayStart = dayStartUnixSeconds(entry.day);
+    const dayEnd = dayStart + 24 * 3600;
+    const winnerLower = winner.toLowerCase();
+
+    let earliest = null;
+    for (const match of Object.values(jkpMatches)) {
+      if (match.status !== "resolved" && match.status !== "draw") continue;
+      if (typeof match.resolvedAtTimestamp !== "number") continue;
+      if (match.playerA?.toLowerCase() !== winnerLower) continue;
+      if (match.resolvedAtTimestamp < dayStart || match.resolvedAtTimestamp >= dayEnd) continue;
+      if (earliest === null || match.resolvedAtTimestamp < earliest) {
+        earliest = match.resolvedAtTimestamp;
+      }
+    }
+    if (earliest !== null) entry.firstMatchResolvedAt = earliest;
+  }
+  return days;
+}
+
 // Apply hardcoded backfills onto a `days` object in place. Only fills
 // slots that are currently null/undefined — never overwrites a value
 // the cron captured naturally from the API.

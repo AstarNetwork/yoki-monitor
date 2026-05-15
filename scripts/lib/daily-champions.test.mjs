@@ -5,6 +5,8 @@ import {
   applyYesterday,
   buildTodayEntry,
   computeFrequencyTally,
+  dayStartUnixSeconds,
+  deriveFirstMatchResolvedAt,
   shouldRun,
   sliceTop,
 } from "./daily-champions.mjs";
@@ -278,5 +280,117 @@ describe("applyBackfill", () => {
     const days = {};
     applyBackfill(days, valuesBackfill, firstMatchBackfill);
     expect(days).toEqual({});
+  });
+});
+
+describe("dayStartUnixSeconds", () => {
+  it("returns midnight UTC for normal campaign days", () => {
+    expect(dayStartUnixSeconds("2026-05-14")).toBe(Date.UTC(2026, 4, 14, 0, 0, 0) / 1000);
+    expect(dayStartUnixSeconds("2026-06-02")).toBe(Date.UTC(2026, 5, 2, 0, 0, 0) / 1000);
+  });
+
+  it("shifts Day 1 (2026-05-13) start to 14:00 UTC per kickoff carve-out", () => {
+    expect(dayStartUnixSeconds("2026-05-13")).toBe(Date.UTC(2026, 4, 13, 14, 0, 0) / 1000);
+  });
+});
+
+describe("deriveFirstMatchResolvedAt", () => {
+  // Day 2026-05-15: midnight UTC = 1778803200 (Date.UTC(2026,4,15)/1000).
+  const DAY_15_START = Date.UTC(2026, 4, 15, 0, 0, 0) / 1000;
+  const DAY_15_END = DAY_15_START + 24 * 3600;
+
+  it("derives the earliest resolved-or-draw match for winner.firstMatch within the day window", () => {
+    const days = {
+      "2026-05-15": {
+        day: "2026-05-15",
+        winners: { streak: null, matches: null, firstMatch: A },
+        finalized: true,
+      },
+    };
+    const jkpMatches = {
+      1: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_15_START + 600 },
+      2: { playerA: A, status: "draw", resolvedAtTimestamp: DAY_15_START + 60 }, // earliest
+      3: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_15_START + 7200 },
+    };
+    deriveFirstMatchResolvedAt(days, jkpMatches);
+    expect(days["2026-05-15"].firstMatchResolvedAt).toBe(DAY_15_START + 60);
+  });
+
+  it("ignores matches whose playerA isn't the winner", () => {
+    const days = {
+      "2026-05-15": { day: "2026-05-15", winners: { firstMatch: A }, finalized: true },
+    };
+    const jkpMatches = {
+      1: { playerA: B, status: "resolved", resolvedAtTimestamp: DAY_15_START + 10 }, // wrong player
+      2: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_15_START + 60 },
+    };
+    deriveFirstMatchResolvedAt(days, jkpMatches);
+    expect(days["2026-05-15"].firstMatchResolvedAt).toBe(DAY_15_START + 60);
+  });
+
+  it("ignores cancelled / swept matches", () => {
+    const days = {
+      "2026-05-15": { day: "2026-05-15", winners: { firstMatch: A }, finalized: true },
+    };
+    const jkpMatches = {
+      1: { playerA: A, status: "cancelled", resolvedAtTimestamp: DAY_15_START + 10 },
+      2: { playerA: A, status: "swept", resolvedAtTimestamp: DAY_15_START + 20 },
+      3: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_15_START + 60 },
+    };
+    deriveFirstMatchResolvedAt(days, jkpMatches);
+    expect(days["2026-05-15"].firstMatchResolvedAt).toBe(DAY_15_START + 60);
+  });
+
+  it("ignores matches resolved outside the day window", () => {
+    const days = {
+      "2026-05-15": { day: "2026-05-15", winners: { firstMatch: A }, finalized: true },
+    };
+    const jkpMatches = {
+      1: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_15_START - 10 }, // before
+      2: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_15_END + 10 }, // after
+    };
+    deriveFirstMatchResolvedAt(days, jkpMatches);
+    expect(days["2026-05-15"].firstMatchResolvedAt).toBeUndefined();
+  });
+
+  it("skips matches with no resolvedAtTimestamp (pre-schema rows)", () => {
+    const days = {
+      "2026-05-15": { day: "2026-05-15", winners: { firstMatch: A }, finalized: true },
+    };
+    const jkpMatches = {
+      1: { playerA: A, status: "resolved" /* no timestamp */ },
+      2: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_15_START + 120 },
+    };
+    deriveFirstMatchResolvedAt(days, jkpMatches);
+    expect(days["2026-05-15"].firstMatchResolvedAt).toBe(DAY_15_START + 120);
+  });
+
+  it("does not overwrite a day that already has firstMatchResolvedAt", () => {
+    const days = {
+      "2026-05-15": {
+        day: "2026-05-15",
+        winners: { firstMatch: A },
+        finalized: true,
+        firstMatchResolvedAt: 9999999,
+      },
+    };
+    const jkpMatches = {
+      1: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_15_START + 10 },
+    };
+    deriveFirstMatchResolvedAt(days, jkpMatches);
+    expect(days["2026-05-15"].firstMatchResolvedAt).toBe(9999999);
+  });
+
+  it("uses 14:00 UTC start for Day 1 (2026-05-13) carve-out", () => {
+    const DAY_1_START = Date.UTC(2026, 4, 13, 14, 0, 0) / 1000;
+    const days = {
+      "2026-05-13": { day: "2026-05-13", winners: { firstMatch: A }, finalized: true },
+    };
+    const jkpMatches = {
+      1: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_1_START - 3600 }, // 13:00 — too early
+      2: { playerA: A, status: "resolved", resolvedAtTimestamp: DAY_1_START + 600 }, // 14:10 — qualifies
+    };
+    deriveFirstMatchResolvedAt(days, jkpMatches);
+    expect(days["2026-05-13"].firstMatchResolvedAt).toBe(DAY_1_START + 600);
   });
 });
