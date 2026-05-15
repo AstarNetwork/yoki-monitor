@@ -22,6 +22,34 @@ export const GRACE_DAYS_AFTER_END = 1;
 export const TOP_K = 5;
 export const CATEGORIES = ["streak", "matches", "firstMatch"];
 
+// Hardcoded metric values for days that finalized before yoki-monitor's
+// cron + the winnerValues schema were both in place. The launch API
+// drops the top list once a day rolls over to `yesterday`, and there's
+// no public per-date route, so these can't be re-derived from public
+// endpoints. Values pulled by the operator via Upstash console:
+// `GET dc:day:2026-05-13:winners` → streakValue=6, matchesValue=24.
+// firstMatch is binary, no value to backfill.
+export const BACKFILL_WINNER_VALUES = {
+  "2026-05-13": { streak: 6, matches: 24, firstMatch: null },
+};
+
+// Apply hardcoded backfills onto a `days` object in place. Only fills
+// `winnerValues` slots that are currently null/undefined — never
+// overwrites a value the cron captured naturally from the API.
+export function applyBackfill(days, backfill = BACKFILL_WINNER_VALUES) {
+  for (const [day, values] of Object.entries(backfill)) {
+    const entry = days[day];
+    if (!entry) continue;
+    const existing = entry.winnerValues ?? { streak: null, matches: null, firstMatch: null };
+    entry.winnerValues = {
+      streak: existing.streak ?? values.streak ?? null,
+      matches: existing.matches ?? values.matches ?? null,
+      firstMatch: existing.firstMatch ?? values.firstMatch ?? null,
+    };
+  }
+  return days;
+}
+
 // Returns true if the cron should write today. Outside the campaign window
 // (with a 1-day grace after end to capture the final finalization tick) the
 // cron exits as a no-op so the JSONL stays frozen for historical use.
