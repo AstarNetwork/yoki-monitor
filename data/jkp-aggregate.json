@@ -1,8 +1,8 @@
 {
-  "lastUpdatedBlock": "22905647",
-  "lastUpdatedAt": "2026-05-16T15:40:47.588Z",
-  "matchCount": 1220,
-  "addressCount": 609,
+  "lastUpdatedBlock": "22907246",
+  "lastUpdatedAt": "2026-05-16T16:34:05.502Z",
+  "matchCount": 1222,
+  "addressCount": 612,
   "rows": [
     {
       "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
@@ -205,6 +205,16 @@
       "winRate": 0.25
     },
     {
+      "address": "0x1792dc59e1280e6d4a29d45e005a48363d6d252b",
+      "wins": 4,
+      "losses": 5,
+      "draws": 3,
+      "matches": 12,
+      "volumeAstrWei": "1200000000000000000000",
+      "uniqueOpponents": 10,
+      "winRate": 0.3333333333333333
+    },
+    {
       "address": "0x5bf33e91af44e19f91fd44f5378ced3f269c5600",
       "wins": 3,
       "losses": 3,
@@ -252,16 +262,6 @@
       "matches": 11,
       "volumeAstrWei": "1100000000000000000000",
       "uniqueOpponents": 8,
-      "winRate": 0.2727272727272727
-    },
-    {
-      "address": "0x1792dc59e1280e6d4a29d45e005a48363d6d252b",
-      "wins": 3,
-      "losses": 5,
-      "draws": 3,
-      "matches": 11,
-      "volumeAstrWei": "1100000000000000000000",
-      "uniqueOpponents": 9,
       "winRate": 0.2727272727272727
     },
     {
@@ -6093,6 +6093,36 @@
       "volumeAstrWei": "100000000000000000000",
       "uniqueOpponents": 1,
       "winRate": 0
+    },
+    {
+      "address": "0xebb7c01caac61258266e661c2e1b90de67406594",
+      "wins": 0,
+      "losses": 1,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x3ccc2715ee34ac515da2bf763082d59113ff34a9",
+      "wins": 0,
+      "losses": 1,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x98ecd9460db395e6bab4acc25ec358ded99c8028",
+      "wins": 1,
+      "losses": 0,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 1
     }
   ]
 }
