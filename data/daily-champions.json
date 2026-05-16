@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-16T02:37:31.203Z",
+  "lastUpdatedAt": "2026-05-16T05:51:31.550Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -163,28 +163,45 @@
     "2026-05-16": {
       "day": "2026-05-16",
       "winners": {
-        "streak": null,
+        "streak": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
         "matches": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
         "firstMatch": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476"
       },
       "winnerValues": {
-        "streak": null,
-        "matches": 9,
+        "streak": 9,
+        "matches": 17,
         "firstMatch": null
       },
       "top5": {
-        "streak": [],
-        "matches": [
+        "streak": [
           {
             "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
             "metricValue": 9
           },
           {
-            "address": "0x5ea62391d3b3977ae7b833da362636d7f82bb588",
+            "address": "0x7dc1986efb778a79d4e8e5d48384a26cef7b52dc",
+            "metricValue": 3
+          }
+        ],
+        "matches": [
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 17
+          },
+          {
+            "address": "0x7a0dd99eab8c05049c99dbe0befad4144405cd65",
             "metricValue": 3
           },
           {
-            "address": "0x13b9f84746321884b39aecfa2e4737a197044475",
+            "address": "0x186ae82f203d8112bf713f8220db76a6fbbfbb75",
+            "metricValue": 3
+          },
+          {
+            "address": "0xd545ebcd591fc115570e8f7361f85fb66ba8bdcb",
+            "metricValue": 3
+          },
+          {
+            "address": "0x94277d03687c2e91fdbb79cc463ab1e510e98450",
             "metricValue": 3
           }
         ],
