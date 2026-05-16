@@ -1,8 +1,8 @@
 {
-  "lastUpdatedBlock": "22907246",
-  "lastUpdatedAt": "2026-05-16T16:34:05.502Z",
-  "matchCount": 1222,
-  "addressCount": 612,
+  "lastUpdatedBlock": "22908992",
+  "lastUpdatedAt": "2026-05-16T17:32:16.649Z",
+  "matchCount": 1226,
+  "addressCount": 614,
   "rows": [
     {
       "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
@@ -1013,6 +1013,16 @@
       "volumeAstrWei": "400000000000000000000",
       "uniqueOpponents": 3,
       "winRate": 0.5
+    },
+    {
+      "address": "0x98ecd9460db395e6bab4acc25ec358ded99c8028",
+      "wins": 3,
+      "losses": 0,
+      "draws": 1,
+      "matches": 4,
+      "volumeAstrWei": "400000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.75
     },
     {
       "address": "0x689647ee88cb64f3255c072ac9adc3443485c0b7",
@@ -3255,6 +3265,16 @@
       "winRate": 0.3333333333333333
     },
     {
+      "address": "0x16e7819f9b28b9a55104d17e5bb0a1f85542ec23",
+      "wins": 0,
+      "losses": 2,
+      "draws": 1,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
       "address": "0xf546bda9e1f7be1ef21ab61ec29a9f50ea3fa704",
       "wins": 1,
       "losses": 0,
@@ -4503,6 +4523,16 @@
       "volumeAstrWei": "200000000000000000000",
       "uniqueOpponents": 2,
       "winRate": 0
+    },
+    {
+      "address": "0x3fb9ac537e4ca17e5d748b606a6dc4bb0ebd6c9e",
+      "wins": 1,
+      "losses": 1,
+      "draws": 0,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.5
     },
     {
       "address": "0x5322fdacbbf55eda3da61eeb2bd560eba9c768d8",
@@ -5795,16 +5825,6 @@
       "winRate": 0
     },
     {
-      "address": "0x3fb9ac537e4ca17e5d748b606a6dc4bb0ebd6c9e",
-      "wins": 1,
-      "losses": 0,
-      "draws": 0,
-      "matches": 1,
-      "volumeAstrWei": "100000000000000000000",
-      "uniqueOpponents": 1,
-      "winRate": 1
-    },
-    {
       "address": "0xdc8cc2ed8c20ad305a5e467625b6bdfcfeb95769",
       "wins": 1,
       "losses": 0,
@@ -6115,7 +6135,7 @@
       "winRate": 0
     },
     {
-      "address": "0x98ecd9460db395e6bab4acc25ec358ded99c8028",
+      "address": "0x6fe8123a6230fb7c5dfe6801befb5cbe9024ebcf",
       "wins": 1,
       "losses": 0,
       "draws": 0,
