@@ -2,15 +2,29 @@
   "flagged": [
     {
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
-      "addressB": "0x93aab9153597dee3537f550ead5fd3dc0c716e7e",
-      "flaggedAt": "2026-05-15T22:33:13.041Z",
-      "lastSeenAt": "2026-05-16T18:32:21.849Z",
+      "addressB": "0x2355253d6f105fe404d3f8b15957197abc5bfd3f",
+      "flaggedAt": "2026-05-16T19:40:38.656Z",
+      "lastSeenAt": "2026-05-16T19:40:38.656Z",
       "cleared": false,
       "evidence": {
-        "count": 12,
-        "matchesA": 44,
+        "count": 10,
+        "matchesA": 51,
         "matchesB": 12,
-        "shareA": 0.273,
+        "shareA": 0.196,
+        "shareB": 0.833
+      }
+    },
+    {
+      "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
+      "addressB": "0x93aab9153597dee3537f550ead5fd3dc0c716e7e",
+      "flaggedAt": "2026-05-15T22:33:13.041Z",
+      "lastSeenAt": "2026-05-16T19:40:38.656Z",
+      "cleared": false,
+      "evidence": {
+        "count": 14,
+        "matchesA": 51,
+        "matchesB": 14,
+        "shareA": 0.275,
         "shareB": 1
       }
     },
@@ -18,14 +32,14 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xb8eaf50a577c536f89145254745e6c188136b967",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
-      "lastSeenAt": "2026-05-16T18:32:21.849Z",
+      "lastSeenAt": "2026-05-16T19:40:38.656Z",
       "cleared": false,
       "evidence": {
-        "count": 14,
-        "matchesA": 44,
-        "matchesB": 15,
-        "shareA": 0.318,
-        "shareB": 0.933
+        "count": 16,
+        "matchesA": 51,
+        "matchesB": 17,
+        "shareA": 0.314,
+        "shareB": 0.941
       }
     },
     {
@@ -40,11 +54,11 @@
         "shareA": 0.096,
         "shareB": 0.5
       },
-      "lastSeenAt": "2026-05-16T18:32:21.849Z"
+      "lastSeenAt": "2026-05-16T19:40:38.656Z"
     }
   ],
-  "lastUpdatedBlock": "22910794",
-  "lastUpdatedAt": "2026-05-16T18:32:21.849Z",
+  "lastUpdatedBlock": "22912842",
+  "lastUpdatedAt": "2026-05-16T19:40:38.656Z",
   "thresholds": {
     "minCount": 10,
     "minShare": 0.5
