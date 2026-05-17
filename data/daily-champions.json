@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-17T20:12:31.313Z",
+  "lastUpdatedAt": "2026-05-17T21:14:31.954Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -269,20 +269,20 @@
             "metricValue": 71
           },
           {
-            "address": "0xdfab8f7dcf7aaaed0b1f131e34cf14dd7c634bbb",
-            "metricValue": 23
+            "address": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
+            "metricValue": 30
           },
           {
-            "address": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
-            "metricValue": 16
+            "address": "0xdfab8f7dcf7aaaed0b1f131e34cf14dd7c634bbb",
+            "metricValue": 26
           },
           {
             "address": "0x7d7b051babf5191b740c138686b85026aee00567",
             "metricValue": 9
           },
           {
-            "address": "0x339cbd443017bcfa97133ed4df7049a897c9a98c",
-            "metricValue": 8
+            "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
+            "metricValue": 9
           }
         ],
         "firstMatch": [
