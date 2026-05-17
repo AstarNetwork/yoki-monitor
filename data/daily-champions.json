@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-17T19:07:50.837Z",
+  "lastUpdatedAt": "2026-05-17T20:12:31.313Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -231,17 +231,25 @@
     "2026-05-17": {
       "day": "2026-05-17",
       "winners": {
-        "streak": "0xdfab8f7dcf7aaaed0b1f131e34cf14dd7c634bbb",
+        "streak": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
         "matches": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
         "firstMatch": "0x5470fd1b3c230bb9719d3c2500bb4b0a4eee8a01"
       },
       "winnerValues": {
-        "streak": 4,
-        "matches": 59,
+        "streak": 6,
+        "matches": 71,
         "firstMatch": null
       },
       "top5": {
         "streak": [
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 6
+          },
+          {
+            "address": "0xa78c4960e4433df008b7098ed9437f49410e5864",
+            "metricValue": 5
+          },
           {
             "address": "0xdfab8f7dcf7aaaed0b1f131e34cf14dd7c634bbb",
             "metricValue": 4
@@ -251,25 +259,21 @@
             "metricValue": 4
           },
           {
-            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
-            "metricValue": 4
-          },
-          {
             "address": "0xa8c5b7fbd2dd604b5eb789e26978bc22f3288328",
             "metricValue": 4
-          },
-          {
-            "address": "0x9a769bfc0394f3d0732c9e040ccd38505d0cf9fb",
-            "metricValue": 3
           }
         ],
         "matches": [
           {
             "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
-            "metricValue": 59
+            "metricValue": 71
           },
           {
             "address": "0xdfab8f7dcf7aaaed0b1f131e34cf14dd7c634bbb",
+            "metricValue": 23
+          },
+          {
+            "address": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
             "metricValue": 16
           },
           {
@@ -279,10 +283,6 @@
           {
             "address": "0x339cbd443017bcfa97133ed4df7049a897c9a98c",
             "metricValue": 8
-          },
-          {
-            "address": "0xee2c8c49229d0343ec69d8d573a75693231cad69",
-            "metricValue": 7
           }
         ],
         "firstMatch": [
