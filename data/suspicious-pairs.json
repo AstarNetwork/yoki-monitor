@@ -4,13 +4,13 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x2355253d6f105fe404d3f8b15957197abc5bfd3f",
       "flaggedAt": "2026-05-16T19:40:38.656Z",
-      "lastSeenAt": "2026-05-17T20:11:06.925Z",
+      "lastSeenAt": "2026-05-17T21:07:45.922Z",
       "cleared": false,
       "evidence": {
         "count": 14,
-        "matchesA": 121,
+        "matchesA": 138,
         "matchesB": 17,
-        "shareA": 0.116,
+        "shareA": 0.101,
         "shareB": 0.824
       }
     },
@@ -18,28 +18,28 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x93aab9153597dee3537f550ead5fd3dc0c716e7e",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
-      "lastSeenAt": "2026-05-17T20:11:06.925Z",
+      "lastSeenAt": "2026-05-17T21:07:45.922Z",
       "cleared": false,
       "evidence": {
-        "count": 19,
-        "matchesA": 121,
-        "matchesB": 21,
-        "shareA": 0.157,
-        "shareB": 0.905
+        "count": 20,
+        "matchesA": 138,
+        "matchesB": 22,
+        "shareA": 0.145,
+        "shareB": 0.909
       }
     },
     {
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xb8eaf50a577c536f89145254745e6c188136b967",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
-      "lastSeenAt": "2026-05-17T20:11:06.925Z",
+      "lastSeenAt": "2026-05-17T21:07:45.922Z",
       "cleared": false,
       "evidence": {
-        "count": 19,
-        "matchesA": 121,
-        "matchesB": 25,
-        "shareA": 0.157,
-        "shareB": 0.76
+        "count": 20,
+        "matchesA": 138,
+        "matchesB": 26,
+        "shareA": 0.145,
+        "shareB": 0.769
       }
     },
     {
@@ -54,11 +54,11 @@
         "shareA": 0.096,
         "shareB": 0.5
       },
-      "lastSeenAt": "2026-05-17T20:11:06.925Z"
+      "lastSeenAt": "2026-05-17T21:07:45.922Z"
     }
   ],
-  "lastUpdatedBlock": "22956957",
-  "lastUpdatedAt": "2026-05-17T20:11:06.925Z",
+  "lastUpdatedBlock": "22958656",
+  "lastUpdatedAt": "2026-05-17T21:07:45.922Z",
   "thresholds": {
     "minCount": 10,
     "minShare": 0.5
