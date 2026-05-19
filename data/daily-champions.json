@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-18T22:58:01.526Z",
+  "lastUpdatedAt": "2026-05-19T00:12:33.076Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -360,19 +360,64 @@
           }
         ]
       },
-      "finalized": false,
-      "firstMatchResolvedAt": 1779062613
+      "finalized": true,
+      "firstMatchResolvedAt": 1779062613,
+      "finalizedAt": 1779149235
+    },
+    "2026-05-19": {
+      "day": "2026-05-19",
+      "winners": {
+        "streak": null,
+        "matches": null,
+        "firstMatch": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476"
+      },
+      "winnerValues": {
+        "streak": null,
+        "matches": null,
+        "firstMatch": null
+      },
+      "top5": {
+        "streak": [],
+        "matches": [],
+        "firstMatch": [
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 1
+          }
+        ]
+      },
+      "finalized": false
     }
   },
   "frequencyTally": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
-      "top5Days": 4,
-      "winDays": 2,
+      "top5Days": 5,
+      "winDays": 4,
       "perCategory": {
         "streak": 3,
-        "matches": 3,
+        "matches": 4,
+        "firstMatch": 2
+      }
+    },
+    {
+      "address": "0x857bea806cb81f00d8c1d0b06858cd7dd37b5307",
+      "top5Days": 4,
+      "winDays": 1,
+      "perCategory": {
+        "streak": 2,
+        "matches": 4,
         "firstMatch": 1
+      }
+    },
+    {
+      "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
+      "top5Days": 4,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 2,
+        "matches": 4,
+        "firstMatch": 0
       }
     },
     {
@@ -382,26 +427,6 @@
       "perCategory": {
         "streak": 3,
         "matches": 2,
-        "firstMatch": 0
-      }
-    },
-    {
-      "address": "0x857bea806cb81f00d8c1d0b06858cd7dd37b5307",
-      "top5Days": 3,
-      "winDays": 1,
-      "perCategory": {
-        "streak": 2,
-        "matches": 3,
-        "firstMatch": 1
-      }
-    },
-    {
-      "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
-      "top5Days": 3,
-      "winDays": 0,
-      "perCategory": {
-        "streak": 2,
-        "matches": 3,
         "firstMatch": 0
       }
     },
@@ -432,6 +457,16 @@
       "perCategory": {
         "streak": 0,
         "matches": 1,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0x35891bc81348949847a5c49eaecb93ef1c134bc4",
+      "top5Days": 1,
+      "winDays": 1,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
         "firstMatch": 0
       }
     },
@@ -477,6 +512,16 @@
     },
     {
       "address": "0x429f4fe20043383ae74cf0578f81fd13c8b7d2f2",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0x47cc5e30a7cd7b69ef5ed4ed871a093e443bcc44",
       "top5Days": 1,
       "winDays": 0,
       "perCategory": {
@@ -536,7 +581,27 @@
       }
     },
     {
+      "address": "0xae905eb056b54eadbc7ded38a14d581ddf5e62d2",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
+        "firstMatch": 0
+      }
+    },
+    {
       "address": "0xc9d6cd38fe1ad516a65a2c02408f85ef8936117a",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0xd631fc116d8c7290bbccd7e22b8679c895f15e2d",
       "top5Days": 1,
       "winDays": 0,
       "perCategory": {
@@ -551,6 +616,26 @@
       "winDays": 0,
       "perCategory": {
         "streak": 1,
+        "matches": 1,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0xf41556884d8f749e8b41b0c2c36c13e2ea04474c",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 1,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0xf78effcd03cb09d9baea9dcbd35134a8a17e8ab4",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 0,
         "matches": 1,
         "firstMatch": 0
       }
