@@ -4,7 +4,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x2355253d6f105fe404d3f8b15957197abc5bfd3f",
       "flaggedAt": "2026-05-16T19:40:38.656Z",
-      "lastSeenAt": "2026-05-19T11:46:54.510Z",
+      "lastSeenAt": "2026-05-19T14:18:01.484Z",
       "cleared": false,
       "evidence": {
         "count": 19,
@@ -18,7 +18,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x93aab9153597dee3537f550ead5fd3dc0c716e7e",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
-      "lastSeenAt": "2026-05-19T11:46:54.510Z",
+      "lastSeenAt": "2026-05-19T14:18:01.484Z",
       "cleared": false,
       "evidence": {
         "count": 25,
@@ -32,7 +32,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xb8eaf50a577c536f89145254745e6c188136b967",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
-      "lastSeenAt": "2026-05-19T11:46:54.510Z",
+      "lastSeenAt": "2026-05-19T14:18:01.484Z",
       "cleared": false,
       "evidence": {
         "count": 24,
@@ -46,7 +46,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xfef20434460ad716d00ad42451e5988f35b99817",
       "flaggedAt": "2026-05-18T17:38:11.008Z",
-      "lastSeenAt": "2026-05-19T11:46:54.510Z",
+      "lastSeenAt": "2026-05-19T14:18:01.484Z",
       "cleared": false,
       "evidence": {
         "count": 10,
@@ -68,11 +68,11 @@
         "shareA": 0.096,
         "shareB": 0.5
       },
-      "lastSeenAt": "2026-05-19T11:46:54.510Z"
+      "lastSeenAt": "2026-05-19T14:18:01.484Z"
     }
   ],
-  "lastUpdatedBlock": "23028229",
-  "lastUpdatedAt": "2026-05-19T11:46:54.510Z",
+  "lastUpdatedBlock": "23032763",
+  "lastUpdatedAt": "2026-05-19T14:18:01.484Z",
   "thresholds": {
     "minCount": 10,
     "minShare": 0.5
