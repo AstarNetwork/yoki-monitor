@@ -4,7 +4,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x0a8510fc0264c9302d53c189f6c7c4038dd3bfce",
       "flaggedAt": "2026-05-19T20:53:02.517Z",
-      "lastSeenAt": "2026-05-19T23:08:52.499Z",
+      "lastSeenAt": "2026-05-20T00:16:37.056Z",
       "cleared": false,
       "evidence": {
         "count": 10,
@@ -18,7 +18,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x2355253d6f105fe404d3f8b15957197abc5bfd3f",
       "flaggedAt": "2026-05-16T19:40:38.656Z",
-      "lastSeenAt": "2026-05-19T23:08:52.499Z",
+      "lastSeenAt": "2026-05-20T00:16:37.056Z",
       "cleared": false,
       "evidence": {
         "count": 21,
@@ -32,7 +32,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x93aab9153597dee3537f550ead5fd3dc0c716e7e",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
-      "lastSeenAt": "2026-05-19T23:08:52.499Z",
+      "lastSeenAt": "2026-05-20T00:16:37.056Z",
       "cleared": false,
       "evidence": {
         "count": 27,
@@ -46,7 +46,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x9412c85a9dd5653d97f276bc86e33ef86f7b85a7",
       "flaggedAt": "2026-05-19T20:53:02.517Z",
-      "lastSeenAt": "2026-05-19T23:08:52.499Z",
+      "lastSeenAt": "2026-05-20T00:16:37.056Z",
       "cleared": false,
       "evidence": {
         "count": 10,
@@ -60,7 +60,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xb8eaf50a577c536f89145254745e6c188136b967",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
-      "lastSeenAt": "2026-05-19T23:08:52.499Z",
+      "lastSeenAt": "2026-05-20T00:16:37.056Z",
       "cleared": false,
       "evidence": {
         "count": 26,
@@ -74,7 +74,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xe5f0a873ba0f22c25174a4191b703a3154efc376",
       "flaggedAt": "2026-05-19T20:53:02.517Z",
-      "lastSeenAt": "2026-05-19T23:08:52.499Z",
+      "lastSeenAt": "2026-05-20T00:16:37.056Z",
       "cleared": false,
       "evidence": {
         "count": 10,
@@ -88,7 +88,7 @@
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xfef20434460ad716d00ad42451e5988f35b99817",
       "flaggedAt": "2026-05-18T17:38:11.008Z",
-      "lastSeenAt": "2026-05-19T23:08:52.499Z",
+      "lastSeenAt": "2026-05-20T00:16:37.056Z",
       "cleared": false,
       "evidence": {
         "count": 12,
@@ -96,6 +96,20 @@
         "matchesB": 21,
         "shareA": 0.048,
         "shareB": 0.571
+      }
+    },
+    {
+      "addressA": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+      "addressB": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+      "flaggedAt": "2026-05-20T00:16:37.056Z",
+      "lastSeenAt": "2026-05-20T00:16:37.056Z",
+      "cleared": false,
+      "evidence": {
+        "count": 12,
+        "matchesA": 367,
+        "matchesB": 23,
+        "shareA": 0.033,
+        "shareB": 0.522
       }
     },
     {
@@ -110,11 +124,11 @@
         "shareA": 0.096,
         "shareB": 0.5
       },
-      "lastSeenAt": "2026-05-19T23:08:52.499Z"
+      "lastSeenAt": "2026-05-20T00:16:37.056Z"
     }
   ],
-  "lastUpdatedBlock": "23048690",
-  "lastUpdatedAt": "2026-05-19T23:08:52.499Z",
+  "lastUpdatedBlock": "23050722",
+  "lastUpdatedAt": "2026-05-20T00:16:37.056Z",
   "thresholds": {
     "minCount": 10,
     "minShare": 0.5
