@@ -1,18 +1,18 @@
 {
-  "lastUpdatedBlock": "23058568",
-  "lastUpdatedAt": "2026-05-20T04:38:12.971Z",
-  "matchCount": 2385,
-  "addressCount": 1079,
+  "lastUpdatedBlock": "23064731",
+  "lastUpdatedAt": "2026-05-20T08:03:41.426Z",
+  "matchCount": 2457,
+  "addressCount": 1109,
   "rows": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
-      "wins": 123,
-      "losses": 75,
-      "draws": 178,
-      "matches": 376,
-      "volumeAstrWei": "37600000000000000000000",
-      "uniqueOpponents": 183,
-      "winRate": 0.3271276595744681
+      "wins": 130,
+      "losses": 81,
+      "draws": 193,
+      "matches": 404,
+      "volumeAstrWei": "40400000000000000000000",
+      "uniqueOpponents": 192,
+      "winRate": 0.3217821782178218
     },
     {
       "address": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
@@ -28,11 +28,11 @@
       "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
       "wins": 50,
       "losses": 43,
-      "draws": 85,
-      "matches": 178,
-      "volumeAstrWei": "17800000000000000000000",
-      "uniqueOpponents": 90,
-      "winRate": 0.2808988764044944
+      "draws": 86,
+      "matches": 179,
+      "volumeAstrWei": "17900000000000000000000",
+      "uniqueOpponents": 91,
+      "winRate": 0.27932960893854747
     },
     {
       "address": "0x37ea877dd09d2ba06578974d66cba8e219337e94",
@@ -75,6 +75,16 @@
       "winRate": 0.3142857142857143
     },
     {
+      "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+      "wins": 23,
+      "losses": 14,
+      "draws": 19,
+      "matches": 56,
+      "volumeAstrWei": "5600000000000000000000",
+      "uniqueOpponents": 27,
+      "winRate": 0.4107142857142857
+    },
+    {
       "address": "0x04278b2ab342503668a5ff3bbeac27e44f437eea",
       "wins": 13,
       "losses": 11,
@@ -95,6 +105,16 @@
       "winRate": 0.06976744186046512
     },
     {
+      "address": "0xefb96af308ec32f19fb214ff8483a4ce738482d3",
+      "wins": 8,
+      "losses": 8,
+      "draws": 21,
+      "matches": 37,
+      "volumeAstrWei": "3700000000000000000000",
+      "uniqueOpponents": 21,
+      "winRate": 0.21621621621621623
+    },
+    {
       "address": "0xb8eaf50a577c536f89145254745e6c188136b967",
       "wins": 3,
       "losses": 9,
@@ -103,16 +123,6 @@
       "volumeAstrWei": "6100000000000000000000",
       "uniqueOpponents": 8,
       "winRate": 0.09090909090909091
-    },
-    {
-      "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
-      "wins": 14,
-      "losses": 5,
-      "draws": 13,
-      "matches": 32,
-      "volumeAstrWei": "3200000000000000000000",
-      "uniqueOpponents": 14,
-      "winRate": 0.4375
     },
     {
       "address": "0x5ea62391d3b3977ae7b833da362636d7f82bb588",
@@ -125,14 +135,14 @@
       "winRate": 0.1935483870967742
     },
     {
-      "address": "0xefb96af308ec32f19fb214ff8483a4ce738482d3",
-      "wins": 7,
-      "losses": 5,
-      "draws": 19,
-      "matches": 31,
-      "volumeAstrWei": "3100000000000000000000",
-      "uniqueOpponents": 18,
-      "winRate": 0.22580645161290322
+      "address": "0xb951a2307b893543587f5798a17d61112102f496",
+      "wins": 6,
+      "losses": 7,
+      "draws": 17,
+      "matches": 30,
+      "volumeAstrWei": "3000000000000000000000",
+      "uniqueOpponents": 14,
+      "winRate": 0.2
     },
     {
       "address": "0xdfab8f7dcf7aaaed0b1f131e34cf14dd7c634bbb",
@@ -163,16 +173,6 @@
       "volumeAstrWei": "7300000000000000000000",
       "uniqueOpponents": 6,
       "winRate": 0.06896551724137931
-    },
-    {
-      "address": "0xb951a2307b893543587f5798a17d61112102f496",
-      "wins": 6,
-      "losses": 6,
-      "draws": 13,
-      "matches": 25,
-      "volumeAstrWei": "2500000000000000000000",
-      "uniqueOpponents": 13,
-      "winRate": 0.24
     },
     {
       "address": "0x83f0ba4af202af1764a8edc50a9dc0e341b98f25",
@@ -473,6 +473,16 @@
       "volumeAstrWei": "1000000000000000000000",
       "uniqueOpponents": 7,
       "winRate": 0.4
+    },
+    {
+      "address": "0xae6362e5ffffcb5b5e2c8d54fcf1ec5585df0cd0",
+      "wins": 2,
+      "losses": 5,
+      "draws": 3,
+      "matches": 10,
+      "volumeAstrWei": "1000000000000000000000",
+      "uniqueOpponents": 8,
+      "winRate": 0.2
     },
     {
       "address": "0xf78effcd03cb09d9baea9dcbd35134a8a17e8ab4",
@@ -1045,16 +1055,6 @@
       "winRate": 0.4
     },
     {
-      "address": "0xae6362e5ffffcb5b5e2c8d54fcf1ec5585df0cd0",
-      "wins": 0,
-      "losses": 4,
-      "draws": 1,
-      "matches": 5,
-      "volumeAstrWei": "500000000000000000000",
-      "uniqueOpponents": 5,
-      "winRate": 0
-    },
-    {
       "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
       "wins": 2,
       "losses": 1,
@@ -1112,6 +1112,16 @@
       "matches": 5,
       "volumeAstrWei": "500000000000000000000",
       "uniqueOpponents": 4,
+      "winRate": 0
+    },
+    {
+      "address": "0xdba62494fe6beb52ec6681dbc9578c4ab14d032c",
+      "wins": 0,
+      "losses": 1,
+      "draws": 4,
+      "matches": 5,
+      "volumeAstrWei": "500000000000000000000",
+      "uniqueOpponents": 3,
       "winRate": 0
     },
     {
@@ -1893,6 +1903,26 @@
       "volumeAstrWei": "400000000000000000000",
       "uniqueOpponents": 3,
       "winRate": 0
+    },
+    {
+      "address": "0xefc6c77a19757f6ecc3bd2d2ca02dc9403e901b2",
+      "wins": 0,
+      "losses": 1,
+      "draws": 3,
+      "matches": 4,
+      "volumeAstrWei": "400000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0
+    },
+    {
+      "address": "0xc6b3e19259ea039f2d95be22307ef0c08c93c595",
+      "wins": 1,
+      "losses": 0,
+      "draws": 3,
+      "matches": 4,
+      "volumeAstrWei": "400000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.25
     },
     {
       "address": "0x689647ee88cb64f3255c072ac9adc3443485c0b7",
@@ -6345,6 +6375,146 @@
       "winRate": 0.3333333333333333
     },
     {
+      "address": "0xb1a147417c4bb5e798e8260f3596254915b1dbda",
+      "wins": 2,
+      "losses": 1,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0.6666666666666666
+    },
+    {
+      "address": "0xc5ae8ecbdf5b2188b3ac49b4192d338787f0ff5b",
+      "wins": 0,
+      "losses": 0,
+      "draws": 3,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0
+    },
+    {
+      "address": "0x02601e2d9ea4ed36c7a4232ee09caf5fb346a7fe",
+      "wins": 1,
+      "losses": 1,
+      "draws": 1,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0.3333333333333333
+    },
+    {
+      "address": "0x2e5a083c364c2e3cef64584beba954cf061d1cc4",
+      "wins": 2,
+      "losses": 0,
+      "draws": 1,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0.6666666666666666
+    },
+    {
+      "address": "0xf2642d6c2de39ad466261eb9e81e77bb3a98add4",
+      "wins": 2,
+      "losses": 1,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0.6666666666666666
+    },
+    {
+      "address": "0x93e79858af80c3fdedddd445437c73a50f556498",
+      "wins": 0,
+      "losses": 1,
+      "draws": 2,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0
+    },
+    {
+      "address": "0x1e309e69acab699e3e776495f49872c68fe20724",
+      "wins": 1,
+      "losses": 1,
+      "draws": 1,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0.3333333333333333
+    },
+    {
+      "address": "0x47d0e99771cd28b46f95993cc82e1774ef80ffce",
+      "wins": 1,
+      "losses": 0,
+      "draws": 2,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0.3333333333333333
+    },
+    {
+      "address": "0xe31242f76109bcdb37b7d7ea18cfd6bef5bc9387",
+      "wins": 0,
+      "losses": 0,
+      "draws": 3,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0
+    },
+    {
+      "address": "0xa87ecbafb751bcaeeb99764bee4b6bf4fcc251ad",
+      "wins": 0,
+      "losses": 0,
+      "draws": 3,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0
+    },
+    {
+      "address": "0x2afc8c433e32b76d018837849283e7ef8312bbe9",
+      "wins": 0,
+      "losses": 2,
+      "draws": 1,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0
+    },
+    {
+      "address": "0x873c89805027eb0f7d416b9538a52ee6073d55f4",
+      "wins": 1,
+      "losses": 1,
+      "draws": 1,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0.3333333333333333
+    },
+    {
+      "address": "0xe440a212d83b6c2ada4d431817aa6bbf9429dd9e",
+      "wins": 2,
+      "losses": 0,
+      "draws": 1,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.6666666666666666
+    },
+    {
+      "address": "0x7abd75eb52b9924dd36d910ab731b39356d06cfd",
+      "wins": 1,
+      "losses": 1,
+      "draws": 1,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0.3333333333333333
+    },
+    {
       "address": "0xf546bda9e1f7be1ef21ab61ec29a9f50ea3fa704",
       "wins": 1,
       "losses": 0,
@@ -9265,16 +9435,6 @@
       "winRate": 0.5
     },
     {
-      "address": "0xb1a147417c4bb5e798e8260f3596254915b1dbda",
-      "wins": 1,
-      "losses": 1,
-      "draws": 0,
-      "matches": 2,
-      "volumeAstrWei": "200000000000000000000",
-      "uniqueOpponents": 2,
-      "winRate": 0.5
-    },
-    {
       "address": "0x346ea5d827941bba9eaf671827f1691ed3eab4b7",
       "wins": 1,
       "losses": 0,
@@ -9285,7 +9445,87 @@
       "winRate": 0.5
     },
     {
-      "address": "0xc5ae8ecbdf5b2188b3ac49b4192d338787f0ff5b",
+      "address": "0x34ee38b965cadaf92752a5a5f56677684f4cd30f",
+      "wins": 0,
+      "losses": 2,
+      "draws": 0,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0xf0ed263d572bc9c5e97caa126f75d070e0423c08",
+      "wins": 0,
+      "losses": 1,
+      "draws": 1,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0
+    },
+    {
+      "address": "0xa701995673ba1e976b6dcbe09810211ef16301b6",
+      "wins": 1,
+      "losses": 0,
+      "draws": 1,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.5
+    },
+    {
+      "address": "0x1c528b772f9017c896248885f05b3ea44b11d92f",
+      "wins": 0,
+      "losses": 0,
+      "draws": 2,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0
+    },
+    {
+      "address": "0x21fe2f5cc96b96fae2bed5856bdaa85983aa12e9",
+      "wins": 0,
+      "losses": 0,
+      "draws": 2,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0xe9fb409602f83b5dacde5134fde56ab970e14b7c",
+      "wins": 0,
+      "losses": 1,
+      "draws": 1,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0
+    },
+    {
+      "address": "0xcb30881b704d8d7dc421ca0e5bce5c9aee5a39cb",
+      "wins": 0,
+      "losses": 1,
+      "draws": 1,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0
+    },
+    {
+      "address": "0x918aeb1728040e2817fbdaa5d2a65b9de6feebd8",
+      "wins": 1,
+      "losses": 0,
+      "draws": 1,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.5
+    },
+    {
+      "address": "0xacb4af4f74d75993e22953833ff7089c4cc31206",
       "wins": 0,
       "losses": 0,
       "draws": 2,
@@ -10786,6 +11026,66 @@
     },
     {
       "address": "0xd264c7de44b5f87321f728af652c248dd42d2644",
+      "wins": 1,
+      "losses": 0,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 1
+    },
+    {
+      "address": "0x8bea3c415aded48e3b3713b9a2668cd18b028a3f",
+      "wins": 1,
+      "losses": 0,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 1
+    },
+    {
+      "address": "0x189e7c87590abcc95e33c637eeeafeefd2425f19",
+      "wins": 0,
+      "losses": 1,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x61bfc38878114363db56a93496bd652541a94294",
+      "wins": 0,
+      "losses": 0,
+      "draws": 1,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0xe9292ee338f9615e961c64352c117e7a588e007b",
+      "wins": 0,
+      "losses": 1,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0xd4744f25764d2fc7a4f201d0387ff71502f16612",
+      "wins": 1,
+      "losses": 0,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 1
+    },
+    {
+      "address": "0xfff1d8f018e1abe618931ef77d68bc02568a2309",
       "wins": 1,
       "losses": 0,
       "draws": 0,
