@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-20T14:04:36.777Z",
+  "lastUpdatedAt": "2026-05-20T17:38:55.588Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -435,17 +435,25 @@
     "2026-05-20": {
       "day": "2026-05-20",
       "winners": {
-        "streak": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
+        "streak": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
         "matches": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
         "firstMatch": "0xee83a8273885427baa0bc5389adc648129e9e2a9"
       },
       "winnerValues": {
-        "streak": 4,
-        "matches": 32,
+        "streak": 9,
+        "matches": 36,
         "firstMatch": null
       },
       "top5": {
         "streak": [
+          {
+            "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 9
+          },
+          {
+            "address": "0xdd8ee5df7a2eefa67d5e61e1962a074a029bc9ba",
+            "metricValue": 4
+          },
           {
             "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
             "metricValue": 4
@@ -462,19 +470,19 @@
         "matches": [
           {
             "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
-            "metricValue": 32
+            "metricValue": 36
           },
           {
             "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
             "metricValue": 26
           },
           {
-            "address": "0xccac5edeea8e00c6c8e66240c57d56d55264c5df",
-            "metricValue": 9
+            "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
+            "metricValue": 13
           },
           {
-            "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
-            "metricValue": 8
+            "address": "0xccac5edeea8e00c6c8e66240c57d56d55264c5df",
+            "metricValue": 11
           },
           {
             "address": "0xae6362e5ffffcb5b5e2c8d54fcf1ec5585df0cd0",
