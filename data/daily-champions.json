@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-20T23:47:25.510Z",
+  "lastUpdatedAt": "2026-05-21T02:56:36.560Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -496,18 +496,65 @@
           }
         ]
       },
+      "finalized": true,
+      "firstMatchResolvedAt": 1779235265,
+      "finalizedAt": 1779322035
+    },
+    "2026-05-21": {
+      "day": "2026-05-21",
+      "winners": {
+        "streak": null,
+        "matches": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+        "firstMatch": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476"
+      },
+      "winnerValues": {
+        "streak": null,
+        "matches": 7,
+        "firstMatch": null
+      },
+      "top5": {
+        "streak": [],
+        "matches": [
+          {
+            "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 7
+          },
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 6
+          },
+          {
+            "address": "0x9fad5d4deb97b219a1442c67dfcd1565e80ba2de",
+            "metricValue": 6
+          },
+          {
+            "address": "0x857bea806cb81f00d8c1d0b06858cd7dd37b5307",
+            "metricValue": 4
+          },
+          {
+            "address": "0x2f26be8360575901de88992066870a6453e3bf1e",
+            "metricValue": 3
+          }
+        ],
+        "firstMatch": [
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 1
+          }
+        ]
+      },
       "finalized": false,
-      "firstMatchResolvedAt": 1779235265
+      "firstMatchResolvedAt": 1779321617
     }
   },
   "frequencyTally": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
-      "top5Days": 6,
+      "top5Days": 7,
       "winDays": 7,
       "perCategory": {
         "streak": 4,
-        "matches": 5,
+        "matches": 6,
         "firstMatch": 3
       }
     },
@@ -523,11 +570,11 @@
     },
     {
       "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
-      "top5Days": 4,
+      "top5Days": 5,
       "winDays": 0,
       "perCategory": {
-        "streak": 2,
-        "matches": 4,
+        "streak": 3,
+        "matches": 5,
         "firstMatch": 0
       }
     },
@@ -549,6 +596,16 @@
         "streak": 2,
         "matches": 2,
         "firstMatch": 0
+      }
+    },
+    {
+      "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+      "top5Days": 2,
+      "winDays": 3,
+      "perCategory": {
+        "streak": 2,
+        "matches": 1,
+        "firstMatch": 1
       }
     },
     {
@@ -652,6 +709,16 @@
       }
     },
     {
+      "address": "0x57dcc73d26fabda75921c0391b9406674a81aee1",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
+        "firstMatch": 0
+      }
+    },
+    {
       "address": "0x5d8d437ff6d1d4112f023045fa8829ba69bf40ed",
       "top5Days": 1,
       "winDays": 0,
@@ -732,6 +799,16 @@
       }
     },
     {
+      "address": "0xb008bf646c9843b5db9accd6a4c0d86fd451b39a",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 0,
+        "matches": 1,
+        "firstMatch": 0
+      }
+    },
+    {
       "address": "0xc9d6cd38fe1ad516a65a2c02408f85ef8936117a",
       "top5Days": 1,
       "winDays": 0,
@@ -742,7 +819,37 @@
       }
     },
     {
+      "address": "0xccac5edeea8e00c6c8e66240c57d56d55264c5df",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 0,
+        "matches": 1,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0xd264c7de44b5f87321f728af652c248dd42d2644",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
+        "firstMatch": 0
+      }
+    },
+    {
       "address": "0xd631fc116d8c7290bbccd7e22b8679c895f15e2d",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0xdd8ee5df7a2eefa67d5e61e1962a074a029bc9ba",
       "top5Days": 1,
       "winDays": 0,
       "perCategory": {
@@ -763,16 +870,6 @@
     },
     {
       "address": "0xe7c6120dac5632fba966f424a5e7df1f0c9a8104",
-      "top5Days": 1,
-      "winDays": 0,
-      "perCategory": {
-        "streak": 1,
-        "matches": 0,
-        "firstMatch": 0
-      }
-    },
-    {
-      "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
       "top5Days": 1,
       "winDays": 0,
       "perCategory": {
