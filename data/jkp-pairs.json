@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23176477",
-  "lastUpdatedAt": "2026-05-22T22:08:26.245Z",
-  "pairCount": 2061,
+  "lastUpdatedBlock": "23178526",
+  "lastUpdatedAt": "2026-05-22T23:16:45.226Z",
+  "pairCount": 2062,
   "pairs": [
     {
       "addressA": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -14429,6 +14429,13 @@
       "count": 1,
       "matchesA": 67,
       "matchesB": 16
+    },
+    {
+      "addressA": "0x2d65b151f1705c00f728ebb5d3d4939bee41e20b",
+      "addressB": "0xb2c3cabeeb3dab62357930743510c34eae57f252",
+      "count": 1,
+      "matchesA": 1,
+      "matchesB": 1
     }
   ]
 }
