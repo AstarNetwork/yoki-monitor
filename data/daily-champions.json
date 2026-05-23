@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-23T07:14:29.106Z",
+  "lastUpdatedAt": "2026-05-23T09:19:52.531Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -639,42 +639,58 @@
     "2026-05-23": {
       "day": "2026-05-23",
       "winners": {
-        "streak": "0xaf06c87429dba681618bfbbc400c6c97c035ec8d",
-        "matches": "0x64ff51f26506ff89f0fcee995000bc9688c69fcd",
+        "streak": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
+        "matches": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
         "firstMatch": "0xee83a8273885427baa0bc5389adc648129e9e2a9"
       },
       "winnerValues": {
-        "streak": 4,
-        "matches": 5,
+        "streak": 7,
+        "matches": 16,
         "firstMatch": null
       },
       "top5": {
         "streak": [
           {
+            "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
+            "metricValue": 7
+          },
+          {
             "address": "0xaf06c87429dba681618bfbbc400c6c97c035ec8d",
             "metricValue": 4
+          },
+          {
+            "address": "0x8cdb7aefdd8a5d3f3d8aacc3ce33c95f67f66fe8",
+            "metricValue": 4
+          },
+          {
+            "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 4
+          },
+          {
+            "address": "0x40e7002edf18aeea264ea90ade71a5596a95c532",
+            "metricValue": 3
           }
         ],
         "matches": [
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 16
+          },
+          {
+            "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
+            "metricValue": 16
+          },
+          {
+            "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 12
+          },
           {
             "address": "0x64ff51f26506ff89f0fcee995000bc9688c69fcd",
             "metricValue": 5
           },
           {
-            "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
+            "address": "0x83211cfa05eecb17cd0eccb1280aed1d32dd37de",
             "metricValue": 4
-          },
-          {
-            "address": "0xaf06c87429dba681618bfbbc400c6c97c035ec8d",
-            "metricValue": 4
-          },
-          {
-            "address": "0xa4cfaf9e46b20e8d9516347a55b0f22b0f106c7e",
-            "metricValue": 4
-          },
-          {
-            "address": "0x1babb5a3224f5f235a15b976d95468c515c56f30",
-            "metricValue": 3
           }
         ],
         "firstMatch": [
