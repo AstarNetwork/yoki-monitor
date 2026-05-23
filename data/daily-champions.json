@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-23T00:03:41.244Z",
+  "lastUpdatedAt": "2026-05-23T04:23:35.717Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -632,24 +632,38 @@
           }
         ]
       },
-      "finalized": false,
-      "firstMatchResolvedAt": 1779408095
+      "finalized": true,
+      "firstMatchResolvedAt": 1779408095,
+      "finalizedAt": 1779494835
     },
     "2026-05-23": {
       "day": "2026-05-23",
       "winners": {
         "streak": null,
-        "matches": null,
+        "matches": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
         "firstMatch": "0xee83a8273885427baa0bc5389adc648129e9e2a9"
       },
       "winnerValues": {
         "streak": null,
-        "matches": null,
+        "matches": 3,
         "firstMatch": null
       },
       "top5": {
         "streak": [],
-        "matches": [],
+        "matches": [
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 3
+          },
+          {
+            "address": "0xc177d538157b5a03f3624e2d89a4bcf74d2c2f84",
+            "metricValue": 3
+          },
+          {
+            "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
+            "metricValue": 2
+          }
+        ],
         "firstMatch": [
           {
             "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
@@ -657,17 +671,18 @@
           }
         ]
       },
-      "finalized": false
+      "finalized": false,
+      "firstMatchResolvedAt": 1779494461
     }
   },
   "frequencyTally": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
-      "top5Days": 8,
+      "top5Days": 9,
       "winDays": 8,
       "perCategory": {
         "streak": 4,
-        "matches": 7,
+        "matches": 8,
         "firstMatch": 4
       }
     },
@@ -693,12 +708,12 @@
     },
     {
       "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
-      "top5Days": 3,
-      "winDays": 5,
+      "top5Days": 4,
+      "winDays": 8,
       "perCategory": {
-        "streak": 3,
-        "matches": 2,
-        "firstMatch": 1
+        "streak": 4,
+        "matches": 3,
+        "firstMatch": 2
       }
     },
     {
@@ -708,6 +723,16 @@
       "perCategory": {
         "streak": 3,
         "matches": 2,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0xdfab8f7dcf7aaaed0b1f131e34cf14dd7c634bbb",
+      "top5Days": 3,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 2,
+        "matches": 3,
         "firstMatch": 0
       }
     },
@@ -732,11 +757,21 @@
       }
     },
     {
-      "address": "0xdfab8f7dcf7aaaed0b1f131e34cf14dd7c634bbb",
+      "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
       "top5Days": 2,
       "winDays": 0,
       "perCategory": {
-        "streak": 1,
+        "streak": 0,
+        "matches": 2,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
+      "top5Days": 2,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 2,
         "matches": 2,
         "firstMatch": 0
       }
@@ -882,6 +917,16 @@
       }
     },
     {
+      "address": "0x854c9f8add375f0021339db31c1dd947b79eaf65",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
+        "firstMatch": 0
+      }
+    },
+    {
       "address": "0x865c80b0a4db9167300cdb0ca820dcbe9ac06192",
       "top5Days": 1,
       "winDays": 0,
@@ -902,22 +947,12 @@
       }
     },
     {
-      "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
-      "top5Days": 1,
-      "winDays": 0,
-      "perCategory": {
-        "streak": 0,
-        "matches": 1,
-        "firstMatch": 0
-      }
-    },
-    {
-      "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
+      "address": "0xa15713c89c78475595836e6027ff08526ce2ae37",
       "top5Days": 1,
       "winDays": 0,
       "perCategory": {
         "streak": 1,
-        "matches": 1,
+        "matches": 0,
         "firstMatch": 0
       }
     },
