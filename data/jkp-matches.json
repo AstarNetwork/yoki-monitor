@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23249464",
-  "lastUpdatedAt": "2026-05-24T14:41:20.699Z",
-  "matchCount": 5797,
+  "lastUpdatedBlock": "23251419",
+  "lastUpdatedAt": "2026-05-24T15:46:31.051Z",
+  "matchCount": 5800,
   "matches": {
     "1": {
       "matchId": "1",
@@ -66336,13 +66336,49 @@
     "5797": {
       "matchId": "5797",
       "playerA": "0xcbfaa14bad98752edebd942907967eddcb01483c",
+      "playerB": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "offerAmount": "100000000000000000000",
+      "status": "draw",
+      "winner": null,
+      "createdBlock": 23249463,
+      "resolvedBlock": 23249553,
+      "createdAtTimestamp": 1779633677,
+      "resolvedAtTimestamp": 1779633857
+    },
+    "5798": {
+      "matchId": "5798",
+      "playerA": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+      "playerB": "0x81f9aac5347b3b4a74f14853e6262c44c9d61ce2",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+      "createdBlock": 23249531,
+      "resolvedBlock": 23249691,
+      "createdAtTimestamp": 1779633813,
+      "resolvedAtTimestamp": 1779634133
+    },
+    "5799": {
+      "matchId": "5799",
+      "playerA": "0x2ca6a9dcd1d875b7b19b1f7db2a332521063837a",
+      "playerB": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "createdBlock": 23249638,
+      "resolvedBlock": 23249856,
+      "createdAtTimestamp": 1779634027,
+      "resolvedAtTimestamp": 1779634463
+    },
+    "5800": {
+      "matchId": "5800",
+      "playerA": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
       "playerB": null,
       "offerAmount": "100000000000000000000",
       "status": "created",
       "winner": null,
-      "createdBlock": 23249463,
+      "createdBlock": 23249710,
       "resolvedBlock": null,
-      "createdAtTimestamp": 1779633677
+      "createdAtTimestamp": 1779634171
     }
   }
 }
