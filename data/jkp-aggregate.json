@@ -1,8 +1,8 @@
 {
-  "lastUpdatedBlock": "23261875",
-  "lastUpdatedAt": "2026-05-24T21:35:02.306Z",
-  "matchCount": 3519,
-  "addressCount": 1586,
+  "lastUpdatedBlock": "23263657",
+  "lastUpdatedAt": "2026-05-24T22:34:26.610Z",
+  "matchCount": 3520,
+  "addressCount": 1588,
   "rows": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -15859,6 +15859,26 @@
       "wins": 0,
       "losses": 0,
       "draws": 1,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0xb6b21be8f234944ac24d5ae0ce5e17ab7e1cfa4a",
+      "wins": 1,
+      "losses": 0,
+      "draws": 0,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 1
+    },
+    {
+      "address": "0xbe0bfb1c0d71110d9c6358caf19985006ca46578",
+      "wins": 0,
+      "losses": 1,
+      "draws": 0,
       "matches": 1,
       "volumeAstrWei": "100000000000000000000",
       "uniqueOpponents": 1,
