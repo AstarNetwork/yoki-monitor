@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-25T04:04:34.222Z",
+  "lastUpdatedAt": "2026-05-25T08:44:50.566Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -776,37 +776,49 @@
         "firstMatch": "0xb880334737a554a06a194bc79fe71e7964403357"
       },
       "winnerValues": {
-        "streak": 4,
-        "matches": 10,
+        "streak": 7,
+        "matches": 13,
         "firstMatch": null
       },
       "top5": {
         "streak": [
           {
             "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 7
+          },
+          {
+            "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
             "metricValue": 4
+          },
+          {
+            "address": "0xe46a3fe65e734c3604dd13a3a20d0673c07d5abb",
+            "metricValue": 4
+          },
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 3
           }
         ],
         "matches": [
           {
             "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
-            "metricValue": 10
+            "metricValue": 13
+          },
+          {
+            "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
+            "metricValue": 7
+          },
+          {
+            "address": "0x99c2e8fa14cc42f996999fbc871f163e48289160",
+            "metricValue": 4
           },
           {
             "address": "0xb6f4ea7abe9f101a9b05d88a9a13f30d62ab01c3",
             "metricValue": 4
           },
           {
-            "address": "0xebf62d778420757f2edf7b0a74b1abb5547b365b",
-            "metricValue": 3
-          },
-          {
-            "address": "0x46fe4a5303f4063cdb0da7c49b276407eb54c017",
-            "metricValue": 3
-          },
-          {
-            "address": "0xb588e3f8da210a6d42b31cc62a379cff9e12de90",
-            "metricValue": 3
+            "address": "0x825cd07c018fc1d1a32235f9aca4c35b54df3064",
+            "metricValue": 4
           }
         ],
         "firstMatch": [
