@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23347695",
-  "lastUpdatedAt": "2026-05-26T21:15:44.492Z",
-  "matchCount": 6474,
+  "lastUpdatedBlock": "23350217",
+  "lastUpdatedAt": "2026-05-26T22:39:45.944Z",
+  "matchCount": 6478,
   "matches": {
     "1": {
       "matchId": "1",
@@ -74468,6 +74468,54 @@
       "resolvedBlock": 23347127,
       "createdAtTimestamp": 1779828913,
       "resolvedAtTimestamp": 1779829005
+    },
+    "6475": {
+      "matchId": "6475",
+      "playerA": "0x7424b98442176732cf7ecd52e004503022e17b68",
+      "playerB": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "createdBlock": 23349100,
+      "resolvedBlock": 23349184,
+      "createdAtTimestamp": 1779832951,
+      "resolvedAtTimestamp": 1779833119
+    },
+    "6476": {
+      "matchId": "6476",
+      "playerA": "0x7424b98442176732cf7ecd52e004503022e17b68",
+      "playerB": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "createdBlock": 23349241,
+      "resolvedBlock": 23349295,
+      "createdAtTimestamp": 1779833233,
+      "resolvedAtTimestamp": 1779833341
+    },
+    "6477": {
+      "matchId": "6477",
+      "playerA": "0x7424b98442176732cf7ecd52e004503022e17b68",
+      "playerB": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "offerAmount": "100000000000000000000",
+      "status": "draw",
+      "winner": null,
+      "createdBlock": 23349393,
+      "resolvedBlock": 23349452,
+      "createdAtTimestamp": 1779833537,
+      "resolvedAtTimestamp": 1779833655
+    },
+    "6478": {
+      "matchId": "6478",
+      "playerA": "0x65bec56d49edf1632bc7fea1b7bc194e30c1641a",
+      "playerB": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "createdBlock": 23349964,
+      "resolvedBlock": 23350009,
+      "createdAtTimestamp": 1779834679,
+      "resolvedAtTimestamp": 1779834769
     }
   }
 }
