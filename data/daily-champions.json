@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-27T17:40:39.628Z",
+  "lastUpdatedAt": "2026-05-27T20:10:31.563Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -946,11 +946,11 @@
           },
           {
             "address": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
-            "metricValue": 21
+            "metricValue": 22
           },
           {
             "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
-            "metricValue": 10
+            "metricValue": 11
           },
           {
             "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
