@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-27T01:33:10.789Z",
+  "lastUpdatedAt": "2026-05-27T06:17:53.390Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -908,33 +908,45 @@
       "day": "2026-05-27",
       "winners": {
         "streak": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
-        "matches": "0x1d78ac5753962d287188225f1bb3618c940db917",
+        "matches": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
         "firstMatch": "0xee83a8273885427baa0bc5389adc648129e9e2a9"
       },
       "winnerValues": {
-        "streak": 8,
-        "matches": 4,
+        "streak": 17,
+        "matches": 9,
         "firstMatch": null
       },
       "top5": {
         "streak": [
           {
             "address": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
-            "metricValue": 8
+            "metricValue": 17
+          },
+          {
+            "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 4
           }
         ],
         "matches": [
           {
-            "address": "0x1d78ac5753962d287188225f1bb3618c940db917",
-            "metricValue": 4
+            "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 9
+          },
+          {
+            "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
+            "metricValue": 7
           },
           {
             "address": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
-            "metricValue": 3
+            "metricValue": 7
           },
           {
-            "address": "0x5649a7bfc7fcefebfb404983d7b4a1067378ee19",
-            "metricValue": 2
+            "address": "0x9b86ca5fcf88a39a4102062e3ab90a54f2a87949",
+            "metricValue": 4
+          },
+          {
+            "address": "0x1d78ac5753962d287188225f1bb3618c940db917",
+            "metricValue": 4
           }
         ],
         "firstMatch": [
@@ -944,7 +956,8 @@
           }
         ]
       },
-      "finalized": false
+      "finalized": false,
+      "firstMatchResolvedAt": 1779840195
     }
   },
   "frequencyTally": [
