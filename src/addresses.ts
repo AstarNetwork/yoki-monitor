@@ -116,7 +116,28 @@ export function blockscoutTokenHoldersUrl(token: string): string {
   return `${BLOCKSCOUT_BASE}/token/${token}?tab=holders`;
 }
 
-// Wallets to exclude from the JKP active-player count. Same set as
-// BOT_WALLETS above, but as a lowercased Set for O(1) membership checks.
-// Counting bots as players would inflate engagement numbers.
-export const MONITOR_IGNORE_LIST: ReadonlySet<string> = new Set(BOT_WALLETS.map((b) => b.address.toLowerCase()));
+// Daily Champions exclusion list — mirror of the prod env var
+// `DC_EXCLUDED_ADDRESSES` set on the Amplify Lambdas. See
+// scripts/lib/addresses.mjs for the forensic basis. Kept in sync with
+// the cron-side list so the SPA active-player count and the cron-built
+// leaderboard aggregate agree on which wallets to drop.
+export const DC_EXCLUSION_LIST: readonly `0x${string}`[] = [
+  "0x0FDA04C5669F78A1De58CFECA34d50044e61FbE1",
+  "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
+  "0x52a8174f7fc87c797e3e21aac2c6dece483cbc25",
+  "0xa3700e6452716bda55d1d2a4ced6e1186621796b",
+  "0x2caa9d2f5726315cb3e6cfe985012f78253cf12d",
+  "0x95c4d2c9a416a81853367c550b43145270f45015",
+  "0x5246574ab30e23dad964c84e65b5c3a4588e03f6",
+  "0xbb51c481f54344d225c8dfdeee1a9dac91137c22",
+] as const;
+
+// Wallets to exclude from the JKP active-player count. BOT_WALLETS
+// (above) plus the Daily Champions exclusion list. As a lowercased Set
+// for O(1) membership checks. Counting bots or excluded sybils as
+// players would inflate engagement numbers and surface known cheaters
+// on the public leaderboard.
+export const MONITOR_IGNORE_LIST: ReadonlySet<string> = new Set([
+  ...BOT_WALLETS.map((b) => b.address.toLowerCase()),
+  ...DC_EXCLUSION_LIST.map((a) => a.toLowerCase()),
+]);
