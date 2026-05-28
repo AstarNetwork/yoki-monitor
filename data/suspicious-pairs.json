@@ -5,112 +5,120 @@
       "addressB": "0x0a8510fc0264c9302d53c189f6c7c4038dd3bfce",
       "flaggedAt": "2026-05-19T20:53:02.517Z",
       "lastSeenAt": "2026-05-28T09:04:04.830Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 10,
         "matchesA": 250,
         "matchesB": 15,
         "shareA": 0.04,
         "shareB": 0.667
-      }
+      },
+      "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x2355253d6f105fe404d3f8b15957197abc5bfd3f",
       "flaggedAt": "2026-05-16T19:40:38.656Z",
       "lastSeenAt": "2026-05-28T09:04:04.830Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 21,
         "matchesA": 250,
         "matchesB": 31,
         "shareA": 0.084,
         "shareB": 0.677
-      }
+      },
+      "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x93aab9153597dee3537f550ead5fd3dc0c716e7e",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
       "lastSeenAt": "2026-05-28T09:04:04.830Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 27,
         "matchesA": 250,
         "matchesB": 45,
         "shareA": 0.108,
         "shareB": 0.6
-      }
+      },
+      "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0x9412c85a9dd5653d97f276bc86e33ef86f7b85a7",
       "flaggedAt": "2026-05-19T20:53:02.517Z",
       "lastSeenAt": "2026-05-28T09:04:04.830Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 10,
         "matchesA": 250,
         "matchesB": 13,
         "shareA": 0.04,
         "shareB": 0.769
-      }
+      },
+      "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xb8eaf50a577c536f89145254745e6c188136b967",
       "flaggedAt": "2026-05-15T22:33:13.041Z",
       "lastSeenAt": "2026-05-28T09:04:04.830Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 26,
         "matchesA": 250,
         "matchesB": 35,
         "shareA": 0.104,
         "shareB": 0.743
-      }
+      },
+      "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xe5f0a873ba0f22c25174a4191b703a3154efc376",
       "flaggedAt": "2026-05-19T20:53:02.517Z",
       "lastSeenAt": "2026-05-28T09:04:04.830Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 10,
         "matchesA": 250,
         "matchesB": 11,
         "shareA": 0.04,
         "shareB": 0.909
-      }
+      },
+      "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
       "addressA": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
       "addressB": "0xfef20434460ad716d00ad42451e5988f35b99817",
       "flaggedAt": "2026-05-18T17:38:11.008Z",
       "lastSeenAt": "2026-05-28T09:04:04.830Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 12,
         "matchesA": 250,
         "matchesB": 23,
         "shareA": 0.048,
         "shareB": 0.522
-      }
+      },
+      "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
       "addressA": "0x52a8174f7fc87c797e3e21aac2c6dece483cbc25",
       "addressB": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
       "flaggedAt": "2026-05-26T19:37:00.270Z",
       "lastSeenAt": "2026-05-28T09:04:04.830Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 66,
         "matchesA": 71,
         "matchesB": 295,
         "shareA": 0.93,
         "shareB": 0.224
-      }
+      },
+      "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
       "addressA": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -139,11 +147,11 @@
         "shareA": 0.096,
         "shareB": 0.5
       },
-      "lastSeenAt": "2026-05-28T09:04:04.830Z"
+      "lastSeenAt": "2026-05-28T12:39:17.357Z"
     }
   ],
-  "lastUpdatedBlock": "23412145",
-  "lastUpdatedAt": "2026-05-28T09:04:04.830Z",
+  "lastUpdatedBlock": "23418601",
+  "lastUpdatedAt": "2026-05-28T12:39:17.357Z",
   "thresholds": {
     "minCount": 10,
     "minShare": 0.5
