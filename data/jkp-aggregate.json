@@ -1,8 +1,8 @@
 {
-  "lastUpdatedBlock": "23398434",
-  "lastUpdatedAt": "2026-05-28T01:27:01.124Z",
-  "matchCount": 4135,
-  "addressCount": 1824,
+  "lastUpdatedBlock": "23406099",
+  "lastUpdatedAt": "2026-05-28T05:42:33.742Z",
+  "matchCount": 4157,
+  "addressCount": 1826,
   "rows": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -16,23 +16,23 @@
     },
     {
       "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
-      "wins": 158,
+      "wins": 159,
       "losses": 113,
-      "draws": 211,
-      "matches": 482,
-      "volumeAstrWei": "49000000000000000000000",
-      "uniqueOpponents": 205,
-      "winRate": 0.3278008298755187
+      "draws": 214,
+      "matches": 486,
+      "volumeAstrWei": "49400000000000000000000",
+      "uniqueOpponents": 206,
+      "winRate": 0.3271604938271605
     },
     {
       "address": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
-      "wins": 136,
-      "losses": 43,
-      "draws": 90,
-      "matches": 269,
-      "volumeAstrWei": "47700000000000000000000",
-      "uniqueOpponents": 77,
-      "winRate": 0.5055762081784386
+      "wins": 148,
+      "losses": 47,
+      "draws": 95,
+      "matches": 290,
+      "volumeAstrWei": "54600000000000000000000",
+      "uniqueOpponents": 79,
+      "winRate": 0.5103448275862069
     },
     {
       "address": "0x0fda04c5669f78a1de58cfeca34d50044e61fbe1",
@@ -95,6 +95,16 @@
       "winRate": 0.36363636363636365
     },
     {
+      "address": "0x52a8174f7fc87c797e3e21aac2c6dece483cbc25",
+      "wins": 4,
+      "losses": 66,
+      "draws": 1,
+      "matches": 71,
+      "volumeAstrWei": "25100000000000000000000",
+      "uniqueOpponents": 5,
+      "winRate": 0.056338028169014086
+    },
+    {
       "address": "0xf41556884d8f749e8b41b0c2c36c13e2ea04474c",
       "wins": 22,
       "losses": 10,
@@ -103,16 +113,6 @@
       "volumeAstrWei": "7000000000000000000000",
       "uniqueOpponents": 28,
       "winRate": 0.3142857142857143
-    },
-    {
-      "address": "0x52a8174f7fc87c797e3e21aac2c6dece483cbc25",
-      "wins": 3,
-      "losses": 54,
-      "draws": 1,
-      "matches": 58,
-      "volumeAstrWei": "19000000000000000000000",
-      "uniqueOpponents": 5,
-      "winRate": 0.05172413793103448
     },
     {
       "address": "0x04278b2ab342503668a5ff3bbeac27e44f437eea",
@@ -165,6 +165,16 @@
       "winRate": 0.2926829268292683
     },
     {
+      "address": "0xb951a2307b893543587f5798a17d61112102f496",
+      "wins": 9,
+      "losses": 8,
+      "draws": 21,
+      "matches": 38,
+      "volumeAstrWei": "3800000000000000000000",
+      "uniqueOpponents": 19,
+      "winRate": 0.23684210526315788
+    },
+    {
       "address": "0xefb96af308ec32f19fb214ff8483a4ce738482d3",
       "wins": 8,
       "losses": 8,
@@ -173,16 +183,6 @@
       "volumeAstrWei": "3700000000000000000000",
       "uniqueOpponents": 21,
       "winRate": 0.21621621621621623
-    },
-    {
-      "address": "0xb951a2307b893543587f5798a17d61112102f496",
-      "wins": 9,
-      "losses": 8,
-      "draws": 18,
-      "matches": 35,
-      "volumeAstrWei": "3500000000000000000000",
-      "uniqueOpponents": 18,
-      "winRate": 0.2571428571428571
     },
     {
       "address": "0xb8eaf50a577c536f89145254745e6c188136b967",
@@ -15715,6 +15715,16 @@
       "winRate": 0
     },
     {
+      "address": "0x2fb536b703266db7e45c8df4c5bb7289d0393d8c",
+      "wins": 2,
+      "losses": 0,
+      "draws": 0,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 1
+    },
+    {
       "address": "0x6393d2dc3c7f68fba732f15e050911a5b37b3f7b",
       "wins": 0,
       "losses": 1,
@@ -18243,6 +18253,16 @@
       "volumeAstrWei": "100000000000000000000",
       "uniqueOpponents": 1,
       "winRate": 1
+    },
+    {
+      "address": "0x65ec4913b2630623ff6c724e270cfe160c05ff22",
+      "wins": 0,
+      "losses": 0,
+      "draws": 1,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
     }
   ]
 }
