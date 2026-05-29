@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-28T22:40:04.551Z",
+  "lastUpdatedAt": "2026-05-29T00:08:20.686Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -1028,8 +1028,33 @@
           }
         ]
       },
-      "finalized": false,
-      "firstMatchResolvedAt": 1779926485
+      "finalized": true,
+      "firstMatchResolvedAt": 1779926485,
+      "finalizedAt": 1780013235
+    },
+    "2026-05-29": {
+      "day": "2026-05-29",
+      "winners": {
+        "streak": null,
+        "matches": null,
+        "firstMatch": "0xb880334737a554a06a194bc79fe71e7964403357"
+      },
+      "winnerValues": {
+        "streak": null,
+        "matches": null,
+        "firstMatch": null
+      },
+      "top5": {
+        "streak": [],
+        "matches": [],
+        "firstMatch": [
+          {
+            "address": "0xb880334737a554a06a194bc79fe71e7964403357",
+            "metricValue": 1
+          }
+        ]
+      },
+      "finalized": false
     }
   },
   "frequencyTally": [
@@ -1045,21 +1070,21 @@
     },
     {
       "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
-      "top5Days": 9,
-      "winDays": 17,
+      "top5Days": 10,
+      "winDays": 18,
       "perCategory": {
         "streak": 9,
-        "matches": 8,
+        "matches": 9,
         "firstMatch": 5
       }
     },
     {
       "address": "0x0528675d32bd38a035a09b69e5d62d8c95677e97",
-      "top5Days": 7,
+      "top5Days": 8,
       "winDays": 0,
       "perCategory": {
         "streak": 4,
-        "matches": 7,
+        "matches": 8,
         "firstMatch": 0
       }
     },
@@ -1085,12 +1110,22 @@
     },
     {
       "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
-      "top5Days": 4,
+      "top5Days": 5,
       "winDays": 0,
       "perCategory": {
-        "streak": 3,
-        "matches": 4,
+        "streak": 4,
+        "matches": 5,
         "firstMatch": 0
+      }
+    },
+    {
+      "address": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
+      "top5Days": 4,
+      "winDays": 3,
+      "perCategory": {
+        "streak": 2,
+        "matches": 3,
+        "firstMatch": 1
       }
     },
     {
@@ -1104,11 +1139,11 @@
       }
     },
     {
-      "address": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
+      "address": "0x04278b2ab342503668a5ff3bbeac27e44f437eea",
       "top5Days": 3,
-      "winDays": 2,
+      "winDays": 0,
       "perCategory": {
-        "streak": 2,
+        "streak": 1,
         "matches": 3,
         "firstMatch": 0
       }
@@ -1134,12 +1169,12 @@
       }
     },
     {
-      "address": "0x04278b2ab342503668a5ff3bbeac27e44f437eea",
+      "address": "0xefb96af308ec32f19fb214ff8483a4ce738482d3",
       "top5Days": 2,
-      "winDays": 0,
+      "winDays": 1,
       "perCategory": {
-        "streak": 1,
-        "matches": 2,
+        "streak": 2,
+        "matches": 1,
         "firstMatch": 0
       }
     },
@@ -1354,6 +1389,16 @@
       }
     },
     {
+      "address": "0x5cd34ba4fef5ed980ea8bb1dd91bcf6bfdc4272d",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 1,
+        "matches": 0,
+        "firstMatch": 0
+      }
+    },
+    {
       "address": "0x5d8d437ff6d1d4112f023045fa8829ba69bf40ed",
       "top5Days": 1,
       "winDays": 0,
@@ -1415,6 +1460,16 @@
     },
     {
       "address": "0x865c80b0a4db9167300cdb0ca820dcbe9ac06192",
+      "top5Days": 1,
+      "winDays": 0,
+      "perCategory": {
+        "streak": 0,
+        "matches": 1,
+        "firstMatch": 0
+      }
+    },
+    {
+      "address": "0x88461dfb4ac30e1e4161813d550425cf9e275608",
       "top5Days": 1,
       "winDays": 0,
       "perCategory": {
@@ -1600,16 +1655,6 @@
       "perCategory": {
         "streak": 1,
         "matches": 0,
-        "firstMatch": 0
-      }
-    },
-    {
-      "address": "0xefb96af308ec32f19fb214ff8483a4ce738482d3",
-      "top5Days": 1,
-      "winDays": 0,
-      "perCategory": {
-        "streak": 1,
-        "matches": 1,
         "firstMatch": 0
       }
     },
