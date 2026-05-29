@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-29T00:08:20.686Z",
+  "lastUpdatedAt": "2026-05-29T04:52:03.701Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -1035,18 +1035,48 @@
     "2026-05-29": {
       "day": "2026-05-29",
       "winners": {
-        "streak": null,
-        "matches": null,
+        "streak": "0x9b129f1564224925934949f29f07a0069cf389d9",
+        "matches": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
         "firstMatch": "0xb880334737a554a06a194bc79fe71e7964403357"
       },
       "winnerValues": {
-        "streak": null,
-        "matches": null,
+        "streak": 3,
+        "matches": 8,
         "firstMatch": null
       },
       "top5": {
-        "streak": [],
-        "matches": [],
+        "streak": [
+          {
+            "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
+            "metricValue": 3
+          },
+          {
+            "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 3
+          }
+        ],
+        "matches": [
+          {
+            "address": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+            "metricValue": 8
+          },
+          {
+            "address": "0x4e3d68a672b1f9fc4968c50408b7100b68e6ac39",
+            "metricValue": 4
+          },
+          {
+            "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
+            "metricValue": 4
+          },
+          {
+            "address": "0xc45918fa16bedad9fc6a1a84deb63a1875734293",
+            "metricValue": 4
+          },
+          {
+            "address": "0x100694afd9111b91b92d73692038287d5583aee9",
+            "metricValue": 3
+          }
+        ],
         "firstMatch": [
           {
             "address": "0xb880334737a554a06a194bc79fe71e7964403357",
@@ -1054,7 +1084,8 @@
           }
         ]
       },
-      "finalized": false
+      "finalized": false,
+      "firstMatchResolvedAt": 1780012847
     }
   },
   "frequencyTally": [
