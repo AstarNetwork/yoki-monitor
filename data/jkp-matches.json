@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23479994",
-  "lastUpdatedAt": "2026-05-29T22:45:39.819Z",
-  "matchCount": 7533,
+  "lastUpdatedBlock": "23482041",
+  "lastUpdatedAt": "2026-05-29T23:53:54.974Z",
+  "matchCount": 7537,
   "matches": {
     "1": {
       "matchId": "1",
@@ -87176,6 +87176,54 @@
       "resolvedBlock": 23479816,
       "createdAtTimestamp": 1780094267,
       "resolvedAtTimestamp": 1780094383
+    },
+    "7534": {
+      "matchId": "7534",
+      "playerA": "0x2a99df8566ce3ee678cabb79074de715a6994203",
+      "playerB": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "createdBlock": 23480256,
+      "resolvedBlock": 23480331,
+      "createdAtTimestamp": 1780095263,
+      "resolvedAtTimestamp": 1780095413
+    },
+    "7535": {
+      "matchId": "7535",
+      "playerA": "0x2a99df8566ce3ee678cabb79074de715a6994203",
+      "playerB": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0x2a99df8566ce3ee678cabb79074de715a6994203",
+      "createdBlock": 23480363,
+      "resolvedBlock": 23480411,
+      "createdAtTimestamp": 1780095477,
+      "resolvedAtTimestamp": 1780095573
+    },
+    "7536": {
+      "matchId": "7536",
+      "playerA": "0x2a99df8566ce3ee678cabb79074de715a6994203",
+      "playerB": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+      "createdBlock": 23480622,
+      "resolvedBlock": 23480644,
+      "createdAtTimestamp": 1780095995,
+      "resolvedAtTimestamp": 1780096039
+    },
+    "7537": {
+      "matchId": "7537",
+      "playerA": "0xee83a8273885427baa0bc5389adc648129e9e2a9",
+      "playerB": null,
+      "offerAmount": "100000000000000000000",
+      "status": "cancelled",
+      "winner": null,
+      "createdBlock": 23480677,
+      "resolvedBlock": 23480836,
+      "createdAtTimestamp": 1780096105,
+      "resolvedAtTimestamp": 1780096423
     }
   }
 }
