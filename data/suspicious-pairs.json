@@ -110,14 +110,15 @@
       "addressB": "0x2ab2f1bab630b62a45e62d0aff5f88834563f048",
       "flaggedAt": "2026-05-30T16:38:31.003Z",
       "lastSeenAt": "2026-05-30T18:45:21.450Z",
-      "cleared": false,
+      "cleared": true,
       "evidence": {
         "count": 10,
         "matchesA": 20,
         "matchesB": 43,
         "shareA": 0.5,
         "shareB": 0.233
-      }
+      },
+      "clearedAt": "2026-05-30T19:54:40.140Z"
     },
     {
       "addressA": "0x52a8174f7fc87c797e3e21aac2c6dece483cbc25",
@@ -161,11 +162,11 @@
         "shareA": 0.096,
         "shareB": 0.5
       },
-      "lastSeenAt": "2026-05-30T18:45:21.450Z"
+      "lastSeenAt": "2026-05-30T19:54:40.140Z"
     }
   ],
-  "lastUpdatedBlock": "23515984",
-  "lastUpdatedAt": "2026-05-30T18:45:21.450Z",
+  "lastUpdatedBlock": "23518064",
+  "lastUpdatedAt": "2026-05-30T19:54:40.140Z",
   "thresholds": {
     "minCount": 10,
     "minShare": 0.5
