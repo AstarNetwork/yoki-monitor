@@ -106,6 +106,20 @@
       "clearedAt": "2026-05-28T12:39:17.357Z"
     },
     {
+      "addressA": "0xb880334737a554a06a194bc79fe71e7964403357",
+      "addressB": "0x2ab2f1bab630b62a45e62d0aff5f88834563f048",
+      "flaggedAt": "2026-05-30T16:38:31.003Z",
+      "lastSeenAt": "2026-05-30T16:38:31.003Z",
+      "cleared": false,
+      "evidence": {
+        "count": 10,
+        "matchesA": 18,
+        "matchesB": 43,
+        "shareA": 0.556,
+        "shareB": 0.233
+      }
+    },
+    {
       "addressA": "0x52a8174f7fc87c797e3e21aac2c6dece483cbc25",
       "addressB": "0xbff6843d53e1aacdee75b4529cb079bc0fb7798a",
       "flaggedAt": "2026-05-26T19:37:00.270Z",
@@ -147,11 +161,11 @@
         "shareA": 0.096,
         "shareB": 0.5
       },
-      "lastSeenAt": "2026-05-30T15:39:17.349Z"
+      "lastSeenAt": "2026-05-30T16:38:31.003Z"
     }
   ],
-  "lastUpdatedBlock": "23510402",
-  "lastUpdatedAt": "2026-05-30T15:39:17.349Z",
+  "lastUpdatedBlock": "23512179",
+  "lastUpdatedAt": "2026-05-30T16:38:31.003Z",
   "thresholds": {
     "minCount": 10,
     "minShare": 0.5

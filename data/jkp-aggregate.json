@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23510402",
-  "lastUpdatedAt": "2026-05-30T15:39:17.227Z",
-  "matchCount": 3951,
+  "lastUpdatedBlock": "23512179",
+  "lastUpdatedAt": "2026-05-30T16:38:30.887Z",
+  "matchCount": 3953,
   "addressCount": 1955,
   "rows": [
     {
@@ -105,6 +105,16 @@
       "winRate": 0.24561403508771928
     },
     {
+      "address": "0x2ab2f1bab630b62a45e62d0aff5f88834563f048",
+      "wins": 13,
+      "losses": 2,
+      "draws": 28,
+      "matches": 43,
+      "volumeAstrWei": "4300000000000000000000",
+      "uniqueOpponents": 15,
+      "winRate": 0.3023255813953488
+    },
+    {
       "address": "0x5ea62391d3b3977ae7b833da362636d7f82bb588",
       "wins": 7,
       "losses": 5,
@@ -123,16 +133,6 @@
       "volumeAstrWei": "4100000000000000000000",
       "uniqueOpponents": 29,
       "winRate": 0.2926829268292683
-    },
-    {
-      "address": "0x2ab2f1bab630b62a45e62d0aff5f88834563f048",
-      "wins": 13,
-      "losses": 2,
-      "draws": 26,
-      "matches": 41,
-      "volumeAstrWei": "4100000000000000000000",
-      "uniqueOpponents": 15,
-      "winRate": 0.3170731707317073
     },
     {
       "address": "0xefb96af308ec32f19fb214ff8483a4ce738482d3",
@@ -285,6 +285,16 @@
       "winRate": 0.16666666666666666
     },
     {
+      "address": "0xb880334737a554a06a194bc79fe71e7964403357",
+      "wins": 1,
+      "losses": 6,
+      "draws": 11,
+      "matches": 18,
+      "volumeAstrWei": "1800000000000000000000",
+      "uniqueOpponents": 7,
+      "winRate": 0.05555555555555555
+    },
+    {
       "address": "0x10ca8369ba45f44a0c83a744be8e95325e74aa0c",
       "wins": 6,
       "losses": 0,
@@ -332,16 +342,6 @@
       "matches": 16,
       "volumeAstrWei": "1600000000000000000000",
       "uniqueOpponents": 10,
-      "winRate": 0.0625
-    },
-    {
-      "address": "0xb880334737a554a06a194bc79fe71e7964403357",
-      "wins": 1,
-      "losses": 6,
-      "draws": 9,
-      "matches": 16,
-      "volumeAstrWei": "1600000000000000000000",
-      "uniqueOpponents": 7,
       "winRate": 0.0625
     },
     {
