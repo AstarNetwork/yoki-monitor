@@ -147,11 +147,11 @@
         "shareA": 0.096,
         "shareB": 0.5
       },
-      "lastSeenAt": "2026-05-30T12:48:43.022Z"
+      "lastSeenAt": "2026-05-30T14:18:55.739Z"
     }
   ],
-  "lastUpdatedBlock": "23505284",
-  "lastUpdatedAt": "2026-05-30T12:48:43.022Z",
+  "lastUpdatedBlock": "23507991",
+  "lastUpdatedAt": "2026-05-30T14:18:55.739Z",
   "thresholds": {
     "minCount": 10,
     "minShare": 0.5
