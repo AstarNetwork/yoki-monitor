@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-05-29T22:49:00.892Z",
+  "lastUpdatedAt": "2026-05-30T00:06:18.074Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -1090,6 +1090,30 @@
       },
       "finalized": false,
       "firstMatchResolvedAt": 1780012847
+    },
+    "2026-05-30": {
+      "day": "2026-05-30",
+      "winners": {
+        "streak": null,
+        "matches": null,
+        "firstMatch": "0xb880334737a554a06a194bc79fe71e7964403357"
+      },
+      "winnerValues": {
+        "streak": null,
+        "matches": null,
+        "firstMatch": null
+      },
+      "top5": {
+        "streak": [],
+        "matches": [],
+        "firstMatch": [
+          {
+            "address": "0xb880334737a554a06a194bc79fe71e7964403357",
+            "metricValue": 1
+          }
+        ]
+      },
+      "finalized": false
     }
   },
   "frequencyTally": [
