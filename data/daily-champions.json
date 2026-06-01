@@ -1,7 +1,7 @@
 {
   "campaignStart": "2026-05-13T14:00:00Z",
   "campaignEnd": "2026-06-02T23:59:59Z",
-  "lastUpdatedAt": "2026-06-01T01:38:02.477Z",
+  "lastUpdatedAt": "2026-06-01T06:52:07.448Z",
   "days": {
     "2026-05-14": {
       "day": "2026-05-14",
@@ -1234,7 +1234,8 @@
           }
         ]
       },
-      "finalized": false
+      "finalized": false,
+      "firstMatchResolvedAt": 1780272029
     }
   },
   "frequencyTally": [
