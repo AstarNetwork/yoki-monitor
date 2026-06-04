@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23713871",
-  "lastUpdatedAt": "2026-06-04T08:41:36.977Z",
-  "matchCount": 4330,
+  "lastUpdatedBlock": "23719178",
+  "lastUpdatedAt": "2026-06-04T11:38:29.108Z",
+  "matchCount": 4331,
   "addressCount": 2148,
   "rows": [
     {
@@ -255,6 +255,16 @@
       "winRate": 0.10526315789473684
     },
     {
+      "address": "0x271b65cb0999e6162eeea76ee3c3bf8eb421bcbc",
+      "wins": 6,
+      "losses": 4,
+      "draws": 9,
+      "matches": 19,
+      "volumeAstrWei": "1900000000000000000000",
+      "uniqueOpponents": 15,
+      "winRate": 0.3157894736842105
+    },
+    {
       "address": "0xc9d6cd38fe1ad516a65a2c02408f85ef8936117a",
       "wins": 3,
       "losses": 2,
@@ -283,16 +293,6 @@
       "volumeAstrWei": "1900000000000000000000",
       "uniqueOpponents": 5,
       "winRate": 0.15789473684210525
-    },
-    {
-      "address": "0x271b65cb0999e6162eeea76ee3c3bf8eb421bcbc",
-      "wins": 6,
-      "losses": 4,
-      "draws": 8,
-      "matches": 18,
-      "volumeAstrWei": "1800000000000000000000",
-      "uniqueOpponents": 14,
-      "winRate": 0.3333333333333333
     },
     {
       "address": "0xe30d9cfe67186806382ca35fdf5b30b576c6a8d8",
@@ -635,6 +635,16 @@
       "winRate": 0.2
     },
     {
+      "address": "0xe46a3fe65e734c3604dd13a3a20d0673c07d5abb",
+      "wins": 4,
+      "losses": 4,
+      "draws": 2,
+      "matches": 10,
+      "volumeAstrWei": "1000000000000000000000",
+      "uniqueOpponents": 8,
+      "winRate": 0.4
+    },
+    {
       "address": "0x4aae0a8910b9258d4281eb19e367df6df2c472d9",
       "wins": 3,
       "losses": 1,
@@ -723,16 +733,6 @@
       "volumeAstrWei": "900000000000000000000",
       "uniqueOpponents": 7,
       "winRate": 0
-    },
-    {
-      "address": "0xe46a3fe65e734c3604dd13a3a20d0673c07d5abb",
-      "wins": 4,
-      "losses": 4,
-      "draws": 1,
-      "matches": 9,
-      "volumeAstrWei": "900000000000000000000",
-      "uniqueOpponents": 7,
-      "winRate": 0.4444444444444444
     },
     {
       "address": "0xca70d1f74a7be0fbc42a894862cd91e7b07c6c42",
