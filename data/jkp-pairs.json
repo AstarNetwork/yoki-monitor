@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23772973",
-  "lastUpdatedAt": "2026-06-05T17:31:39.211Z",
-  "pairCount": 2982,
+  "lastUpdatedBlock": "23776203",
+  "lastUpdatedAt": "2026-06-05T19:19:18.713Z",
+  "pairCount": 2993,
   "pairs": [
     {
       "addressA": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -20876,6 +20876,83 @@
       "count": 1,
       "matchesA": 1,
       "matchesB": 2
+    },
+    {
+      "addressA": "0xf96cfc6eb676453d264e04165d5f8f968d1ede3e",
+      "addressB": "0xcbd91f002419a9a3e7cd6c2479434f584997cefd",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0xc3e9bc062592d5e572e0259d629476f2a6e4290d",
+      "addressB": "0xcbd91f002419a9a3e7cd6c2479434f584997cefd",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0xc3e9bc062592d5e572e0259d629476f2a6e4290d",
+      "addressB": "0xf96cfc6eb676453d264e04165d5f8f968d1ede3e",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0x9463f2f86ad6438073b2c7f3a26c91bb4d298703",
+      "addressB": "0xf96cfc6eb676453d264e04165d5f8f968d1ede3e",
+      "count": 1,
+      "matchesA": 1,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0xb816237133cff469624fe86a1694626fc4dda91b",
+      "addressB": "0x0de45322aa44a81e7146fac69e748a2a7d5085dc",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0xe05496b04ea615eddb00bc1385402b4e35ad59fe",
+      "addressB": "0xa97612b1b1f8c238bd5d2acff5ceb7971b1fdbd9",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0x8df72ed458796b3d9667fbe0d4301047746ed8b3",
+      "addressB": "0x0de45322aa44a81e7146fac69e748a2a7d5085dc",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0xb816237133cff469624fe86a1694626fc4dda91b",
+      "addressB": "0xa97612b1b1f8c238bd5d2acff5ceb7971b1fdbd9",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0xe05496b04ea615eddb00bc1385402b4e35ad59fe",
+      "addressB": "0x0de45322aa44a81e7146fac69e748a2a7d5085dc",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0x8df72ed458796b3d9667fbe0d4301047746ed8b3",
+      "addressB": "0xa97612b1b1f8c238bd5d2acff5ceb7971b1fdbd9",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0xb816237133cff469624fe86a1694626fc4dda91b",
+      "addressB": "0xe05496b04ea615eddb00bc1385402b4e35ad59fe",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 3
     }
   ]
 }
