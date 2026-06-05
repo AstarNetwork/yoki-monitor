@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23776203",
-  "lastUpdatedAt": "2026-06-05T19:19:18.713Z",
-  "pairCount": 2993,
+  "lastUpdatedBlock": "23779157",
+  "lastUpdatedAt": "2026-06-05T20:57:47.149Z",
+  "pairCount": 2995,
   "pairs": [
     {
       "addressA": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -20735,7 +20735,7 @@
       "addressB": "0xde9f3ff1bbbf75f7939bd2834dfb699afa613c5d",
       "count": 1,
       "matchesA": 5,
-      "matchesB": 2
+      "matchesB": 3
     },
     {
       "addressA": "0xc257f3fb6bf4baff86af84f785c28d106eeb1714",
@@ -20748,7 +20748,7 @@
       "addressA": "0xde9f3ff1bbbf75f7939bd2834dfb699afa613c5d",
       "addressB": "0x78f915e219d9a44b86a08e5d5c264a0dd56106bd",
       "count": 1,
-      "matchesA": 2,
+      "matchesA": 3,
       "matchesB": 1
     },
     {
@@ -20953,6 +20953,20 @@
       "count": 1,
       "matchesA": 3,
       "matchesB": 3
+    },
+    {
+      "addressA": "0xde9f3ff1bbbf75f7939bd2834dfb699afa613c5d",
+      "addressB": "0xaecce4c0fc755b940c274bb6da676950efce9c9e",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0xa5b9ad4ce5b65fcdb024e78d52b333e634dc9e50",
+      "addressB": "0xaecce4c0fc755b940c274bb6da676950efce9c9e",
+      "count": 1,
+      "matchesA": 1,
+      "matchesB": 2
     }
   ]
 }
