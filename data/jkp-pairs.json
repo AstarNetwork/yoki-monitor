@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23812962",
-  "lastUpdatedAt": "2026-06-06T15:44:35.956Z",
-  "pairCount": 3021,
+  "lastUpdatedBlock": "23814835",
+  "lastUpdatedAt": "2026-06-06T16:47:03.184Z",
+  "pairCount": 3023,
   "pairs": [
     {
       "addressA": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -5788,6 +5788,13 @@
     {
       "addressA": "0x46bf132d79715713a4671c23d4597a48d498b83a",
       "addressB": "0xed80d1174fa8122a98301da297f78da853e9baab",
+      "count": 2,
+      "matchesA": 2,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0x13666d87e87b60098935f04958bb52b486d43ba2",
+      "addressB": "0x4a898a6350694853a470df18eb5ec8eb08eefd1c",
       "count": 2,
       "matchesA": 2,
       "matchesB": 2
@@ -20903,7 +20910,7 @@
       "addressB": "0xf613dd49d343bfd72e738497c310e417ffd52249",
       "count": 1,
       "matchesA": 2,
-      "matchesB": 1
+      "matchesB": 2
     },
     {
       "addressA": "0xffea233a667e520cad665e086c78a8a085bab958",
@@ -21149,6 +21156,13 @@
       "count": 1,
       "matchesA": 2,
       "matchesB": 2
+    },
+    {
+      "addressA": "0xf613dd49d343bfd72e738497c310e417ffd52249",
+      "addressB": "0x3ce1dcee4d005daaa6200e2b1adb36810622130f",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 1
     }
   ]
 }
