@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "23897966",
-  "lastUpdatedAt": "2026-06-08T14:58:08.433Z",
-  "pairCount": 3131,
+  "lastUpdatedBlock": "23903073",
+  "lastUpdatedAt": "2026-06-08T17:48:19.919Z",
+  "pairCount": 3147,
   "pairs": [
     {
       "addressA": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -6022,6 +6022,41 @@
       "count": 2,
       "matchesA": 3,
       "matchesB": 3
+    },
+    {
+      "addressA": "0x621a53c448e722ba4aceaf7ba6c524683d92839a",
+      "addressB": "0x07038897cf4286138e267958d5a7610b2d50b085",
+      "count": 2,
+      "matchesA": 3,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0x2268f3d36a224ed88486354f688b80c0d80bfa5a",
+      "addressB": "0x06828fb444ecff5027e1436092d770d0e7a90d4f",
+      "count": 2,
+      "matchesA": 4,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0xb1e7a55491c2c97e0adcfd783f81d00f59610ee6",
+      "addressB": "0x2268f3d36a224ed88486354f688b80c0d80bfa5a",
+      "count": 2,
+      "matchesA": 3,
+      "matchesB": 4
+    },
+    {
+      "addressA": "0x338c2154ea1bb01a5a60ea225ac9f89162c6d979",
+      "addressB": "0x6baa12fa88e701b73bc3660a37ac3e22e4e4a9a1",
+      "count": 2,
+      "matchesA": 3,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0x9ea9bc2f1b1ac58f2cf6f86e73891a1f5a2157e2",
+      "addressB": "0x725529b810b1b37eb34b30f6c70a354cc5480170",
+      "count": 2,
+      "matchesA": 3,
+      "matchesB": 2
     },
     {
       "addressA": "0xa79ccb2676044f990553d890c091358b86cb8ebf",
@@ -20629,7 +20664,7 @@
       "addressA": "0x777e1b7f62d7e3115ea1b4b4e8e505fe758cabc1",
       "addressB": "0xe9ec342d3c4f4ab82dce6a55a4f8b99caa9f3aaa",
       "count": 1,
-      "matchesA": 1,
+      "matchesA": 3,
       "matchesB": 2
     },
     {
@@ -21919,6 +21954,83 @@
       "count": 1,
       "matchesA": 4,
       "matchesB": 2
+    },
+    {
+      "addressA": "0xc9b4663fd1437cc658cdeadcb383c671012bf03b",
+      "addressB": "0x621a53c448e722ba4aceaf7ba6c524683d92839a",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0x06828fb444ecff5027e1436092d770d0e7a90d4f",
+      "addressB": "0x0044843b49be77ea0cad97b55f8aacbed7cf503c",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0xc9b4663fd1437cc658cdeadcb383c671012bf03b",
+      "addressB": "0x83fc4bb62212d6bcc6b9fd1b2b5d51c1f6e8a95f",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 1
+    },
+    {
+      "addressA": "0xb1e7a55491c2c97e0adcfd783f81d00f59610ee6",
+      "addressB": "0x338c2154ea1bb01a5a60ea225ac9f89162c6d979",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0x460c8409f49e5d87073dd37de997223181ff6f44",
+      "addressB": "0x6baa12fa88e701b73bc3660a37ac3e22e4e4a9a1",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0x0044843b49be77ea0cad97b55f8aacbed7cf503c",
+      "addressB": "0xc9b4663fd1437cc658cdeadcb383c671012bf03b",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 3
+    },
+    {
+      "addressA": "0xfe76e1bd4de6a97387f0526fa9fd8070247c7c3f",
+      "addressB": "0x460c8409f49e5d87073dd37de997223181ff6f44",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0x9ea9bc2f1b1ac58f2cf6f86e73891a1f5a2157e2",
+      "addressB": "0xfe76e1bd4de6a97387f0526fa9fd8070247c7c3f",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0x7dd26fc3c471f140930a999a48b259817139b3a6",
+      "addressB": "0x9cbdf7a9ed609a1ea41e7dffd30a563eb8505983",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0x777e1b7f62d7e3115ea1b4b4e8e505fe758cabc1",
+      "addressB": "0x7dd26fc3c471f140930a999a48b259817139b3a6",
+      "count": 1,
+      "matchesA": 3,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0x9cbdf7a9ed609a1ea41e7dffd30a563eb8505983",
+      "addressB": "0x777e1b7f62d7e3115ea1b4b4e8e505fe758cabc1",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 3
     }
   ]
 }
