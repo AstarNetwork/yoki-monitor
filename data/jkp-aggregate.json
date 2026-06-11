@@ -1,8 +1,8 @@
 {
-  "lastUpdatedBlock": "24003655",
-  "lastUpdatedAt": "2026-06-11T01:41:03.239Z",
-  "matchCount": 4791,
-  "addressCount": 2523,
+  "lastUpdatedBlock": "24012143",
+  "lastUpdatedAt": "2026-06-11T06:23:59.971Z",
+  "matchCount": 4807,
+  "addressCount": 2534,
   "rows": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -78,11 +78,11 @@
       "address": "0x9b129f1564224925934949f29f07a0069cf389d9",
       "wins": 26,
       "losses": 26,
-      "draws": 41,
-      "matches": 93,
-      "volumeAstrWei": "11700000000000000000000",
-      "uniqueOpponents": 56,
-      "winRate": 0.27956989247311825
+      "draws": 42,
+      "matches": 94,
+      "volumeAstrWei": "11800000000000000000000",
+      "uniqueOpponents": 57,
+      "winRate": 0.2765957446808511
     },
     {
       "address": "0x2ab2f1bab630b62a45e62d0aff5f88834563f048",
@@ -14155,6 +14155,106 @@
       "winRate": 0
     },
     {
+      "address": "0x80e7035382deb10b807b01c0c92e4629122f2018",
+      "wins": 1,
+      "losses": 2,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.3333333333333333
+    },
+    {
+      "address": "0x8c4778dffc7ace0cdf7508050cbde566b7615318",
+      "wins": 2,
+      "losses": 1,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.6666666666666666
+    },
+    {
+      "address": "0xb42359ca157e097564f0a92e1f1cf0a6fb851b23",
+      "wins": 1,
+      "losses": 2,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0.3333333333333333
+    },
+    {
+      "address": "0x1cdef0b0ea2eaad272fbee1c44c655697c831952",
+      "wins": 1,
+      "losses": 2,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.3333333333333333
+    },
+    {
+      "address": "0x5c521ea9546816abf01d49244c498e5f7cf42bda",
+      "wins": 3,
+      "losses": 0,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 1
+    },
+    {
+      "address": "0x41006e8c93e3c5697855dcb537bdcb2ff4bff260",
+      "wins": 0,
+      "losses": 3,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x372937102a5a7e1e2991bd65b2e6600ed92ac9a2",
+      "wins": 2,
+      "losses": 1,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.6666666666666666
+    },
+    {
+      "address": "0x8c0ed13c12445a4de2d06b4197ff5463cd1ec5a5",
+      "wins": 2,
+      "losses": 1,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 3,
+      "winRate": 0.6666666666666666
+    },
+    {
+      "address": "0xa72826000d1143eadea25ba6741932f600b5cfa0",
+      "wins": 0,
+      "losses": 0,
+      "draws": 3,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x8b4b5ec7060b4291d6fb0f3e1a60a7a9ca43e463",
+      "wins": 0,
+      "losses": 0,
+      "draws": 3,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
       "address": "0x6393d2dc3c7f68fba732f15e050911a5b37b3f7b",
       "wins": 0,
       "losses": 2,
@@ -25226,6 +25326,16 @@
     },
     {
       "address": "0x45d1721e976787975b1a435e5772c93c1897d011",
+      "wins": 0,
+      "losses": 0,
+      "draws": 1,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x7ef97c24e4ad2bb5bb53d2eae9088d99c3a52da2",
       "wins": 0,
       "losses": 0,
       "draws": 1,
