@@ -1,8 +1,8 @@
 {
-  "lastUpdatedBlock": "23999297",
-  "lastUpdatedAt": "2026-06-10T23:15:46.689Z",
-  "matchCount": 4785,
-  "addressCount": 2518,
+  "lastUpdatedBlock": "24003655",
+  "lastUpdatedAt": "2026-06-11T01:41:03.239Z",
+  "matchCount": 4791,
+  "addressCount": 2523,
   "rows": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -14125,6 +14125,36 @@
       "winRate": 0
     },
     {
+      "address": "0x36336055a8db383c98164f1276eb137c83b7b386",
+      "wins": 0,
+      "losses": 0,
+      "draws": 3,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0
+    },
+    {
+      "address": "0x5e00892b0f80b452a6e62b556f6b287c69f552d9",
+      "wins": 0,
+      "losses": 0,
+      "draws": 3,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x32e42147928beab7af911e7a6818c683d1854ea0",
+      "wins": 0,
+      "losses": 0,
+      "draws": 3,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
       "address": "0x6393d2dc3c7f68fba732f15e050911a5b37b3f7b",
       "wins": 0,
       "losses": 2,
@@ -20665,6 +20695,16 @@
       "winRate": 1
     },
     {
+      "address": "0xd4beb87bad2b03754bdc33f419b74f99ccbf1c31",
+      "wins": 0,
+      "losses": 0,
+      "draws": 2,
+      "matches": 2,
+      "volumeAstrWei": "200000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
       "address": "0xf7d6dfecbd78254dc7ae28e7ccb808c22a22dba5",
       "wins": 0,
       "losses": 1,
@@ -25176,6 +25216,16 @@
     },
     {
       "address": "0xcf035f4b0c3a64079c9b9f4094ecd77ed5106359",
+      "wins": 0,
+      "losses": 0,
+      "draws": 1,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x45d1721e976787975b1a435e5772c93c1897d011",
       "wins": 0,
       "losses": 0,
       "draws": 1,
