@@ -1,8 +1,8 @@
 {
-  "lastUpdatedBlock": "24114121",
-  "lastUpdatedAt": "2026-06-13T15:03:15.989Z",
-  "matchCount": 4936,
-  "addressCount": 2637,
+  "lastUpdatedBlock": "24116497",
+  "lastUpdatedAt": "2026-06-13T16:22:26.572Z",
+  "matchCount": 4939,
+  "addressCount": 2639,
   "rows": [
     {
       "address": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -895,6 +895,16 @@
       "winRate": 0.375
     },
     {
+      "address": "0xe9beb20b44c2624a23feeffae23c8e413f07d573",
+      "wins": 3,
+      "losses": 1,
+      "draws": 4,
+      "matches": 8,
+      "volumeAstrWei": "800000000000000000000",
+      "uniqueOpponents": 5,
+      "winRate": 0.375
+    },
+    {
       "address": "0x874f79f8ede2e5a9bc1f6941eb7768c8b4c5a418",
       "wins": 2,
       "losses": 3,
@@ -1313,16 +1323,6 @@
       "volumeAstrWei": "600000000000000000000",
       "uniqueOpponents": 2,
       "winRate": 0.5
-    },
-    {
-      "address": "0xe9beb20b44c2624a23feeffae23c8e413f07d573",
-      "wins": 1,
-      "losses": 1,
-      "draws": 4,
-      "matches": 6,
-      "volumeAstrWei": "600000000000000000000",
-      "uniqueOpponents": 4,
-      "winRate": 0.16666666666666666
     },
     {
       "address": "0x2cd1172d92eb3fdaa008310cabbd83dd2e5b1d53",
@@ -14685,6 +14685,16 @@
       "winRate": 0
     },
     {
+      "address": "0x3ef1167625a748a26359318c16c89daf8eaf2e1c",
+      "wins": 1,
+      "losses": 2,
+      "draws": 0,
+      "matches": 3,
+      "volumeAstrWei": "300000000000000000000",
+      "uniqueOpponents": 2,
+      "winRate": 0.3333333333333333
+    },
+    {
       "address": "0x6393d2dc3c7f68fba732f15e050911a5b37b3f7b",
       "wins": 0,
       "losses": 2,
@@ -26369,6 +26379,16 @@
       "wins": 0,
       "losses": 0,
       "draws": 1,
+      "matches": 1,
+      "volumeAstrWei": "100000000000000000000",
+      "uniqueOpponents": 1,
+      "winRate": 0
+    },
+    {
+      "address": "0x9d40d0a69b1327776a44c80cc93a236c3dde0737",
+      "wins": 0,
+      "losses": 1,
+      "draws": 0,
       "matches": 1,
       "volumeAstrWei": "100000000000000000000",
       "uniqueOpponents": 1,
