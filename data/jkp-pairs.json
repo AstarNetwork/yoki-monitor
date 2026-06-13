@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "24097933",
-  "lastUpdatedAt": "2026-06-13T06:03:40.699Z",
-  "pairCount": 3320,
+  "lastUpdatedBlock": "24104100",
+  "lastUpdatedAt": "2026-06-13T09:29:15.452Z",
+  "pairCount": 3326,
   "pairs": [
     {
       "addressA": "0x6e8e97d29e9cf6d5127d376a30ecc8076f1ee476",
@@ -6379,6 +6379,13 @@
       "count": 2,
       "matchesA": 2,
       "matchesB": 113
+    },
+    {
+      "addressA": "0x8e4087dd55cd0e9f8cd70bcf0d8116dcce685ed8",
+      "addressB": "0x6be8ebf63fb134106048caa67852294681f9f671",
+      "count": 2,
+      "matchesA": 2,
+      "matchesB": 2
     },
     {
       "addressA": "0xa79ccb2676044f990553d890c091358b86cb8ebf",
@@ -23093,7 +23100,7 @@
       "addressA": "0x9c93a0c1b0ecdf7fea8bda834f2f086a1a4b240f",
       "addressB": "0x9b129f1564224925934949f29f07a0069cf389d9",
       "count": 1,
-      "matchesA": 1,
+      "matchesA": 2,
       "matchesB": 113
     },
     {
@@ -23242,6 +23249,41 @@
       "count": 1,
       "matchesA": 4,
       "matchesB": 1
+    },
+    {
+      "addressA": "0x8a26fb1505e57e678fcb66b435ee5b1c490a8a08",
+      "addressB": "0x21cf637e77c6a8b02e65f80dd9aeec777c003437",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 1
+    },
+    {
+      "addressA": "0x13262637c91fae2916cb0ea1b615c8b8aee0a9c4",
+      "addressB": "0xcb4479f5a8e79f7021bd9a31911047f74a2b222c",
+      "count": 1,
+      "matchesA": 1,
+      "matchesB": 1
+    },
+    {
+      "addressA": "0x9c93a0c1b0ecdf7fea8bda834f2f086a1a4b240f",
+      "addressB": "0x8a26fb1505e57e678fcb66b435ee5b1c490a8a08",
+      "count": 1,
+      "matchesA": 2,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0x9927f054be73239898ce13ab7a1d076f410a5375",
+      "addressB": "0x375cf032c812228e757b80870b0144f6864dd78b",
+      "count": 1,
+      "matchesA": 1,
+      "matchesB": 2
+    },
+    {
+      "addressA": "0xf04abe341771d379c7f23e9ac934ff222c4b0d19",
+      "addressB": "0x375cf032c812228e757b80870b0144f6864dd78b",
+      "count": 1,
+      "matchesA": 1,
+      "matchesB": 2
     }
   ]
 }
