@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "24169145",
-  "lastUpdatedAt": "2026-06-14T21:37:23.802Z",
-  "matchCount": 10811,
+  "lastUpdatedBlock": "24171225",
+  "lastUpdatedAt": "2026-06-14T22:46:42.863Z",
+  "matchCount": 10812,
   "matches": {
     "1": {
       "matchId": "1",
@@ -126511,6 +126511,18 @@
       "resolvedBlock": 24168883,
       "createdAtTimestamp": 1781472431,
       "resolvedAtTimestamp": 1781472517
+    },
+    "10812": {
+      "matchId": "10812",
+      "playerA": "0xa9afee0e42131ddd295267f8df7416363aca9536",
+      "playerB": "0x84cec056300e5f73575c44e7e8f280bd3c113320",
+      "offerAmount": "100000000000000000000",
+      "status": "draw",
+      "winner": null,
+      "createdBlock": 24169906,
+      "resolvedBlock": 24169964,
+      "createdAtTimestamp": 1781474563,
+      "resolvedAtTimestamp": 1781474679
     }
   }
 }
