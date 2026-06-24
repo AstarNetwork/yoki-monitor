@@ -1,7 +1,7 @@
 {
-  "lastUpdatedBlock": "24564999",
-  "lastUpdatedAt": "2026-06-24T01:32:29.473Z",
-  "matchCount": 11970,
+  "lastUpdatedBlock": "24572547",
+  "lastUpdatedAt": "2026-06-24T05:44:06.830Z",
+  "matchCount": 11975,
   "matches": {
     "1": {
       "matchId": "1",
@@ -140419,6 +140419,65 @@
       "resolvedBlock": 24558157,
       "createdAtTimestamp": 1782250869,
       "resolvedAtTimestamp": 1782251065
+    },
+    "11971": {
+      "matchId": "11971",
+      "playerA": "0x7b124ad308be0500568cc013ccc1386e757d4062",
+      "playerB": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "offerAmount": "100000000000000000000",
+      "status": "draw",
+      "winner": null,
+      "createdBlock": 24566135,
+      "resolvedBlock": 24566208,
+      "createdAtTimestamp": 1782267021,
+      "resolvedAtTimestamp": 1782267167
+    },
+    "11972": {
+      "matchId": "11972",
+      "playerA": "0xd184a0baff9796327cb328211998c03a331caa92",
+      "playerB": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "offerAmount": "100000000000000000000",
+      "status": "draw",
+      "winner": null,
+      "createdBlock": 24571126,
+      "resolvedBlock": 24571222,
+      "createdAtTimestamp": 1782277003,
+      "resolvedAtTimestamp": 1782277195
+    },
+    "11973": {
+      "matchId": "11973",
+      "playerA": "0xd184a0baff9796327cb328211998c03a331caa92",
+      "playerB": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "offerAmount": "100000000000000000000",
+      "status": "resolved",
+      "winner": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "createdBlock": 24571559,
+      "resolvedBlock": 24571625,
+      "createdAtTimestamp": 1782277869,
+      "resolvedAtTimestamp": 1782278001
+    },
+    "11974": {
+      "matchId": "11974",
+      "playerA": "0xd184a0baff9796327cb328211998c03a331caa92",
+      "playerB": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "offerAmount": "100000000000000000000",
+      "status": "draw",
+      "winner": null,
+      "createdBlock": 24572209,
+      "resolvedBlock": 24572290,
+      "createdAtTimestamp": 1782279169,
+      "resolvedAtTimestamp": 1782279331
+    },
+    "11975": {
+      "matchId": "11975",
+      "playerA": "0xd184a0baff9796327cb328211998c03a331caa92",
+      "playerB": "0x6489d6328dff18145719dcc54faca762dbd05ace",
+      "offerAmount": "100000000000000000000",
+      "status": "revealed",
+      "winner": null,
+      "createdBlock": 24572323,
+      "resolvedBlock": null,
+      "createdAtTimestamp": 1782279397
     }
   }
 }
