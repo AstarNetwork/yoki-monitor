@@ -2,9 +2,12 @@ name: 1.2 Treasury ASTR balance snapshot
 
 on:
   schedule:
-    # Once an hour, on the hour. Treasury growth is slow; tighter cadence
-    # only fattens the JSONL history without adding chart resolution.
-    - cron: "0 * * * *"
+    # Once a day. The game is in maintenance mode and the treasury is
+    # effectively static, so daily resolution is enough for the growth
+    # chart. Offset from the hour because GitHub drops scheduled runs
+    # under top-of-hour load, and staggered 20 min from the other two
+    # crons so their pushes to main can never collide.
+    - cron: "5 9 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -19,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
       - run: npm install --omit=dev --no-audit --no-fund
       - name: Snapshot treasury balance

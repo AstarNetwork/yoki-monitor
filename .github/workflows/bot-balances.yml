@@ -2,9 +2,10 @@ name: 1.7 Bot wallet balance snapshot
 
 on:
   schedule:
-    # Once an hour. Bot balances change on every match (gas + ASTR offer
-    # in/out); hourly resolution is plenty for the historical chart.
-    - cron: "30 * * * *"
+    # Once a day, staggered 20 min after 1.3. Bot balances only move when
+    # matches are played, and the game is in maintenance mode, so hourly
+    # resolution was recording a flat line 24 times a day.
+    - cron: "45 9 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -19,10 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
       - run: npm install --omit=dev --no-audit --no-fund
       - name: Snapshot bot balances

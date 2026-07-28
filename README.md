@@ -13,17 +13,26 @@ A single-page SPA showing:
 
 Balances are read live via viem on page load and refreshed every 60 seconds while the tab is visible. JKP active-player counts and Cores holders are pulled from Soneium Blockscout REST and cached 5 min.
 
-## Phase 2 (in development — `feat/phase2-jkp-detector` branch)
+## Phase 2
 
-The §54 mitigation deliverable: detect always-winning patterns in YokiJKP matches and surface a public leaderboard.
+- **Treasury growth chart (2.6)**: LIVE. Public Recharts line chart of the treasury balance JSONL, with KPI tiles for total inflow, mint count, average mint price realized, and last-24h/7d inflow. Always-on; renders an empty state until two snapshot rows are available.
 
-- **JKP event walker cron (2.2)** — every 5 min, walks `MatchCreated/Joined/Revealed/Resolved/Draw/Cancelled/Swept` events from YokiJKP, maintains `data/jkp-matches.json` keyed by matchId, recomputes `data/jkp-aggregate.json` (per-address W/L/D + volume) and `data/jkp-pairs.json` (canonical pair counts).
-- **Always-winning trigger cron (2.4)** — runs after the walker. Flags any address with ≥75% win-rate over ≥5 matches, posts Slack CRITICAL to `#04-yoki-arcade-alerts`, persists state in `data/flagged.json`. Self-clears when an address drops below threshold (audit-trail retained).
-- **Suspicious-pairs trigger cron (2.5)** — runs after the walker. Flags pairs that have played ≥10 matches against each other AND those matches are ≥50% of either participant's total. Persists state in `data/suspicious-pairs.json`. Same dry-run gating as 2.4.
-- **Public leaderboard tile (2.3)** — top 10 addresses by matches played, with W/L/D + win-rate. Bots and admin wallets are excluded by `MONITOR_IGNORE_LIST` in the aggregator. Gated behind `VITE_LEADERBOARD_ENABLED=true` so the tile stays hidden until the trigger has been validated against ~1 week of real data.
-- **Treasury growth chart (2.6)** — public Recharts line chart of the hourly treasury balance JSONL, with KPI tiles for total inflow, mint count, average mint price realized, and last-24h/7d inflow. Always-on; renders an empty state until two snapshot rows are available.
+### Retired 2026-07-28: the §54 JKP detector
 
-**Signal-leak tradeoff:** the always-winning threshold (≥75% / ≥5) and the flagged-address list are deliberately NOT surfaced on the public SPA — only on the private Slack lane. See `planning/YOKI_MONITOR_SPEC.md §4.7` for rationale.
+Yoki Arcade entered maintenance mode; the JKP detector stack was retired to stop
+the cron noise. **The code and the accumulated data are kept, not deleted**; only
+the workflow that drove them is gone. Final state at shutdown: 12,077 matches,
+3,358 addresses, 4,183 pairs, **zero addresses flagged and zero suspicious pairs**
+across the full run.
+
+- **JKP event walker cron (2.2)**: RETIRED. Walked `MatchCreated/Joined/Revealed/Resolved/Draw/Cancelled/Swept` events from YokiJKP, maintained `data/jkp-matches.json` keyed by matchId, recomputed `data/jkp-aggregate.json` (per-address W/L/D + volume) and `data/jkp-pairs.json` (canonical pair counts). These files are now frozen.
+- **Always-winning trigger cron (2.4)**: RETIRED. Flagged any address with ≥75% win-rate over ≥5 matches, posted Slack CRITICAL to `#04-yoki-arcade-alerts`, persisted state in `data/flagged.json`. Never fired.
+- **Suspicious-pairs trigger cron (2.5)**: RETIRED. Flagged pairs that had played ≥10 matches against each other AND where those matches were ≥50% of either participant's total. Persisted state in `data/suspicious-pairs.json`. Never fired.
+- **Public leaderboard tile (2.3)**: HIDDEN. `VITE_LEADERBOARD_ENABLED` was flipped to `false` at retirement: with the walker gone, `jkp-aggregate.json` no longer updates, and a public leaderboard that silently freezes is worse than no leaderboard.
+
+To revive any of this, restore `.github/workflows/jkp-events.yml` from git history
+(last present at `de6f4540`) and flip `VITE_LEADERBOARD_ENABLED` back to `true`.
+The scripts under `scripts/` are untouched and still work.
 
 ## Local development
 
@@ -50,8 +59,8 @@ All optional. Falls back gracefully:
 | `VITE_BASE_PATH` | `/yoki-monitor/` | Override for non-gh-pages hosting paths. |
 | `VITE_TREASURY_BALANCE_JSONL_URL` | unset | URL to the public `treasury-balance.jsonl` from Phase 1.2 cron. Page hides 24h-delta when absent. |
 | `VITE_TREASURY_INFLOWS_JSONL_URL` | unset | URL to the public `treasury-inflows.jsonl` from Phase 1.3 cron. Drives the Phase 2.6 KPI tiles. |
-| `VITE_JKP_AGGREGATE_JSON_URL` | unset | URL to the public `jkp-aggregate.json` from Phase 2.2 cron. Leaderboard renders empty state when absent. |
-| `VITE_LEADERBOARD_ENABLED` | `false` | Set to `"true"` to surface the Phase 2 leaderboard tile. Off by default while the always-winning trigger is validated. |
+| `VITE_JKP_AGGREGATE_JSON_URL` | unset | URL to the frozen `jkp-aggregate.json`. Only relevant if the 2.2 cron is revived. |
+| `VITE_LEADERBOARD_ENABLED` | `false` | Set to `"true"` to surface the leaderboard tile. **Held at `false` since the 2.2 cron was retired 2026-07-28**; the underlying data no longer updates. |
 | `VITE_REVIEW_KEY` | unset | Secret token enabling the operator review view at `/?review=<token>`. See "Review mode" below. |
 | `VITE_FLAGGED_JSON_URL` | unset | Override for the `flagged.json` raw URL (review view only). |
 | `VITE_SUSPICIOUS_PAIRS_JSON_URL` | unset | Override for the `suspicious-pairs.json` raw URL (review view only). |
@@ -61,11 +70,9 @@ All optional. Falls back gracefully:
 | Name | Type | Used by | Purpose |
 |---|---|---|---|
 | `SONEIUM_RPC_URL` | secret | all crons | Alchemy/dRPC URL. Falls back to viem's built-in Soneium public RPC if unset. |
-| `SLACK_WEBHOOK_URL_ALERTS` | secret | 1.1 / 1.3 / 2.4 | Slack incoming-webhook URL for the operator alerts channel. |
-| `TREASURY_OUTFLOW_DRY_RUN` | variable | 1.3 | Set to `true` until treasury custody owner confirms expected outflows; flip to empty/false for live alerts. |
-| `TREASURY_HEARTBEAT` | variable | 1.2 | Set to `true` for the first 7 days to confirm the cron is firing; mute afterwards. |
-| `ALWAYS_WINNING_DRY_RUN` | variable | 2.4 | Set to `true` for the first ~1 week of Phase 2 to validate the trigger against real data without Slack noise. `flagged.json` still updates so the leaderboard tile and audit log are real. |
-| `SUSPICIOUS_PAIRS_DRY_RUN` | variable | 2.5 | Same gating contract as `ALWAYS_WINNING_DRY_RUN`. `suspicious-pairs.json` updates regardless. |
+| `SLACK_WEBHOOK_URL_ALERTS` | secret | 1.2 / 1.3 | Slack incoming-webhook URL for the operator alerts channel. |
+| `TREASURY_OUTFLOW_DRY_RUN` | variable | 1.3 | **Set to `false` on 2026-07-28, outflow alerts are now LIVE.** Was `true` from 2026-05-11, during which five real outflows (totalling 184,500 ASTR) were recorded to `treasury-outflows.jsonl` without ever alerting. |
+| `TREASURY_HEARTBEAT` | variable | 1.2 | `true` posts a Slack balance heartbeat **at most once a week** (see "Weekly heartbeat" below). Clear or set `false` to mute. |
 
 ## Deployment
 
@@ -83,17 +90,58 @@ Optional build-time variable:
 
 GitHub Actions workflows under `.github/workflows/`:
 
-| Workflow | Cadence | What it does |
-|---|---|---|
-| `minter-balance.yml` (1.1) | every 15 min | Read MINTER ETH balance, append to `data/minter-balance.jsonl`, Slack alert on warn/critical threshold cross (60-min same-severity throttle). |
-| `treasury-balance.yml` (1.2) | every hour | Read treasury ASTR balance, append to `data/treasury-balance.jsonl`. Silent unless `TREASURY_HEARTBEAT=true`. |
-| `treasury-flow.yml` (1.3) | every 15 min | Walk ASTR Transfer events to/from treasury since last checkpoint, append to `data/treasury-{inflows,outflows}.jsonl`, Slack CRITICAL on any outflow (dry-run gated until custody confirmed). |
-| `bot-balances.yml` (1.7) | every hour | Read ETH + ASTR balance for the 5 matchmaking bot wallets (funding + bots 1–4) in parallel, append to `data/bot-balances.jsonl`. Silent — the bot Lambda owns its own auto-disable alerts. |
-| `jkp-events.yml` (2.2 / 2.4 / 2.5) | every 5 min | Walk YokiJKP match-lifecycle events, update `data/jkp-matches.json` + `data/jkp-aggregate.json` + `data/jkp-pairs.json`, run always-winning trigger (≥75% / ≥5) and suspicious-pairs trigger (≥10 / ≥50%). Slack CRITICAL on newly-flagged addresses/pairs, INFO on cleared. |
+Three scheduled workflows remain, all daily and deliberately staggered:
 
-All workflows commit the JSONL/JSON deltas back to `main` from a bot identity. Concurrency-guarded so overlapping ticks serialize.
+| Workflow | Cadence (UTC) | What it does |
+|---|---|---|
+| `treasury-balance.yml` (1.2) | daily 09:05 | Read treasury ASTR balance, append to `data/treasury-balance.jsonl`. Silent unless `TREASURY_HEARTBEAT=true`, and then at most weekly. |
+| `treasury-flow.yml` (1.3) | daily 09:25 | Walk ASTR Transfer events to/from treasury since last checkpoint, append to `data/treasury-{inflows,outflows}.jsonl`, Slack CRITICAL on any outflow. |
+| `bot-balances.yml` (1.7) | daily 09:45 | Read ETH + ASTR balance for the 5 matchmaking bot wallets (funding + bots 1–4) in parallel, append to `data/bot-balances.jsonl`. Silent; the bot Lambda owns its own auto-disable alerts. |
+
+All workflows commit the JSONL/JSON deltas back to `main` from a bot identity.
+
+**Why the 20-minute stagger matters.** Each workflow's `concurrency` group only
+serialises it against *itself*, never against its siblings, and the commit step is
+a bare `git commit && git push` with no rebase or retry. When two crons ran at the
+same minute the second push died with `! [rejected] main -> main (fetch first)` and
+failed the whole run. At the old cadences (5 min / 15 min / hourly) they collided
+constantly at `:00`, `:15` and `:30`. Daily runs 20 minutes apart cannot overlap,
+each job finishes in well under a minute, so the race is eliminated structurally
+rather than patched. **If you ever re-tighten a cadence, add `git pull --rebase`
+to the commit step first.**
+
+Schedules are offset from the top of the hour on purpose: GitHub drops scheduled
+runs under load, and `:00` is the worst slot.
+
+Retired: `minter-balance.yml` (1.1, disabled 2026-06-03 when MINTER_ROLE was
+revoked and the hot wallet went inert), `daily-champions.yml` (2.5a, campaign
+ended 2026-06-02 and its backing endpoint was deleted 2026-06-18), and
+`jkp-events.yml` (2.2/2.4/2.5, see Phase 2 above).
+
+### Weekly heartbeat
+
+With `TREASURY_HEARTBEAT=true`, 1.2 posts a balance line to Slack at most once
+every 6.5 days, tracked via `data/.heartbeat-treasury.json`. The gate is on
+elapsed time, not on a weekday+hour match: with a single daily tick, a fixed-slot
+gate would either miss a dropped run and go silent for two weeks, or drift a day
+later every week. The state file is written only after Slack accepts the post, so
+a failed post retries on the next daily tick.
+
+### Data note: timestamps in the flow JSONLs
+
+Rows in `treasury-inflows.jsonl` / `treasury-outflows.jsonl` written **before
+2026-07-28** carry the time the cron happened to observe the transfer, not the
+time it occurred. The 2026-06-09 outflow, for example, landed on-chain at
+`14:30:29Z` but is recorded as `16:47:20Z`. From 2026-07-28 the walker stamps the
+**block** timestamp, which the daily cadence made essential: walk time would
+otherwise be up to 24h off. `blockNumber` was always accurate and is the field to
+trust for anything older.
 
 ## Review mode
+
+> **Frozen since 2026-07-28.** The 2.4 and 2.5 triggers were retired, so both files
+> below are static. Both ended their run empty: zero flagged addresses, zero
+> suspicious pairs. The view still renders, it just no longer updates.
 
 The public dashboard surfaces balances, growth, and engagement only — it does NOT list flagged addresses or suspicious pairs. Those live in Slack and in two JSON files in `data/`.
 
@@ -115,5 +163,6 @@ If real concealment is required, the two trigger output files would need to live
 ## What this is NOT
 
 - Not preventive — surfaces signals, does not pause matches or freeze accounts.
-- Not exhaustive on Phase 2 — the raw event-log view + Phase 3 (Safe events, Cores history, anomaly substitution artifact) remain ahead.
+- Not real-time: since 2026-07-28 the crons run once a day, so an outflow alert can be up to ~24h behind the event. Accepted tradeoff for maintenance mode; tighten `treasury-flow.yml` if the game becomes active again.
+- Not watching JKP any more: the §54 detector was retired 2026-07-28. See Phase 2.
 - Not an in-page alerts surface — alerting lives in the GitHub Actions cron workers and posts to an internal Slack channel.

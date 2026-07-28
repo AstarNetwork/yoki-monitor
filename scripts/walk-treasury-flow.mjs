@@ -34,6 +34,24 @@ const TRANSFER_EVENT = parseAbiItem(
 
 const dryRun = process.env.TREASURY_OUTFLOW_DRY_RUN === "true";
 
+// Records are stamped with the BLOCK time, not the time the cron happened
+// to run. Walk time made every row inherit the tick that observed it: the
+// 2026-06-09 outflow landed at 14:30:29Z but was recorded as 16:47:20Z.
+// At the old 15-min cadence that skew was small; at daily cadence it would
+// reach 24h and make the outflow log useless as an audit trail.
+// Cached per block because one walk can surface several logs from the same
+// block, and getBlock is a round-trip each time.
+const blockTimestamps = new Map();
+
+async function blockTimestamp(blockNumber) {
+  const cached = blockTimestamps.get(blockNumber);
+  if (cached) return cached;
+  const block = await publicClient.getBlock({ blockNumber });
+  const iso = new Date(Number(block.timestamp) * 1000).toISOString();
+  blockTimestamps.set(blockNumber, iso);
+  return iso;
+}
+
 async function main() {
   const latest = await publicClient.getBlockNumber();
 
@@ -71,7 +89,7 @@ async function main() {
 
     for (const log of inflows) {
       const value = log.args.value ?? 0n;
-      const timestamp = new Date().toISOString();
+      const timestamp = await blockTimestamp(log.blockNumber);
       await appendJsonl(INFLOWS_FILE, {
         timestamp,
         blockNumber: log.blockNumber.toString(),
@@ -95,7 +113,7 @@ async function main() {
 
     for (const log of outflows) {
       const value = log.args.value ?? 0n;
-      const timestamp = new Date().toISOString();
+      const timestamp = await blockTimestamp(log.blockNumber);
       const record = {
         timestamp,
         blockNumber: log.blockNumber.toString(),
